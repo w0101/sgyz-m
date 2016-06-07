@@ -3,6 +3,51 @@
 </head>
 <body>
 <{include file="mobile/include/nav.html"}>
+<div class="container">
+	<div class="gallery-head">
+		<div class="head-title">图片类型<span class="yellow-color"> / Gallery</span></div>
+		<div class="dropdown pull-right recommend-list visible-xs">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list yellow-color"></span></a>
+	      <ul class="dropdown-menu menu-list">
+	        <li><a href="<{url c='gallery' a='index' order="1" kw=$kw catid=$catid}>"<{if $order == 1}> class="active"<{/if}>>驿站精选</a></li>
+			<li><a href="<{url c='gallery' a='index' order="2" kw=$kw catid=$catid}>"<{if $order == 2}> class="active"<{/if}>>人气推荐</a></li>
+			<li><a href="<{url c='gallery' a='index' order="3" kw=$kw catid=$catid}>"<{if $order == 3}> class="active"<{/if}>>最新作品</a></li>
+	      </ul>
+	    </div>
+	    <div class="recommend-list-pad list-group hidden-xs pull-right">
+	        <a class="list-group-item pull-left<{if $order == 1}> active<{/if}>" href="<{url c='gallery' a='index' order="1" kw=$kw catid=$catid}>">驿站精选</a>
+			<a class="list-group-item pull-left<{if $order == 2}> active<{/if}>" href="<{url c='gallery' a='index' order="2" kw=$kw catid=$catid}>">人气推荐</a>
+			<a class="list-group-item pull-left<{if $order == 3}> active<{/if}>" href="<{url c='gallery' a='index' order="3" kw=$kw catid=$catid}>">最新作品</a>
+	    </div>
+	</div>
+   	<div class="gallery-category subnav-container">
+		<span class="gallery-title">分类：</span>
+		<ul class="gallery-category-list">
+			<li <{if $catid == 0}> class="active"<{/if}>><a href="<{url c='gallery' a='index'}>">全部</a></li>
+			<{foreach $cat as $k => $v}>
+			<li><a href="<{url c='gallery' a='index' order=$order kw=$kw catid=$v['id']}>"<{if $catid == $v['id']}> class="active"<{/if}>><{$v['name']}></a></li>
+			<{/foreach}>
+		</ul>
+		<div class="show-btn hidden show-down" id="show-category"></div>
+	</div>
+	<div class="gallery-list row">
+		<{foreach $list as $k => $v}>
+			<div class="item col-xs-12 col-sm-4" data-id="<{$v['id']}>">
+				<a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a>
+				<div class="controll">
+					<a href="<{url c='gallery' a='cart' id=$v['id']}>" class="item-cart"></a>
+					<a href="javascript:void(0);" class="item-zambia"></a>
+					<a href="javascript:void(0);" class="item-favicon"></a>
+				</div>
+				<div class="intro">
+					<a href="<{url c='gallery' a='show' id=$v['id']}>" class="item-title"><{$v['title']}></a>
+					<a href="<{url c='user' a='view' id=$v['id']}>" class="item-user"><{$v['nickname']}></a>
+					<span class="item-intergal"><font><{$v['fee']}></font>积分</span>
+				</div>
+			</div>
+		<{/foreach}>
+	</div> 
+</div>
 <{include file="mobile/include/footer.html"}>
 <script type="text/javascript">
   app.push('gallery/index');

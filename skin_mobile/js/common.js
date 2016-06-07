@@ -2,6 +2,8 @@
 /*基础类*/
 define('common', function (require) {
 	var $=require('jquery');
+	require("bootstrap")($);
+	
 	if($('.nav-subnav').height()>40){
 		$('#show-nav').removeClass('hidden');
 		$('#show-nav').on('tap',function(){

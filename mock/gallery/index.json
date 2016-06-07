@@ -11,14 +11,104 @@
     "username":"xiaz",
     
     "kw":"",
-    
+    "order":1,
+    "catid":0,
+    "cat":[
+        {
+            "id":1,
+            "name":"风光"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":3,
+            "name":"黑白"
+        },{
+            "id":4,
+            "name":"人物"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":3,
+            "name":"黑白"
+        },{
+            "id":4,
+            "name":"人物"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":3,
+            "name":"黑白"
+        },{
+            "id":4,
+            "name":"人物"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":1,
+            "name":"风光"
+        },{
+            "id":3,
+            "name":"黑白"
+        },{
+            "id":4,
+            "name":"人物"
+        }
+        
+    ],
+    "list":[
+        {
+            "id":2,
+            "thumb":"data/upload/20160307/3d3228871f.jpg",
+            "title":"fengjing",
+            "nickname":"xiaoxi",
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160307/8a2e6143c2.jpg",
+            "title":"fengjing",
+            "nickname":"xiaoxi",
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160307/3d3228871f.jpg",
+            "title":"fengjing",
+            "nickname":"xiaoxi",
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160307/8a2e6143c2.jpg",
+            "title":"fengjing",
+            "nickname":"xiaoxi",
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160307/3d3228871f.jpg",
+            "title":"fengjing",
+            "nickname":"xiaoxi",
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160307/8a2e6143c2.jpg",
+            "title":"fengjing",
+            "nickname":"xiaoxi",
+            "fee":100
+        }
+    ],
+   
     "footer_artlist":[
         {
             "id":1,
             "name":"赞助商"
-        },
-        {
-
         }
     ],
     "cfg":{
