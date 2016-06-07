@@ -1,0 +1,26 @@
+<div class="match-item big">
+	<div class="item-img"><img src="<{$_path}><{if strlen($data['thumb'])>10}><{$data['thumb']}><{else}>data/assets/images/nopic.gif<{/if}>" alt="<{$data['title']}>" /></div>
+	<div class="item-info">
+		<p class="item-title"><{$data['title']}></p>
+		<p class="item-company">主办方：<{$data['answer']}></p>
+		<p class="item-date">比赛时间：<{date('Y.m.d',$data['starttime'])}> - <{date('Y.m.d',$data['endtime'])}></p>
+		<p class="item-money">参赛费用：<{$data['fee']}>积分</p>
+		<p class="item-intro"><{$data['intro']}></p>
+		<p class="item-controll">
+			<span class="item-photo"><{$data['nums']}></span>
+			<span class="item-user"><{$data['users']}></span>
+			<{if $data['status'] == 1 && $work_is == 0 && $data['starttime'] < TIME}>
+				<a href="<{url c='match' a='upload' id=$data['id']}>" class="item-vote">我要投稿</a>
+			<{/if}>
+			<{if $data['starttime'] > TIME}>
+				<a href="javascript:void(0);" class="item-vote">暂未开始</a>
+			<{/if}>
+			<{if $data['status'] == 2}>
+				<{if $vote_check == 0}>
+					<a href="<{url c='match' a='vote' id=$data['id']}>" class="item-vote">我要投票</a>
+				<{/if}>
+				<a href="javascript:void(0);" class="item-help">？</a>
+			<{/if}>
+		</p>
+	</div>
+</div>

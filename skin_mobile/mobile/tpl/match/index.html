@@ -1,0 +1,41 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<div class="match big">
+	<div class="match-head">比赛<span class="head-yellow"> / Match</span><ul class="match-nav">
+		<li><a href="<{url c='match' a='index' status="0"}>"<{if $status == 0}> class="active"<{/if}>>全部比赛</a></li>
+		<li><a href="<{url c='match' a='index' status="1"}>"<{if $status == 1}> class="active"<{/if}>>正在进行</a></li>
+		<li><a href="<{url c='match' a='index' status="2"}>"<{if $status == 2}> class="active"<{/if}>>已经结束</a></li>
+	</ul></div>
+	<div class="match-list">
+	<{foreach $list as $k => $v}>
+		<div class="item">
+			<div class="item-img"><img src="<{$_path}><{if strlen($v['thumb'])>10}><{$v['thumb']}><{else}>data/assets/images/nopic.gif<{/if}>" alt="<{$v['title']}>" /></div>
+			<div class="item-info">
+				<p class="item-title"><a href="<{url c='match' a='show' id=$v['id']}>"><{$v['title']}></a></p>
+				<p class="item-company">主办方：<{$v['answer']}></p>
+				<p class="item-date">比赛时间：<{date('Y.m.d',$v['starttime'])}> - <{date('Y.m.d',$v['endtime'])}></p>
+				<p class="item-money">参赛费用：<{$v['fee']}>积分</p>
+				<p class="item-intro"><{$v['intro']}></p>
+				<p class="item-controll">
+					<span class="item-photo"><{$v['nums']}></span>
+					<span class="item-user"><{$v['users']}></span>
+					<{if $v['starttime'] < TIME && $v['status'] == 1}>
+						<{if $v['vote_status'] == 0}>
+						<a href="<{url c='match' a='upload' id=$v['id']}>" class="item-vote">投稿</a>
+						<{else}>
+						<a href="<{url c='match' a='vote' id=$v['id']}>" class="item-vote">投票</a>
+						<{/if}>
+					<{else}>
+						<a href="<{url c='match' a='show' id=$v['id']}>" class="item-vote">查看</a>
+					<{/if}>
+				</p>
+			</div>
+		</div>
+	<{/foreach}>
+	</div>
+</div>
+<{$page_html nofilter}>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

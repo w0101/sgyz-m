@@ -1,0 +1,53 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<div class="activity big">
+	<div class="activity-head">活动<span class="head-yellow"> / Activity</span><ul class="activity-nav">
+		<li><a href="<{url c='activity' a='index' status="0" fee=$fee catid=$catid}>"<{if $status == 0}> class="active"<{/if}>>全部活动</a></li>
+		<li><a href="<{url c='activity' a='index' status="1" fee=$fee catid=$catid}>"<{if $status == 1}> class="active"<{/if}>>正在报名</a></li>
+		<li><a href="<{url c='activity' a='index' status="2" fee=$fee catid=$catid}>"<{if $status == 2}> class="active"<{/if}>>报名结束</a></li>
+	</ul></div>
+	<div class="activity-category">
+		<span class="activity-ctitle">主题：</span>
+		<ul class="activity-category-list">
+			<li><a href="<{url c='activity' a='index' status=$status fee=$fee catid="0"}>"<{if $catid == 0}> class="active"<{/if}>>全部</a></li>
+			<{foreach $cat as $k => $v}>
+			<li><a href="<{url c='activity' a='index' status=$status fee=$fee catid=$v['id']}>"<{if $catid == $v['id']}> class="active"<{/if}>><{$v['name']}></a></li>
+			<{/foreach}>
+		</ul>
+	</div>
+	<div class="activity-category">
+		<span class="activity-ctitle">费用：</span>
+		<ul class="activity-category-list">
+			<li><a href="<{url c='activity' a='index' status=$status fee="0" catid=$catid}>"<{if $fee == 0}> class="active"<{/if}>>全部</a></li>
+			<li><a href="<{url c='activity' a='index' status=$status fee="1" catid=$catid}>"<{if $fee == 1}> class="active"<{/if}>>免费</a></li>
+			<li><a href="<{url c='activity' a='index' status=$status fee="2" catid=$catid}>"<{if $fee == 2}> class="active"<{/if}>>付费</a></li>
+		</ul>
+	</div>
+	<div class="activity-list">
+		<{foreach $list as $k => $v}>
+		<div class="item">
+			<div class="item-img"><a href="<{url c='activity' a='show' id=$v['id']}>"><img src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a></div>
+			<div class="item-intro">
+				<p class="item-title"><a href="<{url c='activity' a='show' id=$v['id']}>"><{if isset($catN[$v['catid']])}>[<{$catN[$v['catid']]}>]<{/if}><{$v['title']}></a></p>
+				<div class="item-info">
+					<p>活动地点：<span><{$v['address']}></span></p>
+					<p>活动时间：<span><{date("Y年m月d日",$v['startime'])}>至<{date("Y年m月d日",$v['stoptime'])}></span></p>
+					<p>报名截至：<span><{date("Y年m月d日 H:i",$v['endtime'])}></span></p>
+					<p>活动名额：<span><font><{$v['nums']}></font>/<{$v['total']}></span></p>
+					<p>报名费用：<font><{$v['fee']}>积分</font></p>
+				</div>
+				<{if $v['status'] ==1}>
+				<a href="<{url c='activity' a='show' id=$v['id']}>" class="item-btn">我要报名</a>
+				<{else}>
+				<a href="<{url c='activity' a='show' id=$v['id']}>" class="item-btn">查看活动</a>
+				<{/if}>
+			</div>
+		</div>
+		<{/foreach}>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

@@ -1,0 +1,28 @@
+<{include file="include/head.html"}>
+<style type="text/css">
+	.login{background: url(<{$_skin}>img/login-bg.jpg) no-repeat center center; background-size: 100%; height:700px;}
+</style>
+</head>
+<body>
+<div class="login">
+	<div class="login-big big">
+		<div class="login-logo"><a href="<{url c='main' a="index"}>"><img src="<{$_skin}>images/login-logo.png" alt="时光驿站" /></a></div>
+		<div class="login-box">
+			<h1><img src="<{$_skin}>images/login-h1.png" /></h1>
+			<div class="login-form">
+				<div class="login-bg"></div>
+				<h2>登录</h2>
+				<ul class="login-option">
+					<{foreach $cfg_oauth as $k => $v}>
+					<li class="login-<{$k}>"><a href="<{url c='login' a='oauth' oauth=$k}>"><{$v['name']}>登录</a></li>
+					<{/foreach}>
+					
+				</ul>
+				<i class="login-save">自动登录</i>
+			</div>
+		</div>
+		<p class="login-bg-tip">“时光驿站第一届风光摄影大赛”第一名  《在山谷里》</p>
+	</div>
+</div>
+<script type="text/javascript">app.push('login/index');</script>
+<{include file="include/end.html"}>

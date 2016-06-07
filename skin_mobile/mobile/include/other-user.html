@@ -1,0 +1,29 @@
+<div class="user-bg">
+	<div class="user-top big">
+		<div class="user-info">
+			<div class="user-img"><img src="<{$_path}><{$user['avatar']}>" alt="<{$user['nickname']}>" /></div>
+			<div class="user-intro">
+				<p class="user-name"><{$user['nickname']}><span>等级：<{$user['level']}> （经验值<{$user['exper']}>）</span></p>
+				<p class="user-other">
+					<span>粉丝 <{$user['fans']}></span>
+					<span>关注 <{$user['follow']}></span>
+					<span>参赛数 <{$user['match']}></span>
+					<span>获奖数 <{$user['winning']}></span>
+					<span class="no-border">获奖率 <{$user['winning_b']}>%</span>
+				</p>
+				<p class="user-integral">
+				<{if $user['isfollow'] == 0}>
+				<a href="javascript:void(0);" class="user-btn-follow follow-btn" data-userid="<{$user['id']}>">关注</a>
+				<{else}>
+				<a href="javascript:void(0);" class="user-btn-follow follow-btn disable" data-userid="<{$user['id']}>">取消关注</a>
+				<{/if}>
+				<a href="javascript:void(0);" class="user-btn-msg">私信</a></p>
+			</div>
+		</div>
+		<div class="user-nav">
+			<a href="<{url c="user" a="comment" id=$user['id']}>"<{if $_a == "comment"}> class="active"<{/if}>>服务评价</a>
+			<a href="<{url c="user" a="view" id=$user['id']}>"<{if $_a == "view"}> class="active"<{/if}>>TA的资料</a>
+			
+		</div>
+	</div>
+</div>

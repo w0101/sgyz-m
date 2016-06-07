@@ -1,0 +1,8 @@
+<div class="bbs-cat big">
+	<ul>
+		<li class="bbshome"><a href="<{url c="bbs" a="index"}>"<{if $catid == 0}> class="active"<{/if}>>论坛首页</a></li>
+		<{foreach $cat as $k=>$v}>
+		<li><a href="<{url c="bbs" a="cat" id=$v['id']}>"<{if $catid == $v['id']}> class="active"<{/if}>><{$v['name']}></a></li>
+		<{/foreach}>
+	</ul>
+</div>

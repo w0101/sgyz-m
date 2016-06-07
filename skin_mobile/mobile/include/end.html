@@ -1,0 +1,21 @@
+<script type="text/javascript" src="<{$_skin}>js/libs/tap.min.js"></script>
+<script type="text/javascript" src="<{$_skin}>js/sea.js"></script>
+<script type="text/javascript">
+seajs.config({
+   // base: "./skin_mobile/js",
+    alias: {
+        "jquery": "libs/jquery-1.12.4.min.js",
+        "bootstrap": "libs/bootstrap.min.js"
+        /*"libs/cityselect": "libs/cityselect.js",
+        "libs/swfobject": {
+            src: "libs/plugs/swfobject.js",
+            exports: function() {
+                return swfobject
+            }
+        },*/
+      }
+});
+seajs.use(app,function(){});
+</script>
+</body>
+</html>

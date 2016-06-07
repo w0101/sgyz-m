@@ -1,0 +1,27 @@
+{
+    "PageTitle": "时光驿站",
+    "PageKeyword": "时光驿站",
+    "PageDescribe": "时光驿站",
+    "_path":"/",
+    "_skin": "/skin_mobile/",
+    "_assets": "/",
+    "uid": 1,
+    "_message":1,
+    "_avatar":"data/assets/images/gallery_1.jpg",
+    "username":"xiaz",
+    
+    "kw":"",
+    
+    "footer_artlist":[
+        {
+            "id":1,
+            "name":"赞助商"
+        },
+        {
+
+        }
+    ],
+    "cfg":{
+        "copyright":"Copyright by 2015 -2018 时光驿站 All Rights Reserved. 湘ICP备08105577"
+    }
+}

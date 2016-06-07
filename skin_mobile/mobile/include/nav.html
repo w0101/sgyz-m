@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default white-bg">
+  <div class="container">
+	  <a class="navbar-brand brand-logo" href="<{$_path}>">
+	    <img alt="Brand" src="<{$_skin}>img/logo.jpg"/>
+	  </a>
+	  <ul class="nav navbar-nav hidden-xs">
+	    <li><a class="nav-link" href="<{url c='gallery'}>">图库</a></li>
+	    <li><a class="nav-link" href="<{url c="match"}>">比赛</a></li>
+	    <li><a class="nav-link" href="<{url c="activity"}>">活动</a></li>
+	    <li><a class="nav-link" href="<{url c="service"}>">服务</a></li>
+	    <li><a class="nav-link" href="<{url c="bbs"}>">论坛</a></li>
+	    <li><a class="nav-link" href="<{url c="mall"}>" target="_blank">商城</a></li>
+	  </ul>
+	  <form action="<{url c="gallery"}>" method="get" class="navbar-form navbar-left hidden-xs" role="search" id="search-form">
+	    <div class="form-group">
+	      <div class="input-group">
+		      <input type="text" class="form-control" placeholder="搜索你寻找的" name="kw" value="<{$kw}>">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default header-btn-search" type="submit"></button>
+		      </span>
+		    </div>
+	    </div>
+	  </form>
+	  <{if $uid <= 0}>
+	  <a href="<{url c="login"}>" class="btn btn-default navbar-btn navbar-right pull-right main-color no-border">登陆</a>
+	  <{else}>
+	  <ul class="nav navbar-nav navbar-right header-login">
+        <li class="login-message-container"><span class="login-message"><a href="<{url c="user" a="router"}>"><i class="icon-msg"></i></a><{if $_message>0}><i class="icon-red"></i><{/if}></span></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle user-icon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<{$_path}><{$_avatar}>" class="login-img img-responsive" alt="<{$username}>"/> <span class="caret"></span></a>
+          <ul class="dropdown-menu user-center">
+            <li><a href="<{url c="user"}>"><i class="icon-home"></i><span>个人主页</span></a></li>
+	  		<li><a href="<{url c="user" a="message"}>"><i class="icon-mess"></i><span>消息通知<{if $_message>0}><font>(<{$_message}>)</font><{/if}></span></a></li>
+	  		<li><a href="<{url c="user" a="view"}>"><i class="icon-sett"></i><span>帐号设置</span></a></li>
+	  		<li><a href="<{url c="login" a="logout"}>"><i class="icon-exit"></i><span>退出</span></a></li>
+          </ul>
+        </li>
+      </ul>
+	  <{/if}>
+	  <button class="btn btn-default header-btn-search header-btn-search-m pull-right visible-xs-inline-block" id="search-icon"></button>
+	  <div class="cover hidden container">
+	  	<form action="<{url c="gallery"}>" method="get" class="navbar-form navbar-left" role="search" id="search-form">
+		    <div class="form-group">
+		      <div class="input-group">
+			      <input type="text" class="form-control" placeholder="搜索你寻找的" name="kw" value="<{$kw}>">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default header-btn-search" type="submit"></button>
+			      </span>
+			    </div>
+		    </div>
+		  </form>
+	  </div> 
+  </div>
+</nav>
+<div class="container subnav-container visible-xs-block">
+	<ul class="nav nav-subnav">
+		<li><a class="nav-link" href="<{url c="gallery"}>">图库</a></li>
+	    <li><a class="nav-link" href="<{url c="match"}>">比赛</a></li>
+	    <li><a class="nav-link" href="<{url c="activity"}>">活动</a></li>
+	    <li><a class="nav-link" href="<{url c="service"}>">服务</a></li>
+	    <li><a class="nav-link" href="<{url c="bbs"}>">论坛</a></li>
+	    <li><a class="nav-link" href="<{url c="mall"}>" target="_blank">商城</a></li>
+	    <li><a class="nav-link" href="<{url c="rankinglist"}>">排行榜</a></li>
+	</ul>
+	<span class="show-down hidden" id="show-nav"></span>
+</div>

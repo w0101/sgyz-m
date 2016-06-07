@@ -1,0 +1,42 @@
+<{include file="../include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>css/rankinglist.css"/>
+</head>
+<body>
+<{include file="../include/nav.html"}>
+<{include file="../include/banner_carousel.html"}>
+<div class="container">
+<div class="ranking-list">
+	<div class="inner-title">用户排行榜</div>
+	<div class="list-group">
+	    <{foreach $user_order as $k => $v}>
+	    <{if $k eq 0}>
+	    <div class="ranking-list-item first row">
+	      <div class="col-sm-2 col-xs-2 rank-num"><{sprintf("%02d", $k+1)}></div>
+	      <div class="col-sm-4 col-xs-4">
+	        <a href="<{url c="user" a="view" id=$v['id']}>" class="avatar"><img class="img-responsive" src="<{$_path}><{$v['avater']}>" alt="<{$v['nickname']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a>
+	      </div>
+	      <div class="info col-sm-6 col-xs-6">
+	        <div class="username"><span class="one-line-ellipsis"><{$v['nickname']}></span><i class="<{$v['level_order']}> user-icon"></i></div>
+	        <div class="intergal">经验值：<{$v['exper']}></div>
+	        <div class="level">等级：<span><{$v['level']}></span></div>
+	      </div>
+	    </div>
+	    <{else}>
+	    <div class="ranking-list-item others">
+	        <i class="rank-num"><{sprintf("%02d",$k+1)}></i>
+	        <i class="<{$v['level_order']}> user-icon"></i>
+	        <span class="username one-line-ellipsis"><a href="<{url c="user" a="view" id=$v['id']}>"><{$v['nickname']}></a></span>
+	        <span class="intergal pull-right"><{$v['exper']}></span>
+	    </div>
+	    <{/if}>
+	    <{/foreach}>
+	</div>
+</div>
+</div>
+<{include file="../include/footer.html"}>
+<{include file="../include/end.html"}>
+<script type="text/javascript">
+  seajs.use('rankinglist/rankinglist');
+</script>
+</body>
+</html>

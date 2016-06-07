@@ -1,0 +1,16 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<div class="app-msg big">
+	<div class="app-msg-title">网站提示</div>
+	<div class="app-msg-box"><{$msg}></div>
+	<{if $url == "goback"}>
+	<div class="app-msg-url"><a href="javascript:history.go(-1);">返回上一页</a></div>
+	<{else}>
+	<div class="app-msg-url"><a href="<{$url}>" class="msg-time"><span id="date_span"><{$time}></span>秒后跳转,如果你的浏览器没有自动跳转,请点击这里!</a></div>
+	<{/if}>
+</div>
+<script type="text/javascript">var _time="<{$time}>";_url="<{$url}>";app.push('msg');</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

@@ -1,0 +1,53 @@
+<{include file="include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_assets}>amazeui/css/amazeui.min.css">
+<link rel="stylesheet" type="text/css" href="<{$_assets}>amazeui/css/amazeui.chosen.css">
+<link rel="stylesheet" type="text/css" href="<{$_skin}>js/umeditor/themes/default/css/umeditor.css">
+</head>
+<body class="bbs-bg0">
+<{include file="include/nav.html"}>
+<div class="bbs-post big">
+	<h1>发表帖子</h1>
+	<form id="bbs_send" method="post" onsubmit="return false;" />
+	<div class="form-item">
+		<div class="form-label">选择帖子版块</div>
+		<div class="form-controll">
+			<select class="select select-cat" name="data[tid]">
+				<option value="">选择版块</option>
+				<{foreach $cat as $k => $v}>
+				<option value="<{$v['id']}>"<{if $catid==$v['id']}> selected<{/if}>><{$v['name']}></option>
+				<{/foreach}>
+			</select>
+		</div>
+	</div>
+	<div class="form-item">
+		<div class="form-label">选择帖子主题</div>
+		<div class="form-controll">
+			<select class="select select-fid" name="data[fid]">
+				<option value="">选择帖子主题</option>
+				<{foreach $default_theme as $k => $v}>
+				<option value="<{$v['id']}>"><{$v['name']}></option>
+				<{/foreach}>
+			</select>
+		</div>
+	</div>
+	<div class="form-item">
+		<div class="form-label">帖子标题</div>
+		<div class="form-controll">
+			<input type="text" class="form-input bbs-title" name="data[title]" id="title" value="" placeholder="请用一句话描述你想说些什么？" />
+		</div>
+	</div>
+	<div class="form-item">
+		<div class="form-label">帖子内容</div>
+		<div class="form-controll">
+			<script name="data[intro]" type="text/plain" id="intro"></script>
+		</div>
+	</div>
+	<div class="form-item">
+		<input type="button" value="发表帖子" class="send-bbs" />
+		<p class="fee-tips"></p>
+	</div>
+	</form>
+</div>
+<script type="text/javascript">var _cat=<{htmlspecialchars_decode($cat_json)}>,_base_path="<{$_base_path}>",_theme=<{htmlspecialchars_decode($_theme)}>,_dir_path="<{$_dir_path}>",_fee="<{$_fee}>",_upload_path="<{$upload_path}>";app.push('bbs/upload');</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

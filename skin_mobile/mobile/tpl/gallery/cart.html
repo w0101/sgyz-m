@@ -1,0 +1,49 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<div class="gallery-cart big">
+	<div class="cart-img">
+		<img src="<{$_path}><{$data['images']}>" alt="<{$data['title']}>" />
+	</div>
+	<div class="cart-right">
+		<div class="cart-name"><{$data['title']}></div>
+		<div class="cart-user user-info">
+			<div class="user-img"><img src="<{$_path}><{$fouser['avatar']}>" alt="<{$fouser['nickname']}>" /></div>
+			<div class="user-intro">
+				<p class="user-name"><{$fouser['nickname']}></p>
+				<p class="user-info">粉丝数：<font class="user-fs"><{$fouser['fans']}></font><span class="user-match">参赛数：<font><{$fouser['match']}></font></span></p>
+				<p class="user-btn"><a href="javascript:void(0);" data-userid="<{$data['userid']}>" class="user-favicon follow-btn<{if $isfollow==1}> disable<{/if}>"><{if $isfollow==1}>取消关注<{else}>关注<{/if}></a></p>
+			</div>
+		</div>
+		<div class="cart-info">
+			<p><span>图片编号：</span><{$data['fee']}></p>
+			<p><span>图片版权：</span><{$fouser['nickname']}></p>
+			<p><span>图片大小：</span>（1920X1280）/3.68M</p>
+			<p><span>图片格式：</span><{$data['fee']}></p>
+		</div>
+		<div class="cart-down">
+			<p class="cart-money">售价：<span><font><{$data['fee']}></font>积分</span></p>
+			<p class="cart-intergal">你的积分：<span><{$integral}></span><{if $integral < $data['fee']}>（<span>积分不足，无法下载</span>）<{/if}></p>
+			<p class="cart-btn">
+			<{if $integral < $data['fee']}>
+				<a href="#" class="cart-pay">立即充值</a>
+			<{else}>
+				<a href="javascript:void(0);" class="cart-down-btn">立即下载</a>
+			<{/if}>
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="gallery-hot big">
+	<div class="hot-title">热门推荐</div>
+	<ul class="hot-list">
+		<{foreach $topList as $k => $v}>
+		<li><a href="<{url c='gallery' a='show' id=$v['id']}>"><img src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a></li>
+		<{/foreach}>
+	</ul>
+</div>
+<script type="text/javascript">var _id="<{$data['id']}>",_fee="<{$data['fee']}>",_iscart="<{$iscart}>";app.push('gallery/cart');</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

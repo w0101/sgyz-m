@@ -1,0 +1,86 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<div class="gallery gallery-detail">
+	<div class="detail-images-bg">
+		<div class="detail-images big">
+			<div class="img-name"><{$data['title']}></div>
+			<div class="img-big" data-id="<{$data['id']}>">
+				<img src="<{$_path}><{$data['images']}>" class="preview" alt="<{$data['title']}>" />
+				<div class="img-controll">
+					<a href="<{url c='gallery' a='cart' id=$data['id']}>" class="img-cart"></a>
+					<a href="javascript:void(0);" class="img-favicon<{if $isfav==1}> active<{/if}>"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="big">
+		<div class="detail-info">
+			<div class="detail-left">
+				<{if count($data['tag'])>0 }>
+				<div class="detail-head">标签</div>
+				<div class="detail-tag"><{foreach $data['tag'] as $k => $v}><span><{$v}></span><{/foreach}></div>
+				<{/if}>
+				<div class="detail-head">作品描述</div>
+				<div class="detail-intro"><{htmlspecialchars_decode($data['intro'])}></div>
+				<{if !empty($exif)}>
+				<div class="detail-head">EXIF信息</div>
+				<ul class="detail-exif">
+					<li><span class="exif-name">图片大小</span><span class="exif-value">(1920x1280)/<{$exif['FileSize']}></span></li>
+					<li><span class="exif-name">相机</span><span class="exif-value"><{$exif['Make']}></span></li>
+					<li><span class="exif-name">拍摄时间</span><span class="exif-value"><{$exif['FileDateTime']}></span></li>
+					<li><span class="exif-name">光圈</span><span class="exif-value"><{$exif['FNumber']}></span></li>
+					<li><span class="exif-name">焦距</span><span class="exif-value"><{$exif['FocalLength']}></span></li>
+					<li><span class="exif-name">ISO</span><span class="exif-value"><{$exif['ISOSpeedRatings']}></span></li>
+					<li><span class="exif-name">快门</span><span class="exif-value"><{$exif['ExposureTime']}></span></li>
+				</ul>
+				<{/if}>
+			</div>
+			<div class="detail-right">
+				<div class="detail-head">下载</div>
+				<div class="detail-down">
+					<p class="detail-money">售价：<span><font><{$data['fee']}></font>积分</span></p>
+					<a href="javascript:void(0);" class="detail-down-btn">下载此图</a>
+				</div>
+				<div class="detail-head">摄影师</div>
+				<div class="detail-user user-info">
+					<div class="user-img"><img src="<{$_path}><{$fouser['avatar']}>" alt="<{$fouser['nickname']}>" /></div>
+					<div class="user-intro">
+						<p class="user-name"><{$fouser['nickname']}></p>
+						<p class="user-info">粉丝数：<font class="user-fs"><{$fouser['fans']}></font><span class="user-match">参赛数：<font><{$fouser['match']}></font></span></p>
+						<p class="user-btn"><a href="javascript:void(0);" data-userid="<{$data['userid']}>" class="user-favicon follow-btn<{if $isfollow==1}> disable<{/if}>"><{if $isfollow==1}>取消关注<{else}>关注<{/if}></a></p>
+					</div>
+				</div>
+				<{if $match_item}>
+				<div class="detail-head">参赛情况</div>
+				<div class="detail-match">
+					<ul class="match-list">
+						<li>
+							<p><span>比赛</span><{$match_item['match_title']}></p>
+							<p><span>名次</span><{if $match_item['sorts']>0}>第<{$match_item['sorts']}>名<{else}>无<{/if}></p>
+						</li>
+					</ul>
+				</div>
+				<{/if}>
+				<div class="detail-head">声明</div>
+				<div class="detail-copyright">
+					本网站图片版权归摄影师所有，未经购买，任何人不得随意使用本网站的原创作品（含预览图），否则将按照我国著作权法的相关规定被要求承担最高达50万元人民币的赔偿责任。
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<{if count($topList)>0}>
+<div class="gallery-hot big">
+	<div class="hot-title">热门推荐</div>
+	<ul class="hot-list">
+		<{foreach $topList as $k => $v}>
+		<li><a href="<{url c='gallery' a='show' id=$v['id']}>"><img src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a></li>
+		<{/foreach}>
+	</ul>
+</div>
+<{/if}>
+<script type="text/javascript">var _userid="<{$uid}>",_id="<{$data['id']}>",_fee="<{$data['fee']}>",_iscart="<{$iscart}>";app.push('gallery/show');</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

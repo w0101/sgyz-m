@@ -1,0 +1,131 @@
+<{include file="include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_assets}>amazeui/css/amazeui.min.css">
+<link rel="stylesheet" type="text/css" href="<{$_assets}>amazeui/css/amazeui.chosen.css">
+</head>
+<body class="bbs-bg">
+<{include file="include/nav.html"}>
+<{include file="include/bbs_top.html"}>
+<div class="bbs-cat-detail big">
+	<div class="bg"></div>
+	<div class="cat-detail">
+		<div class="cat-img"><img src="<{$_path}><{$data['thumb']}>" alt="<{$data['name']}>"></div>
+		<div class="cat-info">
+			<div class="cat-title"><h1><{$data['name']}></h1><span class="cat-total">帖子：<{$data['total']}></span></div>
+			<p class="cat-intro"><{$data['intro']}></p>
+		</div>
+		<div class="cat-controller"><a href="<{$url}>" class="post-bbs">发帖</a></div>
+	</div>
+</div>
+<div class="bbs big">
+	<div class="bbs-left">
+		<div class="bbs-hot-post">
+			<div class="bbs-hot-header">
+				<div class="header-left">
+					<span<{if $top==0}> class="active"<{/if}>><a href="<{url c="bbs" a="cat" id=$catid}>">全部</a></span>
+					<span<{if $top==1}> class="active"<{/if}>><a href="<{url c="bbs" a="cat" id=$catid top="1"}>">精华</a></span>
+				</div>
+				<div class="header-right">
+					<div class="order-select">
+						<select class="diyselect">
+							<option value="">排序方式</option>
+							<{foreach $orderType as $k=>$v}>
+							<option value="<{$k}>"<{if $k==$order}> selected<{/if}>><{$v}></option>
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="theme-select">
+						<select class="diyselect">
+							<option value=""<{if 0==$fid}> selected<{/if}>>主题分类</option>
+							<{foreach $theme as $k=>$v}>
+							<option value="<{$v['id']}>"<{if $v['id']==$fid}> selected<{/if}>><{$v['name']}></option>
+							<{/foreach}>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="hot-post-list">
+			<{foreach $toplist as $k=>$v}>
+				<div class="item">
+					<div class="item-img"><img src="<{$_path}><{$v['avatar']}>" /></div>
+					<div class="item-info">
+						<p class="item-title"><{if isset($thType[$v['fid']])}><span class="theme">[<{$thType[$v['fid']]}>]</span><{/if}><a href="<{url c="bbs" a="show" id=$v['id']}>"><{$v['title']}></a>
+						<{if $v['essence'] == 1}><span class="item-status">精1</span><{/if}> <{if $v['essence'] == 2}><span class="item-status">精2</span><{/if}> <{if $v['top'] == 1}><span class="item-status">置顶</span><{/if}></p>
+						<p class="item-info-p"><span class="answer"><{$v['nickname']}></span><span class="date"><{date("Y.n.j",$v['addtime'])}></span><span class="cat">非参赛作品展示</span><span class="item-hit"><{$v['hit']}></span><span class="item-score"><{$v['score']}></span></p>
+					</div>
+					<{if $v['lastuid']>0}>
+					<div class="item-user">
+						<span class="user-name"><{$v['lastname']}></span>
+						<span class="item-date"><{date("Y-n-j",$v['lasttime'])}></span>
+					</div>
+					<{/if}>
+				</div>
+			<{/foreach}>
+			</div>
+			<{if count($list)>0}>
+			<div class="bbs-list-header">
+				<div class="header-left">
+					<span>版块主题</span>
+					<span class="referes"><a href="<{url c="bbs" a="cat" id=$catid}>"></a></span>
+				</div>
+				<div class="header-right">
+					<p></p>
+				</div>
+			</div>
+			<{/if}>
+			<div class="hot-post-list">
+			<{foreach $list as $k=>$v}>
+				<div class="item">
+					<div class="item-img"><img src="<{$_path}><{$v['avatar']}>" /></div>
+					<div class="item-info">
+						<p class="item-title"><{if isset($thType[$v['fid']])}><span class="theme">[<{$thType[$v['fid']]}>]</span><{/if}><a href="<{url c="bbs" a="show" id=$v['id']}>"><{$v['title']}></a>
+						<{if $v['essence'] == 1}><span class="item-status">精1</span><{/if}> <{if $v['essence'] == 2}><span class="item-status">精2</span><{/if}> <{if $v['top'] == 1}><span class="item-status">置顶</span><{/if}></p>
+						<p class="item-info-p"><span class="answer"><{$v['nickname']}></span><span class="date"><{date("Y.n.j",$v['addtime'])}></span><span class="cat">非参赛作品展示</span><span class="item-hit"><{$v['hit']}></span><span class="item-score"><{$v['score']}></span></p>
+					</div>
+					<{if $v['lastuid']>0}>
+					<div class="item-user">
+						<span class="user-name"><{$v['lastname']}></span>
+						<span class="item-date"><{date("Y-n-j",$v['lasttime'])}></span>
+					</div>
+					<{/if}>
+				</div>
+			<{/foreach}>
+			<{$page_html nofilter}>
+			</div>
+		</div>
+	</div>
+	<div class="bbs-right bbs-cat-right">
+		<div class="bbs-top">
+			<div class="top-title">推荐阅读</div>
+			<div class="top-list">
+			<{foreach $simlist as $k=>$v}>
+				<div class="item">
+					<a href="<{url c="bbs" a="show" id=$v['id']}>" class="item-title"><{dsubstr($v['title'],38)}></a>
+				</div>
+			<{/foreach}>
+			</div>
+		</div>
+		<div class="bbs-user">
+			<div class="user-title">驿站之星</div>
+			<div class="user-list">
+			<{foreach $user_order as $k => $v}>
+				<div class="item">
+					<div class="item-img"><img src="<{$_path}><{$v['avatar']}>" /></div>
+					<div class="item-info">
+						<a href="<{url c="user" a="view" id=$v['id']}>" class="item-name"><{$v['nickname']}></a>
+						<span class="item-fans">粉丝数：<{$v['fans']}></span>
+						<span class="item-post">帖子：<{$v['bbs']}></span>
+						<a href="javascript:void(0);" class="follow-btn" data-id="<{$v['id']}>">关注</a>
+					</div>
+				</div>
+			<{/foreach}>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var _total="<{$total}>",_catid='<{$catid}>',_top="<{$top}>",_order="<{$order}>",_fid="<{$fid}>",_showurl="<{$showurl}>";
+	var _changurl="<{$changurl nofilter}>";
+	app.push('bbs/cat');
+</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

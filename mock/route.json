@@ -1,0 +1,19 @@
+{
+    "/index": {
+        "tpl": "mobile/index.html",
+        "action": "index/main.php"
+    },
+    "/index.html":{
+    	"tpl": "mobile/index.html",
+    	"action": "index/main.php"
+    },
+    "/rankinglist.html":{
+    	"tpl":"mobile/rankinglist/rankinglist.html",
+    	"action":"index/main.php"
+    },
+    "/gallery/index.html":{
+        "tpl":"mobile/gallery/index.html",
+        "action":"gallery/main.php"
+    }
+
+}

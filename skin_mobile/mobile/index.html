@@ -1,0 +1,241 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>css/index.css"/>
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/banner_carousel.html"}>
+<div class="container">
+  <div class="index-gallery row">
+    <div class="col-xs-12 col-sm-8">
+        <div class="inner-title gallery-title">图片类型<span class="title-yellow"> / Gallery</span><a href="<{url c="gallery" a="index"}>" class="pull-right title-small">更多<span class="title-yellow">/more</span></a></div>
+        <div class="row">
+            <{foreach $index_gallery as $k => $v}>
+              <div class="col-sm-3 col-xs-6 gallery-item">
+                <a href="<{url c="gallery" a="index" catid=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/><p><{$v['name']}></p></a>
+              </div>
+            <{/foreach}>
+        </div>
+    </div>
+    <div class="col-sm-4 hidden-xs ranking-list">
+        <div class="inner-title">用户排行榜</div>
+        <div class="list-group">
+            <{foreach $user_order as $k => $v}>
+            <{if $k == 0}>
+            <div class="ranking-list-item first row">
+              <div class="col-sm-2 col-xs-2 rank-num"><{sprintf("%02d", $k+1)}></div>
+              <div class="col-sm-4 col-xs-4">
+                <a href="<{url c="user" a="view" id=$v['id']}>" class="avatar"><img class="img-responsive" src="<{$_path}><{$v['avatar']}>" alt="<{$v['nickname']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a>
+              </div>
+              <div class="info col-sm-6 col-xs-6">
+                <div class="username"><span class="one-line-ellipsis"><{$v['nickname']}></span><i class="<{$v['level_order']}> user-icon"></i></div>
+                <div class="intergal">经验值：<{$v['exper']}></div>
+                <div class="level">等级：<span><{$v['level']}></span></div>
+              </div>
+            </div>
+            <{else}>
+            <div class="ranking-list-item others">
+                <i class="rank-num"><{sprintf("%02d",$k+1)}></i>
+                <i class="<{$v['level_order']}> user-icon"></i>
+                <span class="username one-line-ellipsis"><a href="<{url c="user" a="view" id=$v['id']}>"><{$v['nickname']}></a></span>
+                <span class="intergal pull-right"><{$v['exper']}></span>
+            </div>
+            <{/if}>
+            <{/foreach}>
+        </div>
+        <div class="user-wechat">
+          <img class="img-responsive" src="<{$_skin}>img/wechat.jpg" alt="扫描关注" />
+        </div>
+    </div>
+  </div>
+  <div class="ad-img">
+    <a href="<{$ad_2_mobile[0].url}>" target="_blank" title="<{$ad_2_mobile[0].title}>"><img class="img-responsive" src="<{$ad_2_mobile[0].src}>" alt="<{$ad_2_mobile[0].title}>"></a>
+  </div>
+  <div class="index-match row">
+    <div class="col-sm-12 col-xs-12">
+      <div class="inner-title match-title">热门比赛<span class="title-yellow"> / Match</span><a href="<{url c="match" a="index"}>" class="pull-right title-small">更多<span class="title-yellow">/more</span></a></div>
+    </div>
+    <{foreach $index_match as $k => $v}>
+      <div class="match list-item col-sm-6 col-xs-12">
+        <div class="row item-inner">
+          <div class="item-img col-xs-6 col-sm-8">
+            <a href="<{url c="match" a="show" id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['index_thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic_380_240.jpg'"/></a>
+          </div>
+          <div class="item-info col-xs-6 col-sm-4">
+            <a href="<{url c="match" a="show" id=$v['id']}>" class="item-title one-line-ellipsis"><{$v['title']}></a>
+            <div class="item-date">时间：<{date("n.j",$v['starttime'])}>-<{date("n.j", $v['endtime'])}></div>
+            <p class="item-intro multi-line-ellipsis"><{$v['intro']}></p>
+          </div>
+        </div>
+      </div>
+    <{/foreach}>
+  </div>
+  <div class="ad-img">
+    <a href="<{$ad_3_mobile[0].url}>" target="_blank" title="<{$ad_3_mobile[0].title}>"><img class="img-responsive" src="<{$ad_3_mobile[0].src}>" alt="<{$ad_3_mobile[0].title}>"></a>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 index-activity">
+      <div class="inner-title activity-title">热门活动<span class="title-yellow"> / Activity</span><a href="<{url c="activity" a="index"}>" class="pull-right title-small">更多<span class="title-yellow">/more</span></a></div>
+      <div class="row">
+        <{foreach $index_activity as $k => $v}>
+          <div class="activity list-item col-sm-12 col-xs-12">
+            <div class="row item-inner">
+              <div class="item-img col-xs-6 col-sm-8">
+                <a href="<{url c="activity" a="show" id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic_380_240.jpg'"/></a>
+              </div>
+              <div class="item-info col-xs-6 col-sm-4">
+                <div class="item-title one-line-ellipsis"><a href="<{url c="activity" a="show" id=$v['id']}>"><{$v['title']}></a></div>
+                <div class="item-date">时间：<{date("m.d",$v['startime'])}>-<{date("m.d",$v['stoptime'])}></div>
+                <div class="item-address one-line-ellipsis">活动地点：<{$v['address']}></div>
+                <div class="item-money">报名费用：<{if $v['fee']>0}><font><{$v['fee']}>积分</font><{else}>免费<{/if}></div>
+              </div>
+            </div>
+          </div>
+        <{/foreach}>
+      </div>
+    </div>
+    <div class="ad-img visible-xs-block col-xs-12">
+      <a href="<{$ad_2_mobile[0].url}>" target="_blank" title="<{$ad_2_mobile[0].title}>"><img class="img-responsive" src="<{$ad_2_mobile[0].src}>" alt="<{$ad_2_mobile[0].title}>"></a>
+    </div>
+    <div class="col-xs-12 col-sm-4 service-list">
+        <div class="inner-title service-title">需求服务<span class="title-yellow"> / Service</span><a href="<{url c="activity" a="index"}>" class="pull-right title-small">更多<span class="title-yellow visible-xs-inline">/more</span></a></div>
+        <{foreach $index_service as $k => $v}>
+          <div class="service-item">
+            <a href="<{url c="service" a="show" id=$v['id']}>" class="item-title one-line-ellipsis"><{$v['title']}></a>
+            <span class="item-money"><{$v['fee']}>积分</span>
+            <span class="item-date">3天后截止</span>
+          </div>
+        <{/foreach}>
+    </div>
+  </div>
+  <div class="index-bbs row">
+    <div class="col-sm-12 col-xs-12">
+      <div class="inner-title bbs-title">论坛<span class="title-yellow"> / BBS</span></div>
+    </div>
+    <div class="row bbs-item-container visible-xs-block">
+      <div class="col-xs-12">
+        <div class="bbs-item col-xs-3">
+          <a href="<{url c="bbs" a="cat" id=$bbs_cat[1]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[1]['thumb']}>"/></a>
+        </div>
+        <div class="bbs-item bg col-xs-6">
+          <div class="item-intro-up">
+            <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[1]['id']}>"><{$bbs_cat[1]['name']}></a></span>
+            <span><font><{$bbs_cat[1]['total']}></font>帖子</span>
+            <i class="icon icon-arrow-left"></i>
+          </div>
+          <div class="item-intro-down">
+            <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[2]['id']}>"><{$bbs_cat[2]['name']}></a></span>
+            <span><font><{$bbs_cat[2]['total']}></font>帖子</span>
+            <i class="icon icon-arrow-right"></i>
+          </div>
+        </div>
+        <div class="bbs-item bbs-item-right col-xs-3">
+          <a href="<{url c="bbs" a="cat" id=$bbs_cat[2]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[2]['thumb']}>"/></a>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="bbs-item col-xs-3">
+          <a href="<{url c="bbs" a="cat" id=$bbs_cat[3]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[3]['thumb']}>"/></a>
+        </div>
+        <div class="bbs-item bg col-xs-6">
+          <div class="item-intro-up">
+            <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[3]['id']}>"><{$bbs_cat[3]['name']}></a></span>
+            <span><font><{$bbs_cat[3]['total']}></font>帖子</span>
+            <i class="icon icon-arrow-left"></i>
+          </div>
+          <div class="item-intro-down">
+            <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[4]['id']}>"><{$bbs_cat[4]['name']}></a></span>
+            <span><font><{$bbs_cat[4]['total']}></font>帖子</span>
+            <i class="icon icon-arrow-right"></i>
+          </div>
+        </div>
+        <div class="bbs-item bbs-item-right col-xs-3">
+          <a href="<{url c="bbs" a="cat" id=$bbs_cat[4]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[4]['thumb']}>"/></a>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="bbs-item col-xs-3">
+          <a href="<{url c="bbs" a="cat" id=$bbs_cat[5]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[5]['thumb']}>"/></a>
+        </div>
+        <div class="bbs-item bg col-xs-6">
+          <div class="item-intro-up">
+            <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[5]['id']}>"><{$bbs_cat[5]['name']}></a></span>
+            <span><font><{$bbs_cat[5]['total']}></font>帖子</span>
+            <i class="icon icon-arrow-left"></i>
+          </div>
+          <div class="item-intro-down">
+            <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[6]['id']}>"><{$bbs_cat[6]['name']}></a></span>
+            <span><font><{$bbs_cat[6]['total']}></font>帖子</span>
+            <i class="icon icon-arrow-right"></i>
+          </div>
+        </div>
+        <div class="bbs-item bbs-item-right col-xs-3">
+          <a href="<{url c="bbs" a="cat" id=$bbs_cat[6]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[6]['thumb']}>"/></a>
+        </div>
+      </div>
+    </div>
+    <div class="bbs-item-container pad hidden-xs">
+    <div class="bbs-item">
+      <a href="<{url c="bbs" a="cat" id=$bbs_cat[1]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[1]['thumb']}>" /></a>
+    </div>
+    <div class="bbs-item bg">
+      <div class="item-intro-up">
+        <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[1]['id']}>"><{$bbs_cat[1]['name']}></a></span>
+        <span><font><{$bbs_cat[1]['total']}></font>帖子</span>
+        <i class="icon icon-arrow-left"></i>
+      </div>
+      <div class="item-intro-down">
+        <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[2]['id']}>"><{$bbs_cat[2]['name']}></a></span>
+        <span><font><{$bbs_cat[2]['total']}></font>帖子</span>
+        <i class="icon icon-arrow-right"></i>
+      </div>
+    </div>
+    <div class="bbs-item">
+      <a href="<{url c="bbs" a="cat" id=$bbs_cat[2]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[2]['thumb']}>" /></a>
+    </div>
+    <div class="bbs-item">
+      <a href="<{url c="bbs" a="cat" id=$bbs_cat[3]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[3]['thumb']}>" /></a>
+    </div>
+    <div class="bbs-item bg">
+      <div class="item-intro-up">
+        <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[3]['id']}>"><{$bbs_cat[3]['name']}></a></span>
+        <span><font><{$bbs_cat[3]['total']}></font>帖子</span>
+        <i class="icon icon-arrow-left"></i>
+      </div>
+    </div>
+    <div class="bbs-item bg">
+      <div class="item-intro-down">
+        <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[4]['id']}>"><{$bbs_cat[4]['name']}></a></span>
+        <span><font><{$bbs_cat[4]['total']}></font>帖子</span>
+        <i class="icon icon-arrow-right"></i>
+      </div>
+    </div>
+    <div class="bbs-item">
+      <a href="<{url c="bbs" a="cat" id=$bbs_cat[4]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[4]['thumb']}>" /></a>
+    </div>
+    <div class="bbs-item">
+      <a href="<{url c="bbs" a="cat" id=$bbs_cat[5]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[5]['thumb']}>" /></a>
+    </div>
+    <div class="bbs-item bg">
+      <div class="item-intro-up">
+        <span class="title" style="width: 170px;"><a href="<{url c="bbs" a="cat" id=$bbs_cat[5]['id']}>"><{$bbs_cat[5]['name']}></a></span>
+        <span><font><{$bbs_cat[5]['total']}></font>帖子</span>
+        <i class="icon icon-arrow-left"></i>
+      </div>
+      <div class="item-intro-down">
+        <span class="title"><a href="<{url c="bbs" a="cat" id=$bbs_cat[6]['id']}>"><{$bbs_cat[6]['name']}></a></span>
+        <span><font><{$bbs_cat[6]['total']}></font>帖子</span>
+        <i class="icon icon-arrow-right"></i>
+      </div>
+    </div>
+    <div class="bbs-item">
+      <a href="<{url c="bbs" a="cat" id=$bbs_cat[6]['id']}>"><img class="img-responsive" src="<{$_path}><{$bbs_cat[6]['thumb']}>" /></a>
+    </div>
+  </div>
+  </div>
+</div>
+<{include file="mobile/include/footer.html"}>
+<script type="text/javascript">
+  app.push('index/index');
+</script>
+<{include file="mobile/include/end.html"}>
+

@@ -1,0 +1,42 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<{include file="include/user-top.html"}>
+<div class="user-cash big">
+	<form id="charge_send" method="post" action="<{$url}>">
+	<div class="form-item">
+		<div class="form-label">充值金额<a href="<{$infourl}>">充值记录</a> </div>
+		<div class="form-controll">
+			<table class="diytable">
+			<thead>
+				<tr>
+					<td width="80">金额</td>
+					<td>说明</td>
+				</tr>
+			</thead>
+			<{foreach $list as $k => $v}>
+				<tr>
+					<td><label style="margin-right: 8px;"><input type="radio" name="money" value="<{$v['id']}>" /></label><{$v['name']}></td>
+					<td><{$v['intro']}></td>
+				</tr>
+			<{/foreach}>
+			</table>
+		</div>
+	</div>
+	<div class="form-item">
+		<div class="form-label">充值卡密</div>
+		<div class="form-controll">
+			<input type="text" class="form-input" name="key" value="" placeholder="输入卡密即可充值哦" />
+		</div>
+	</div>
+	<div class="form-item">
+		<input type="submit" value="立即充值" class="charge_send diybtn" />
+	</div>
+	</form>
+</div>
+<script type="text/javascript">
+//app.push('user/cash');
+</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

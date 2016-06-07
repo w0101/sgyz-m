@@ -1,0 +1,64 @@
+.ranking-list>.inner-title{
+	height: 65px; 
+	margin:30px 0 20px 0;
+	padding-bottom:20px;
+	border-bottom: 1px solid #fb9a60;
+}
+.ranking-list .ranking-list-item{
+	font-size: 16px;
+	color: #555;
+	margin-top: 14px;
+	margin-bottom: 15px;
+	vertical-align: top;
+}
+.ranking-list .ranking-list-item.first{
+	margin-top: 9px; 
+	margin-bottom: 0;
+	border-bottom:1px solid #ccc;
+	padding-bottom: 20px;
+}
+.ranking-list .ranking-list-item.first>.rank-num{
+	color: #f79052;
+	font-size: 24px;
+	height: 80px;
+	line-height: 80px;
+}
+.ranking-list .ranking-list-item.first .username{
+	margin-bottom: 10px;
+}
+.ranking-list .ranking-list-item.first .username>span{
+	display: inline-block;
+	width: 85%;
+}
+.ranking-list .user-icon{
+	background: url(../img/bg.png) no-repeat left top;
+	display: inline-block;
+	width:8px;
+	height:18px;
+	margin-right: 6px;
+}
+.ranking-list .user-icon.up{
+	background-position: -9px -338px;
+}
+.ranking-list .user-icon.down{
+	background-position: 0 -337px;
+}
+.ranking-list .intergal,.level{
+	color: #999;
+	margin-bottom: 10px;
+}
+.ranking-list i.rank-num{
+	margin-right: 21px;
+}
+.ranking-list .ranking-list-item.others a{
+	color: #555;
+}
+.ranking-list .ranking-list-item.others .username{
+	display: inline-block;
+	width: 50%;
+}
+.ranking-list .ranking-list-item.others .intergal{
+	display: inline-block;
+	text-align: right;
+	font-size: 14px;
+}

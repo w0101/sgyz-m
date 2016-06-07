@@ -1,0 +1,90 @@
+<{include file="include/head.html"}>
+</head>
+<body class="bbs-bg">
+<{include file="include/nav.html"}>
+<{include file="include/bbs_top.html"}>
+<div class="bbs-banner big" id="slide">
+	<{$banner nofilter}>
+</div>
+<div class="bbs big">
+	<div class="bbs-left">
+		<div class="bbs-top-post">
+		<{foreach $pos1 as $k=>$v}>
+			<div class="item">
+				<div class="item-img"><img src="<{$_path}><{$v['thumb']}>" /></div>
+				<div class="item-intro">
+					<a href="<{url c="bbs" a="show" id=$v['id']}>" class="item-title"><{$v['title']}></a>
+					<div class="item-info">
+						<span class="anwser">时光驿站</span>
+						<span class="item-date"><{date("Y-m-d  H:i",$v['addtime'])}></span>
+						<p class="item-p">
+							<span class="item-hit"><{$v['hit']}></span>
+							<span class="item-score"><{$v['score']}></span>
+						</p>
+					</div>
+					<p class="item-intro-p"><{dsubstr(strip_tags($v['content']),200)}></p>
+					<a href="<{url c="bbs" a="show" id=$v['id']}>" class="view-more">阅读全文&gt;</a>
+				</div>
+			</div>
+		<{/foreach}>
+		</div>
+		<div class="bbs-hot-post">
+			<div class="hot-post-header">
+				<span class="hot-title">论坛热帖</span>
+				<div class="hot-info">
+					<span>今日发帖：<font><{$bbs_date_total}></font></span>
+					<span>历史最高：<font><{$bbs_max_total}></font></span>
+					<span>会员：<font><{$bbs_member_total}></font></span>
+				</div>
+			</div>
+			<div class="hot-post-list">
+			<{foreach $pos2 as $k=>$v}>
+				<div class="item">
+					<div class="item-img"><img src="<{$_path}><{$v['avatar']}>" /></div>
+					<div class="item-info">
+						<p class="item-title"><{if isset($thType[$v['fid']])}><span class="theme">[<{$thType[$v['fid']]}>]</span><{/if}><a href="<{url c="bbs" a="show" id=$v['id']}>"><{$v['title']}></a>
+						<{if $v['essence'] == 1}><span class="item-status">精1</span><{/if}> <{if $v['essence'] == 2}><span class="item-status">精2</span><{/if}> <{if $v['top'] == 1}><span class="item-status">置顶</span><{/if}></p>
+						<p class="item-info-p"><span class="answer"><{$v['nickname']}></span><span class="date"><{date("Y.n.j",$v['lasttime'])}></span><{if isset($catText[$v['tid']])}><span class="cat"><{$catText[$v['tid']]}></span><{/if}><span class="item-hit"><{$v['hit']}></span><span class="item-score"><{$v['score']}></span></p>
+					</div>
+					<div class="item-user">
+						<span class="user-name"><{$v['lastname']}></span>
+						<span class="item-date"><{date("Y-m-d  H:i",$v['lasttime'])}></span>
+					</div>
+				</div>
+			<{/foreach}>
+			</div>
+		</div>
+	</div>
+	<div class="bbs-right">
+		<div class="bbs-top">
+			<div class="top-title">精彩作品</div>
+			<div class="top-list">
+			<{foreach $pos3 as $k=>$v}>
+				<div class="item">
+					<div class="item-img"><a href="<{url c="bbs" a="show" id=$v['id']}>"><img src="<{$_path}><{$v['thumb']}>" /></a></div>
+					<a href="<{url c="bbs" a="show" id=$v['id']}>" class="item-title"><{$v['title']}></a>
+				</div>
+			<{/foreach}>
+			</div>
+		</div>
+		<div class="bbs-user">
+			<div class="user-title">驿站之星</div>
+			<div class="user-list">
+			<{foreach $user_order as $k => $v}>
+				<div class="item">
+					<div class="item-img"><img src="<{$_path}><{$v['avatar']}>" /></div>
+					<div class="item-info">
+						<a href="<{url c="user" a="view" id=$v['id']}>" class="item-name"><{$v['nickname']}></a>
+						<span class="item-fans">粉丝数：<{$v['fans']}></span>
+						<span class="item-post">帖子：<{$v['bbs']}></span>
+						<a href="javascript:void(0);" class="follow-btn" data-userid="<{$v['id']}>">关注</a>
+					</div>
+				</div>
+			<{/foreach}>
+			</div>
+		</div>
+	</div>
+</div>
+<{include file="include/footer.html"}>
+<script type="text/javascript">app.push('bbs/index');</script>
+<{include file="include/end.html"}>

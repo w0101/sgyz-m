@@ -1,0 +1,43 @@
+<{include file="include/head.html"}>
+</head>
+<body>
+<{include file="include/nav.html"}>
+<{include file="include/user-top.html"}>
+<div class="user-integral big">
+	<div class="integral-list">
+		<table class="diytable">
+			<thead>
+			<tr>
+				<td width="60" align="center">流水号</td>
+				<td>账户&户名</td>
+				<td>备注</td>
+				<td width="80" align="center">实付金额</td>
+				<td width="140" align="center">申请时间</td>
+				<td width="140" align="center">受理时间</td>
+				<td width="60" align="center">受理人</td>
+				<td width="70" align="center">状态</td>
+			</tr>
+			</thead>
+			<tbody>
+			<{foreach $list as $k => $v}>
+			<tr>
+				<td align="center"><{$v['id']}></td>
+				<td><{$v['truename']}>：<{$v['account']}></td>
+				<td><{$v['note']}></td>
+				<td align="center"><{$v['amount']}></td>
+				<td align="center"><{date("Y-m-d H:i:s",$v['addtime'])}></td>
+				<td align="center"><{if $v['edittime']}><{date("Y-m-d H:i:s",$v['edittime'])}><{/if}></td>
+				<td align="center"><{$v['editor']}></td>
+				<td align="center"><{$cashType[$v['status']] nofilter}></td>
+			</tr>
+			<{/foreach}>
+			</tbody>
+		</table>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<script type="text/javascript">
+	app.push('user/service');
+</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>

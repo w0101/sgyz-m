@@ -1,0 +1,140 @@
+<{include file="include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>js/umeditor/themes/default/css/umeditor.css">
+</head>
+<body class="bbs-bg">
+<{include file="include/nav.html"}>
+<{include file="include/bbs_top.html"}>
+<div class="bbs big">
+	<div class="bbs-left">
+		<div class="bbs-detail">
+			<div class="bbs-title"><{if isset($thType[$data['fid']])}><span>[<{$thType[$data['fid']]}>]</span><{/if}><h1><{$data['title']}></h1></div>
+			<div class="bbs-info">
+				<span class="bbs-date">由 <{$senduser['nickname']}> 发表于 <{date("Y-m-d H:i",$data['addtime'])}></span>
+				<p class="bbs-info-p">
+					<span class="item-hit"><{$data['hit']}></span>
+					<span class="item-score"><{$data['score']}></span>
+				</p>
+			</div>
+			<div class="bbs-content"><{htmlspecialchars_decode($data['content'])}></div>
+			<div class="bbs-controller">
+				<a href="#reply" class="bbs-btn reply-btn" data-id="0">回复</a>
+			</div>
+		</div>
+		<{if count($list) >0}>
+		<div class="bbs-sorce">
+			<div class="sorce-header">
+				<span class="header-title"><font><{$data['score']}></font>条评论</span>
+				<div class="header-controller">
+					
+				</div>
+			</div>
+			<div class="sorce-list">
+			<{foreach $list as $k=>$v}>
+				<div class="item data_id_<{$v['id']}>">
+					<div class="item-img"><img src="<{$_path}><{$v['avatar']}>" alt="<{$v['nickname']}>" /></div>
+					<div class="item-info">
+						<div class="item-title">
+							<span class="item-name"><{$v['nickname']}></span>
+							<span class="item-date">发表于 <{date("Y-m-d H:i",$v['addtime'])}></span>
+							<span class="item-floor"><{if isset($floor_name[$k])}><{$floor_name[$k]}><{else}><{$k+1}>#<{/if}></span>
+						</div>
+						<div class="item-intro">
+							<div class="item-content"><{htmlspecialchars_decode($v['content'])}></div>
+							<{if $v['replytime'] > 0}>
+							<div class="item-reply">
+								<p><{$v['replynickname']}>    发表于 <{date("Y-m-d H:i",$v['replytime'])}> </p>
+								<p><{$v['reply']}></p>
+							</div>
+							<{/if}>
+						</div>
+						<div class="item-controller"><a href="javascript:void(0);" class="reply-btn" data-id="<{$v['id']}>">回复</a></div>
+					</div>
+				</div>
+			<{/foreach}>
+			</div>
+			<{htmlspecialchars_decode($page_html)}>
+		</div>
+		<{else}>
+		<div class="bbs-empty-socre">
+			<p class="quick-reply">暂时没有评论，来坐沙发吧!</p>
+		</div>
+		<{/if}>
+		<{if $uid > 0}>
+		<div class="bbs-reply">
+			<div class="reply-user"><img src="<{$_path}><{$_avatar}>"></div>
+			<div class="reply-context">
+				<form action="<{$url}>" method="post" id="reply">
+					<input type="hidden" value="0" name="replyid" id="replyid" />
+					<div class="reply-editor">
+						<script name="content" type="text/plain" id="reply_text"></script>
+					</div>
+					<div class="reply-btn">
+						<div class="reply-text">
+							<span></span>
+							<a href="javascript:void(0);" class="close"></a>
+						</div>
+						<input type="button" class="replybtn" value="发表回复" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<{else}>
+		<div class="fail-reply"><p>需要<a href="<{url c="login" a="index"}>">登录</a>之后才能进行评论哦!</p></div>
+		<{/if}>
+	</div>
+	<div class="bbs-right">
+		<div class="bbs-formuser">
+			<div class="user-img"><img src="<{$_path}><{$senduser['avatar']}>" /></div>
+			<div class="user-name"><{$senduser['nickname']}></div>
+			<div class="user-other">
+				<table>
+					<tr>
+						<td align="center"><{$senduser['integral']}></td>
+						<td align="center"><{$senduser['fans']}></td>
+						<td align="center"><{$senduser['bbs']}></td>
+					</tr>
+					<tr>
+						<td align="center">积分</td>
+						<td align="center">粉丝</td>
+						<td align="center">帖子</td>
+					</tr>
+				</table>
+			</div>
+			<div class="user-controller">
+				<a href="javascript:void(0);" data-id="<{$senduser['id']}>" class="follwer-btn">关注</a>
+				<a href="javascript:void(0);" data-id="<{$senduser['id']}>" class="send-msg">私信</a>
+			</div>
+		</div>
+		<div class="bbs-detail-box">
+			<div class="detail-head"><span><{$senduser['nickname']}></span>的最新主题</div>
+			<div class="detail-box">
+			<{if count($userbbs)>0}>
+				<ul class="detail-list">
+				<{foreach $userbbs as $k=>$v}>
+					<li><a href="<{url c="bbs" a="show" id=$v['id']}>"><{dsubstr($v['title'],38)}></a></li>
+				<{/foreach}>
+				</ul>
+			<{else}>
+			<p class="empty-tips">没有相关内容</p>
+			<{/if}>
+			</div>
+		</div>
+		<div class="bbs-detail-box">
+			<div class="detail-head"><span>推荐阅读</span></div>
+			<div class="detail-box">
+			<{if count($toplist)>0}>
+				<ul class="detail-list">
+				<{foreach $toplist as $k=>$v}>
+					<li><a href="<{url c="bbs" a="show" id=$v['id']}>"><{dsubstr($v['title'],38)}></a></li>
+				<{/foreach}>
+				</ul>
+			<{else}>
+			<p class="empty-tips">没有相关内容</p>
+			<{/if}>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">var _uid="<{$uid}>",_dir_path="<{$_dir_path}>",_base_path="<{$_base_path}>",_upload_path="<{$upload_path}>",_ajax_url="<{url c="ajax" a="sendreply" id=$data['id']}>";app.push('bbs/show');</script>
+<{include file="include/footer.html"}>
+<{include file="include/end.html"}>
