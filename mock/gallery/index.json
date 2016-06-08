@@ -104,7 +104,48 @@
             "fee":100
         }
     ],
-   
+    "isfollow":1,
+    "integral":10,
+    "data":{
+        "images":"data/upload/20160427/d5f30cc6f6.jpg",
+        "title":"吃东西的小猫",
+        "userid":1,
+        "fee":1
+    },
+    "fouser":{
+        "avatar":"data/assets/images/avatar.jpg",
+        "nickname":"啦啦啦",
+        "fans":100,
+        "match":10
+
+    },
+    "topList":[
+        {
+            "id":1,
+            "thumb":"data/upload/20160427/c81107f6d0.png",
+            "title":"lll"
+        },{
+            "id":1,
+            "thumb":"data/upload/20160427/c81107f6d0.png",
+            "title":"lll"
+        },{
+            "id":1,
+            "thumb":"data/upload/20160427/c81107f6d0.png",
+            "title":"lll"
+        },{
+            "id":1,
+            "thumb":"data/upload/20160427/c81107f6d0.png",
+            "title":"lll"
+        },{
+            "id":1,
+            "thumb":"data/upload/20160427/c81107f6d0.png",
+            "title":"lll"
+        },{
+            "id":1,
+            "thumb":"data/upload/20160427/c81107f6d0.png",
+            "title":"lll"
+        }
+    ],
     "footer_artlist":[
         {
             "id":1,

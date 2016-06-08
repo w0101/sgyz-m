@@ -119,3 +119,98 @@
 .gallery-list .item .intro .item-user{line-height: 30px;}
 .gallery-list .item .intro .item-intergal{ width: 140px; height: 30px; position: absolute; bottom: 0px; right: 0px; text-align: right; line-height: 30px; padding-right: 4px; text-indent: 3px; font-size: 12px; color: #fff;}
 .gallery-list .item .intro .item-intergal font{ font-size: 24px; }
+
+/*cart.html css*/
+.gallery-cart>.cart-img{
+	background-color: #323232;
+	border-radius: 4px;
+	padding:50px 0;
+}
+.gallery-cart>.cart-info>.cart-name{
+	font-size: 24px;
+	color:#323232;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 30px;
+}
+.gallery-cart>.cart-info>.cart-user{
+	margin-top: 30px;
+}
+.gallery-cart .cart-user .user-img{
+	padding-right: 0;
+}
+.gallery-cart .cart-user .user-name{
+	font-size: 20px;
+	color: #555;
+}
+.gallery-cart .cart-user .user-info{
+	font-size: 14px;
+	color: #999;
+}
+.gallery-cart .cart-user .user-info>font{
+	color: #555;
+}
+.gallery-cart .cart-user .user-info>span{
+	margin-left: 30px;
+}
+.gallery-cart .cart-user .user-btn>a{
+	padding: 5px 25px;
+	background-color: #fb9a60;
+	border:none;
+	border-radius: 4px;
+	color: #fff
+}
+.gallery-cart .cart-user .user-btn>a:hover{background-color: #f98742; }
+.gallery-cart .cart-user .user-btn>a.disable{background-color: #999;}
+.gallery-cart .cart-user .user-btn>a.disable:hover{background-color: #555;}
+.gallery-cart .cart-intro{
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+}
+.gallery-cart .cart-intro>p{
+	margin-top: 9px;
+	margin-bottom: 9px;
+	font-size: 16px;
+	color: #999;
+}
+.gallery-cart .cart-intro span{
+	color: #555;
+}
+.gallery-cart .cart-down{
+	font-size: 16px;
+	color: #999;
+}
+.gallery-cart .cart-down .cart-money>span{
+	color: #555;
+}
+.gallery-cart .cart-down .cart-money>span>font{
+	color: #fb9a60;
+	font-size: 24px;
+}
+.gallery-cart .cart-down .cart-btn>a{
+	display: inline-block;
+	width: 100%;
+	padding: 10px 0;
+	background-color: #f05654;
+	border:none;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 24px;
+}
+.gallery-cart .cart-down .cart-btn>a:hover{
+	background-color: #fb9a60;
+}
+.gallery-hot{
+	margin-top: 80px;
+}
+.gallery-hot>.hot-title{
+	margin-bottom: 25px;
+	color: #fb9a60;
+	font-size: 24px;
+	text-align: center;
+}
+.gallery-hot .hot-item{
+	margin-bottom: 10px;
+}

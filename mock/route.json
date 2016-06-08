@@ -14,6 +14,11 @@
     "/gallery/index.html":{
         "tpl":"mobile/gallery/index.html",
         "action":"gallery/main.php"
+    },
+    "/gallery/cart.html":{
+        "tpl":"mobile/gallery/cart.html",
+        "action":"gallery/main.php"
     }
+
 
 }
