@@ -1,10 +1,8 @@
 <div id="BannerCarousel" class="carousel slide">
   <ol class="carousel-indicators">
-  <{$i=0}>
-  <{section name="loop" loop=$ad_banner_mobile|@count}>
-    <li data-target="#BannerCarousel" data-slide-to="<{$i}>" <{if $i == 0}>class="active"<{/if}>></li>
-    <{$i=$i+1}>
-  <{/section}>
+  <{foreach $ad_banner_mobile as $k => $v}>
+    <li data-target="#BannerCarousel" data-slide-to="<{$k}>" <{if $k == 0}>class="active"<{/if}>></li>
+  <{/foreach}>
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
