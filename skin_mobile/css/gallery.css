@@ -86,29 +86,29 @@
 .gallery-list .item{
 	margin-bottom: 10px;
 }
-.gallery-list .item .controll a{ 
+.controll a{ 
 	display: block; 
 	background: url(../img/bg.png) no-repeat left -519px; 
 	width: 52px; height: 52px; 
 	position: absolute; top: 10px;
 }
-.gallery-list .item .controll a.item-cart{ 
+.controll a.item-cart{ 
 	background-position: -1px -519px; left: 20px;}
-.gallery-list .item .controll a.item-zambia{ 
+.controll a.item-zambia{ 
 	background-position: 1px -519px; display: none;}
-.gallery-list .item .controll a.item-favicon{ 
+.controll a.item-favicon{ 
 	background-position: -111px -519px; right:20px; }
-.gallery-list .item .controll a.item-cart:hover{ 
+.controll a.item-cart:hover{ 
 	background-position: -56px -519px; left: 20px;}
-.gallery-list .item .controll a.item-zambia:hover{ 
+.controll a.item-zambia:hover{ 
 	background-position: 1px -519px; display: none;}
-.gallery-list .item .controll a.item-favicon:hover{ 
+.controll a.item-favicon:hover{ 
 	background-position: -166px -519px; right:20px; }
-.gallery-list .item .controll a.item-cart.active{ 
+.controll a.item-cart.active{ 
 	background-position: -56px -519px; left: 20px;}
-.gallery-list .item .controll a.item-zambia.active{ 
+.controll a.item-zambia.active{ 
 	background-position: 1px -519px; display: none;}
-.gallery-list .item .controll a.item-favicon.active{ 
+.controll a.item-favicon.active{ 
 	background-position: -166px -519px; right:20px; }
 
 .gallery-list .item .intro{position: absolute; bottom: 0; left: 15px; right: 15px;}
@@ -135,33 +135,33 @@
 .gallery-cart>.cart-info>.cart-user{
 	margin-top: 30px;
 }
-.gallery-cart .cart-user .user-img{
+.cart-user .user-img{
 	padding-right: 0;
 }
-.gallery-cart .cart-user .user-name{
+.cart-user .user-name{
 	font-size: 20px;
 	color: #555;
 }
-.gallery-cart .cart-user .user-info{
+.cart-user .user-info{
 	font-size: 14px;
 	color: #999;
 }
-.gallery-cart .cart-user .user-info>font{
+.cart-user .user-info>font{
 	color: #555;
 }
-.gallery-cart .cart-user .user-info>span{
+.cart-user .user-info>span{
 	margin-left: 30px;
 }
-.gallery-cart .cart-user .user-btn>a{
+.cart-user .user-btn>a{
 	padding: 5px 25px;
 	background-color: #fb9a60;
 	border:none;
 	border-radius: 4px;
 	color: #fff
 }
-.gallery-cart .cart-user .user-btn>a:hover{background-color: #f98742; }
-.gallery-cart .cart-user .user-btn>a.disable{background-color: #999;}
-.gallery-cart .cart-user .user-btn>a.disable:hover{background-color: #555;}
+.cart-user .user-btn>a:hover{background-color: #f98742; }
+.cart-user .user-btn>a.disable{background-color: #999;}
+.cart-user .user-btn>a.disable:hover{background-color: #555;}
 .gallery-cart .cart-intro{
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #ccc;
@@ -213,4 +213,89 @@
 }
 .gallery-hot .hot-item{
 	margin-bottom: 10px;
+}
+
+/*show.html css*/
+.gallery-show .show-image{
+	background-color: #fffbf0;
+}
+.gallery-show .show-title{
+	font-size: 24px;
+	margin-bottom: 30px;
+	color: #fb9a60;
+	text-align: center;
+	margin-top: 37px;
+}
+.gallery-show .show-img{
+	position: relative;
+	margin-bottom: 30px;
+}
+.gallery-show>.show-info{
+	font-size: 16px;
+	color: #777;
+	line-height: 1.5;
+}
+.gallery-show>.show-info .detail-head{
+	font-size: 24px;
+	color: #fb9a60;
+	margin-top: 29px;
+	margin-bottom: 20px;
+}
+.gallery-show>.show-info .detail-tag>span{
+	padding: 5px 22px;
+	border:1px solid #999;
+	border-radius: 25px;
+	margin-left: 10px;
+	display: inline-block;margin-top: 5px;
+}
+.gallery-show>.show-info .detail-exif>li{
+	line-height: 30px;
+	margin:0;
+	border:none;
+	border-bottom: 1px solid #ccc;
+	color: #999;
+}
+.gallery-show>.show-info .detail-exif .exif-name{
+	padding-left: 8px;
+	display: inline-block;
+	width: 30%;
+}
+.gallery-show>.show-info .detail-exif .exif-value{
+	color: #555;
+}
+.gallery-show .detail-money{
+	font-size: 16px;
+	color: #999;
+}
+.gallery-show .detail-money>span{
+	color: #555;
+}
+.gallery-show .detail-money>span>font{
+	color: #fb9a60;
+	font-size: 24px;
+}
+.gallery-show .detail-down-btn{
+	border:none;
+	border-radius: 4px;
+	color: #fff;
+	background:url(../img/bg.png) no-repeat -700px 10px #fb9a60;
+	font-size: 24px;
+	width: 100%;
+}
+.gallery-show .detail-down-btn:hover{
+	background-color: #fb9a60;
+	color: #fff;
+}
+.gallery-show .detail-match{
+	font-size: 16px;
+	color: #555;
+}
+.gallery-show .detail-match span{
+	color: #999;
+	margin-right: 20px;
+}
+.gallery-show .detail-copyright{
+	color: #777;
+	line-height: 1.5;
+	font-size: 16px;
 }

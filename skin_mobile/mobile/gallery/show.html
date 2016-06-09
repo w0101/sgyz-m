@@ -1,0 +1,77 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>css/gallery.css"/>
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<div class="container gallery-show">
+	<div class="row show-image">
+		<div class="show-title"><{$data['title']}></div>
+		<div class="show-img col-xs-12 col-sm-12">
+			<img src="<{$_path}><{$data['images']}>" class="img-responsive" alt="<{$data['title']}>"/>
+			<div class="controll">
+				<a href="<{url c='gallery' a='cart' id=$data['id']}>" class="item-cart"></a>
+				<a href="javascript:void(0);" class="item-favicon<{if $isfav==1}> active<{/if}>"></a>
+			</div>
+		</div>
+	</div>
+	<div class="show-info row">
+		<div class="col-xs-12 col-sm-8">
+			<{if count($data['tag'])>0 }>
+			<div class="detail-head">标签</div>
+			<div class="detail-tag"><{foreach $data['tag'] as $k => $v}><span><{$v}></span><{/foreach}></div>
+			<{/if}>
+			<div class="detail-head">作品描述</div>
+			<p class="detail-intro"><{htmlspecialchars_decode($data['intro'])}></p>
+			<{if !empty($exif)}>
+			<div class="detail-head">EXIF信息</div>
+			<ul class="detail-exif list-group">
+				<li class="list-group-item"><span class="exif-name">图片大小</span><span class="exif-value">(1920x1280)/<{$exif['FileSize']}></span></li>
+				<li class="list-group-item"><span class="exif-name">相机</span><span class="exif-value"><{$exif['Make']}></span></li>
+				<li class="list-group-item"><span class="exif-name">拍摄时间</span><span class="exif-value"><{$exif['FileDateTime']}></span></li>
+				<li class="list-group-item"><span class="exif-name">光圈</span><span class="exif-value"><{$exif['FNumber']}></span></li>
+				<li class="list-group-item"><span class="exif-name">焦距</span><span class="exif-value"><{$exif['FocalLength']}></span></li>
+				<li class="list-group-item"><span class="exif-name">ISO</span><span class="exif-value"><{$exif['ISOSpeedRatings']}></span></li>
+				<li class="list-group-item"><span class="exif-name">快门</span><span class="exif-value"><{$exif['ExposureTime']}></span></li>
+			</ul>
+			<{/if}>
+		</div>
+		<div class="col-xs-12 col-sm-4">
+			<div class="detail-head">下载</div>
+			<div class="detail-down">
+				<p class="detail-money">售价：<span><font><{$data['fee']}></font>积分</span></p>
+				<a href="javascript:void(0);" class="btn btn-default detail-down-btn">下载此图</a>
+			</div>
+			<div class="detail-head">摄影师</div>
+			<div class="cart-user row">
+				<div class="user-img col-xs-4 col-sm-4"><img src="<{$_path}><{$fouser['avatar']}>" alt="<{$fouser['nickname']}>" class="img-responsive"/></div>
+				<div class="user-intro col-xs-8 col-sm-8">
+					<p class="user-name"><{$fouser['nickname']}></p>
+					<p class="user-info">粉丝数：<font class="user-fs"><{$fouser['fans']}></font><span class="user-match">参赛数：<font><{$fouser['match']}></font></span></p>
+					<p class="user-btn"><a class="btn btn-default<{if $isfollow==1}> disable<{/if}>" href="javascripy:void(0);" data-userid="<{$data['userid']}>"><{if $isfollow==1}>取消关注<{else}>关注<{/if}></a></p>
+				</div>
+			</div>
+			<{if $match_item}>
+			<div class="detail-head">参赛情况</div>
+			<div class="detail-match">
+				<p><span>比赛</span><{$match_item['match_title']}></p>
+				<p><span>名次</span><{if $match_item['sorts']>0}>第<{$match_item['sorts']}>名<{else}>无<{/if}></p>
+			</div>
+			<{/if}>
+			<div class="detail-head">声明</div>
+			<div class="detail-copyright">
+				本网站图片版权归摄影师所有，未经购买，任何人不得随意使用本网站的原创作品（含预览图），否则将按照我国著作权法的相关规定被要求承担最高达50万元人民币的赔偿责任。
+			</div>
+		</div>
+	</div>
+	<div class="gallery-hot">
+		<div class="hot-title">热门推荐</div>
+		<div class="row">
+			<{foreach $topList as $k => $v}>
+				<div class="col-sm-4 col-xs-6 hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a></div>
+			<{/foreach}>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">var _userid="<{$uid}>",_id="<{$data['id']}>",_fee="<{$data['fee']}>",_iscart="<{$iscart}>";app.push('gallery/show');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

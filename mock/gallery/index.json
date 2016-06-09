@@ -13,6 +13,8 @@
     "kw":"",
     "order":1,
     "catid":0,
+    "iscart":0,
+    "isfav":1,
     "cat":[
         {
             "id":1,
@@ -107,10 +109,14 @@
     "isfollow":1,
     "integral":10,
     "data":{
+        "id":1,
         "images":"data/upload/20160427/d5f30cc6f6.jpg",
         "title":"吃东西的小猫",
         "userid":1,
-        "fee":1
+        "fee":1,
+        "tag":["树林", "风光","文艺","4","树林", "风光","文艺","4"],
+        "intro":"这个his韩国改阿合格改按核定和代工和低功耗的人  "
+
     },
     "fouser":{
         "avatar":"data/assets/images/avatar.jpg",
@@ -146,6 +152,19 @@
             "title":"lll"
         }
     ],
+    "exif":{
+        "FileSize":"1028*890",
+        "Make":"Canno 50",
+        "FileDateTime":"2016-05-05",
+        "FNumber":"3",
+        "FocalLength":"400mm",
+        "ISOSpeedRatings":"100",
+        "ExposureTime":"1/20"
+    },
+    "match_item":{
+        "match_title":"xx比赛",
+        "sorts":2
+    },
     "footer_artlist":[
         {
             "id":1,

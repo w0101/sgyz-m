@@ -18,6 +18,10 @@
     "/gallery/cart.html":{
         "tpl":"mobile/gallery/cart.html",
         "action":"gallery/main.php"
+    },
+    "/gallery/show.html":{
+        "tpl":"mobile/gallery/show.html",
+        "action":"gallery/main.php"
     }
 
 
