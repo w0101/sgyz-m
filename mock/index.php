@@ -35,7 +35,8 @@
         }else{
             $m = '';
             $route = "$c/$a";
-            $url = $_SERVER["SCRIPT_NAME"]."?c=$c&a=$a$params";
+           // $url = $_SERVER["SCRIPT_NAME"]."?c=$c&a=$a$params";
+            $url = "http://localhost:8848/".$route.".html";
         }
 
         if(!empty($GLOBALS['rewrite'])){

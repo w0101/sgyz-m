@@ -1,7 +1,7 @@
 //页面UI互动控制脚本
 /*基础类*/
 define('common', function (require) {
-	var $=require('jquery');
+	var $=require('jquery'),util=require('util'),dialog = require('dialog/dialog');
 	require("bootstrap")($);
 	
 	if($('.nav-subnav').height()>40){
@@ -15,6 +15,51 @@ define('common', function (require) {
 	$('#search-icon').on('tap', function(){
 		$('.cover').removeClass('hidden');
 	})
+
+	$('.follow-btn').click(function(){
+		var userid = parseInt($(this).attr('data-userid'));
+		if(userid < 1) return ;
+		var that = this;
+		if($(this).hasClass('disable')){
+			$.getJSON(util.ajaxurl('cancelfollow'),{to:userid},function(result){
+				if(result.status == true){
+					alert(result.message);
+					$(that).removeClass('disable').text('关注');
+				}else{
+					alert(result.message);
+				}
+			});
+		}else{
+			$.getJSON(util.ajaxurl('addfollow'),{to:userid},function(result){
+				if(result.status == true){
+					alert(result.message);
+					$(that).addClass('disable').text('取消关注');
+				}else{
+					alert(result.message);
+				}
+			});
+		}
+	})
+
+	//对dialog对象居中对齐化
+	var dialog_h = $('.dialog').height();
+	var dialog_w = $('.dialog').width();
+	var winw = $(window).width();
+	var winh = $(window).height();
+
+	$('.dialog').css({top:(winh-dialog_h)/2+"px",left:(winw-dialog_w)/2+"px"}).hide();
+
+	$('.dialog>.close').click(function(){
+		if($('.dialog').is(":visible") == true){
+			$(".dialog").hide();
+		}
+	})
+	$('.dialog>.controll>.canlce-btn').click(function(){
+		if($('.dialog').is(":visible") == true){
+			$(".dialog").hide();
+		}
+	})
+
 	/*var util = require('util'),$ = require('jquery'),dialog = require('dialog/dialog');
 
 	//导航图库下拉控制
@@ -59,52 +104,10 @@ define('common', function (require) {
 	}
 
 
-	//对dialog对象居中对齐化
-	var dialog_h = $('.dialog').height();
-	var dialog_w = $('.dialog').width();
-	var winw = $(window).width();
-	var winh = $(window).height();
-
-	$('.dialog').css({top:(winh-dialog_h)/2+"px",left:(winw-dialog_w)/2+"px"}).hide();
-
-	$('.dialog>.close').click(function(){
-		if($('.dialog').is(":visible") == true){
-			$(".dialog").hide();
-		}
-	})
-	$('.dialog>.controll>.canlce-btn').click(function(){
-		if($('.dialog').is(":visible") == true){
-			$(".dialog").hide();
-		}
-	})
-	$('.follow-btn').click(function(){
-		var userid = parseInt($(this).attr('data-userid'));
-		if(userid < 1) return ;
-		var that = this;
-		if($(this).hasClass('disable')){
-			$.getJSON(util.ajaxurl('cancelfollow'),{to:userid},function(result){
-				if(result.status == true){
-					alert(result.message);
-					$(that).removeClass('disable').text('关注');
-				}else{
-					alert(result.message);
-				}
-			});
-		}else{
-			$.getJSON(util.ajaxurl('addfollow'),{to:userid},function(result){
-				if(result.status == true){
-					alert(result.message);
-					$(that).addClass('disable').text('取消关注');
-				}else{
-					alert(result.message);
-				}
-			});
-		}
-	})
+	
+	
 	//task referer status
 	$.getJSON(util.ajaxurl('task'),function(result){ return ;})
 	//绑定图片加载失败时.
-	$('img').on('error',this,function(){
-		$(this).attr('src',_assets+'images/nopic.gif');
-	});*/
+	*/
 });

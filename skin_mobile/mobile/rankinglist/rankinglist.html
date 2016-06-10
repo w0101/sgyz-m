@@ -1,9 +1,9 @@
-<{include file="../include/head.html"}>
+<{include file="mobile/include/head.html"}>
 <link rel="stylesheet" type="text/css" href="<{$_skin}>css/rankinglist.css"/>
 </head>
 <body>
-<{include file="../include/nav.html"}>
-<{include file="../include/banner_carousel.html"}>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/banner_carousel.html"}>
 <div class="container">
 <div class="ranking-list">
 	<div class="inner-title">用户排行榜</div>
@@ -33,10 +33,8 @@
 	</div>
 </div>
 </div>
-<{include file="../include/footer.html"}>
-<{include file="../include/end.html"}>
+<{include file="mobile/include/footer.html"}>
 <script type="text/javascript">
-  seajs.use('rankinglist/rankinglist');
+  app.push('rankinglist/rankinglist');
 </script>
-</body>
-</html>
+<{include file="mobile/include/end.html"}>

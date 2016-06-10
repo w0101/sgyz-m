@@ -11,11 +11,11 @@
 		<div class="col-xs-12 col-sm-4 cart-info">
 			<div class="cart-name"><{$data['title']}></div>
 			<div class="cart-user row">
-				<div class="user-img col-xs-4 col-sm-4"><img src="<{$_path}><{$fouser['avatar']}>" alt="<{$fouser['nickname']}>" class="img-responsive"/></div>
+				<div class="user-img col-xs-4 col-sm-4"><img src="<{$_path}><{$fouser['avatar']}>" alt="<{$fouser['nickname']}>" class="img-responsive" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></div>
 				<div class="user-intro col-xs-8 col-sm-8">
 					<p class="user-name"><{$fouser['nickname']}></p>
 					<p class="user-info">粉丝数：<font class="user-fs"><{$fouser['fans']}></font><span class="user-match">参赛数：<font><{$fouser['match']}></font></span></p>
-					<p class="user-btn"><a class="btn btn-default<{if $isfollow==1}> disable<{/if}>" href="javascripy:void(0);" data-userid="<{$data['userid']}>"><{if $isfollow==1}>取消关注<{else}>关注<{/if}></a></p>
+					<p class="user-btn"><a class="follow-btn btn btn-default<{if $isfollow==1}> disable<{/if}>" href="javascripy:void(0);" data-userid="<{$data['userid']}>"><{if $isfollow==1}>取消关注<{else}>关注<{/if}></a></p>
 				</div>
 			</div>
 			<div class="cart-intro">
@@ -41,7 +41,7 @@
 		<div class="hot-title">热门推荐</div>
 		<div class="row">
 			<{foreach $topList as $k => $v}>
-				<div class="col-sm-4 col-xs-6 hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a></div>
+				<div class="col-sm-4 col-xs-6 hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a></div>
 			<{/foreach}>
 		</div>
 	</div>

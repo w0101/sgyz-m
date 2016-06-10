@@ -159,9 +159,9 @@
 	border-radius: 4px;
 	color: #fff
 }
-.cart-user .user-btn>a:hover{background-color: #f98742; }
-.cart-user .user-btn>a.disable{background-color: #999;}
-.cart-user .user-btn>a.disable:hover{background-color: #555;}
+.cart-user .user-btn>a:hover{background-color: #f98742; color: #fff;}
+.cart-user .user-btn>a.disable{background-color: #999; color: #fff;}
+.cart-user .user-btn>a.disable:hover{background-color: #555; color: #fff;}
 .gallery-cart .cart-intro{
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #ccc;

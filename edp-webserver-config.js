@@ -12,6 +12,16 @@ exports.documentRoot = __dirname;
 exports.getLocations = function () {
     return [
         {
+            location:/\/ajax/,
+            handler:json({
+                "status":true,
+                "data":{
+                    "url":"/data/upload/20160427/d5f30cc6f6.jpg"
+                }
+
+            })
+        },
+        {
             // location: /.php$/,
             location: /\.php($|\?)|^\/index|\.html($|\?)/,
             handler: [

@@ -33,7 +33,7 @@
 	<div class="gallery-list row">
 		<{foreach $list as $k => $v}>
 			<div class="item col-xs-12 col-sm-4" data-id="<{$v['id']}>">
-				<a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a>
+				<a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a>
 				<div class="controll">
 					<a href="<{url c='gallery' a='cart' id=$v['id']}>" class="item-cart"></a>
 					<a href="javascript:void(0);" class="item-zambia"></a>
@@ -50,6 +50,7 @@
 </div>
 <{include file="mobile/include/footer.html"}>
 <script type="text/javascript">
-  app.push('gallery/index');
+	var _login_url="<{$login_url}>";
+  	app.push('gallery/index');
 </script>
 <{include file="mobile/include/end.html"}>
