@@ -6,13 +6,13 @@ define('common', function (require) {
 	
 	if($('.nav-subnav').height()>40){
 		$('#show-nav').removeClass('hidden');
-		$('#show-nav').on('tap',function(){
+		$('#show-nav').on('click',function(){
 			$('.subnav-container').toggleClass('slide');
 			$('#show-nav').toggleClass('show-down show-up');
 		});
 	}
 
-	$('#search-icon').on('tap', function(){
+	$('#search-icon').on('click', function(){
 		$('.cover').removeClass('hidden');
 	})
 
