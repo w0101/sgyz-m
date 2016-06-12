@@ -96,4 +96,23 @@ define(function(require){
 		wdia.show();
 		return false;
 	})
+	require('waterFall')($);
+	var containerWidth = $('.hot-row').width();
+	var itemWidth = 0;
+	if(containerWidth>768){
+		itemWidth = 300;
+	}else{
+		itemWidth = containerWidth;
+	}
+	//console.log(containerWidth);
+	window.onload = function () {
+		$('.gallery-list').waterFall({
+			container: 'hot-row',
+			child: 'hot-item',
+			width: itemWidth,
+			gap: 10,
+			minRow: 1,
+			resize: false
+		})
+	}
 })

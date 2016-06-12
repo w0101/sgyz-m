@@ -30,9 +30,9 @@
 		</ul>
 		<div class="show-btn hidden show-down" id="show-category"></div>
 	</div>
-	<div class="gallery-list row">
+	<div class="gallery-list">
 		<{foreach $list as $k => $v}>
-			<div class="item col-xs-12 col-sm-4" data-id="<{$v['id']}>">
+			<div class="item" data-id="<{$v['id']}>">
 				<a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a>
 				<div class="controll">
 					<a href="<{url c='gallery' a='cart' id=$v['id']}>" class="item-cart"></a>

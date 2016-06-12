@@ -44,5 +44,25 @@ define(function(require,exports){
 				}
 			});
 		}
-	})
+	});
+
+	require('waterFall')($);
+	var containerWidth = $('.gallery-list').width();
+	var itemWidth = 0;
+	if(containerWidth>768){
+		itemWidth = 300;
+	}else{
+		itemWidth = containerWidth;
+	}
+	//console.log(containerWidth);
+	window.onload = function () {
+		$('.gallery-list').waterFall({
+			container: 'gallery-list',
+			child: 'item',
+			width: itemWidth,
+			gap: 10,
+			minRow: 1,
+			resize: false
+		});
+	}
 })

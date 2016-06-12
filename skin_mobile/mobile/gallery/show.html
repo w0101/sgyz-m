@@ -65,9 +65,9 @@
 	</div>
 	<div class="gallery-hot">
 		<div class="hot-title">热门推荐</div>
-		<div class="row">
+		<div class="hot-row">
 			<{foreach $topList as $k => $v}>
-				<div class="col-sm-4 col-xs-6 hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a></div>
+				<div class="hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a></div>
 			<{/foreach}>
 		</div>
 	</div>

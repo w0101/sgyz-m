@@ -5,11 +5,12 @@
 <{include file="mobile/include/nav.html"}>
 <div class="container">
 	<div class="row gallery-cart">
+		<div class="cart-name visible-xs"><{$data['title']}></div>
 		<div class="col-xs-12 col-sm-8 cart-img">
 			<img src="<{$_path}><{$data['images']}>" alt="<{$data['title']}>" class="img-responsive"/>
 		</div>
 		<div class="col-xs-12 col-sm-4 cart-info">
-			<div class="cart-name"><{$data['title']}></div>
+			<div class="cart-name hidden-xs"><{$data['title']}></div>
 			<div class="cart-user row">
 				<div class="user-img col-xs-4 col-sm-4"><img src="<{$_path}><{$fouser['avatar']}>" alt="<{$fouser['nickname']}>" class="img-responsive" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></div>
 				<div class="user-intro col-xs-8 col-sm-8">
@@ -39,9 +40,9 @@
 	</div>
 	<div class="gallery-hot">
 		<div class="hot-title">热门推荐</div>
-		<div class="row">
+		<div class="hot-row">
 			<{foreach $topList as $k => $v}>
-				<div class="col-sm-4 col-xs-6 hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a></div>
+				<div class="hot-item"><a href="<{url c='gallery' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a></div>
 			<{/foreach}>
 		</div>
 	</div>
