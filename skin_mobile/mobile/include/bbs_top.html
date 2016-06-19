@@ -1,8 +1,9 @@
-<div class="bbs-cat big">
-	<ul>
-		<li class="bbshome"><a href="<{url c="bbs" a="index"}>"<{if $catid == 0}> class="active"<{/if}>>论坛首页</a></li>
+<div class="container bbs-nav-container">
+	<ul class="nav nav-tabs bbs-top-nav">
+		<li role="presentation" class="bbshome<{if $catid == 0}> active<{/if}>"><a href="<{url c="bbs" a="index"}>">论坛首页</a></li>
 		<{foreach $cat as $k=>$v}>
-		<li><a href="<{url c="bbs" a="cat" id=$v['id']}>"<{if $catid == $v['id']}> class="active"<{/if}>><{$v['name']}></a></li>
+		<li role="presentation" class="<{if $catid == $v['id']}> active<{/if}>"><a href="<{url c="bbs" a="cat" id=$v['id']}>"><{$v['name']}></a></li>
 		<{/foreach}>
 	</ul>
+	<div class="show-btn show-down hidden" id="show-bbs-nav"></div>
 </div>

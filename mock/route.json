@@ -22,7 +22,21 @@
     "/gallery/show.html":{
         "tpl":"mobile/gallery/show.html",
         "action":"gallery/main.php"
+    },
+    "/bbs/index.html":{
+        "tpl":"mobile/bbs/index.html",
+        "action":"bbs/main.php"
+    },
+    "/bbs/cat.html":{
+        "tpl":"mobile/bbs/cat.html",
+        "action":"bbs/main.php"
+    },
+    "/bbs/show.html":{
+        "tpl":"mobile/bbs/show.html",
+        "action":"bbs/main.php"
+    },
+    "/bbs/upload.html":{
+        "tpl":"mobile/bbs/upload.html",
+        "action":"bbs/main.php"
     }
-
-
 }

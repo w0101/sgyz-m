@@ -11,6 +11,13 @@ define('common', function (require) {
 			$('#show-nav').toggleClass('show-down show-up');
 		});
 	}
+	if($('.bbs-top-nav').height()>50){
+		$('#show-bbs-nav').removeClass('hidden');
+		$('#show-bbs-nav').on('click',function(){
+			$('.bbs-nav-container').toggleClass('slide');
+			$('#show-bbs-nav').toggleClass('show-down show-up');
+		});
+	}
 
 	$('#search-icon').on('click', function(){
 		$('.cover').removeClass('hidden');

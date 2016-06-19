@@ -62,10 +62,16 @@ html, body{
 	right:10px;
 	padding: 10px;
 }
-.subnav-container .show-up{
+.bbs-nav-container>.show-btn{
+	position: absolute;
+	top:7px;
+	right:5px;
+	padding: 10px;
+}
+.subnav-container .show-up,.bbs-nav-container .show-up{
 	background: url(../img/bg.png) no-repeat -655px 0;
 }
-.subnav-container .show-down{
+.subnav-container .show-down,.bbs-nav-container .show-down{
 	background: url(../img/bg.png) no-repeat -676px 0;
 }
 .cover{
