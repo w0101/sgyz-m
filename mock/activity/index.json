@@ -1,0 +1,118 @@
+{
+    "PageTitle": "时光驿站",
+    "PageKeyword": "时光驿站",
+    "PageDescribe": "时光驿站",
+    "_path":"/",
+    "_skin": "/skin_mobile/",
+    "_assets": "/",
+    "uid": 1,
+    "_message":1,
+    "_avatar":"data/assets/images/gallery_1.jpg",
+    "username":"xiaz",
+    "login_url":"/login.html",
+    
+    "status":1,
+    "catid":0,
+    "fee":0,
+    "cat":[
+        {
+            "id":1,
+            "name":"摄影讲座"
+        },{
+            "id":1,
+            "name":"采风拍摄"
+        },{
+            "id":3,
+            "name":"外拍人像"
+        },{
+            "id":4,
+            "name":"室内人像"
+        },{
+            "id":1,
+            "name":"行摄自驾"
+        },{
+            "id":1,
+            "name":"水摄活动"
+        }
+    ],
+    "list":[
+        {
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"过后恢复数据库发动机及机房及等级",
+            "catid":1,
+            "address":"信息中心体育馆",
+            "startime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "nums":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":1,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":3,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":3,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":2,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":1,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        }
+    ],
+    "catN":["摄影讲座","采风拍摄","外拍人像","室内人像","行摄自驾","水摄活动"],
+    "page_html":"<div class='pager big'><a href='javascript:void(0);' class='prev'>上一页</a><ul class='page-num'><a href='javascript:void(0);' class='active'>1</a><a href='http://localhost:8080/bbs/show_1.html?page=2'>2</a><a url='javascript:void(0)'>3</a><a url='javascript:void(0)'>4</a><a url='javascript:void(0)'>5</a><a url='javascript:void(0)'>6</a><a url='javascript:void(0)'>7</a><a url='javascript:void(0)'>8</a></ul><a href='http://localhost:8080/bbs/show_1.html?page=2' class='next'>下一页</a></div>",
+    "cfg":{
+        "copyright":"Copyright by 2015 -2018 时光驿站 All Rights Reserved. 湘ICP备08105577"
+    }
+}

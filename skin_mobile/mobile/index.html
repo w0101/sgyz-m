@@ -10,7 +10,7 @@
         <div class="inner-title gallery-title">图片类型<span class="title-yellow"> / Gallery</span><a href="<{url c="gallery" a="index"}>" class="pull-right title-small">更多<span class="title-yellow">/more</span></a></div>
         <div class="row">
             <{foreach $index_gallery as $k => $v}>
-              <div class="col-sm-4 col-xs-6 gallery-item">
+              <div class="col-sm-3 col-xs-6 gallery-item">
                 <a href="<{url c="gallery" a="index" catid=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/><p><{$v['name']}></p></a>
               </div>
             <{/foreach}>
@@ -238,4 +238,3 @@
   app.push('index/index');
 </script>
 <{include file="mobile/include/end.html"}>
-

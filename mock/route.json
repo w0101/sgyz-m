@@ -38,5 +38,13 @@
     "/bbs/upload.html":{
         "tpl":"mobile/bbs/upload.html",
         "action":"bbs/main.php"
+    },
+    "/activity/index.html":{
+        "tpl":"mobile/activity/index.html",
+        "action":"activity/main.php"
+    },
+    "/activity/show.html":{
+        "tpl":"mobile/activity/show.html",
+        "action":"activity/main.php"
     }
 }

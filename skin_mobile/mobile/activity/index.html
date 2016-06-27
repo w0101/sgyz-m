@@ -1,0 +1,69 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>css/activity.css"/>
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<div class="container">
+	<div class="activity-head">
+		<div class="head-title">活动<span class="yellow-color"> / activity</span></div>
+		<div class="dropdown pull-right recommend-list visible-xs">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list yellow-color"></span></a>
+	      <ul class="dropdown-menu menu-list">
+	        <li><a href="<{url c='activity' a='index' status="1" fee=$fee catid=$catid}>"<{if $status == 1}> class="active"<{/if}>>全部活动</a></li>
+			<li><a href="<{url c='activity' a='index' status="2" fee=$fee catid=$catid}>"<{if $status == 2}> class="active"<{/if}>>正在报名</a></li>
+			<li><a href="<{url c='activity' a='index' status="3" fee=$fee catid=$catid}>"<{if $status == 3}> class="active"<{/if}>>报名结束</a></li>
+	      </ul>
+	    </div>
+	    <div class="recommend-list-pad list-group hidden-xs pull-right">
+	        <a class="list-group-item pull-left<{if $status == 1}> active<{/if}>" href="<{url c='activity' a='index' status="1" fee=$fee catid=$catid}>">全部活动</a>
+			<a class="list-group-item pull-left<{if $status == 2}> active<{/if}>" href="<{url c='activity' a='index' status="2" fee=$fee catid=$catid}>">正在报名</a>
+			<a class="list-group-item pull-left<{if $status == 3}> active<{/if}>" href="<{url c='activity' a='index' status="3" fee=$fee catid=$catid}>">报名结束</a>
+	    </div>
+	</div>
+	<div class="activity-category subnav-container">
+		<span class="activity-ctitle">主题：</span>
+		<ul class="activity-category-list">
+			<li<{if $catid == 0}> class="active"<{/if}>><a href="<{url c='activity' a='index' status=$status fee=$fee catid="0"}>">全部</a></li>
+			<{foreach $cat as $k => $v}>
+			<li<{if $catid == $v['id']}> class="active"<{/if}>><a href="<{url c='activity' a='index' status=$status fee=$fee catid=$v['id']}>"><{$v['name']}></a></li>
+			<{/foreach}>
+		</ul>
+		<div class="show-btn hidden show-down" id="show-category"></div>
+	</div>
+	<div class="activity-category">
+		<span class="activity-ctitle">费用：</span>
+		<ul class="activity-category-list">
+			<li<{if $fee == 0}> class="active"<{/if}>><a href="<{url c='activity' a='index' status=$status fee="0" catid=$catid}>">全部</a></li>
+			<li<{if $fee == 1}> class="active"<{/if}>><a href="<{url c='activity' a='index' status=$status fee="1" catid=$catid}>">免费</a></li>
+			<li<{if $fee == 2}> class="active"<{/if}>><a href="<{url c='activity' a='index' status=$status fee="2" catid=$catid}>">付费</a></li>
+		</ul>
+	</div>
+	<div class="activity-list">
+		<{foreach $list as $k => $v}>
+		<div class="item row">
+			<div class="item-img col-sm-6 col-xs-12"><a href="<{url c='activity' a='show' id=$v['id']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>"/></a></div>
+			<div class="item-intro col-sm-6 col-xs-12">
+				<p class="item-title one-line-ellipsis"><a href="<{url c='activity' a='show' id=$v['id']}>"><{if isset($catN[$v['catid']])}>[<{$catN[$v['catid']]}>]<{/if}><{$v['title']}></a></p>
+				<div class="item-info">
+					<p>活动地点：<span><{$v['address']}></span></p>
+					<p>活动时间：<span><{date("Y.m.d",$v['startime'])}>至<{date("Y.m.d",$v['stoptime'])}></span></p>
+					<p>报名截至：<span><{date("Y年m月d日 H:i",$v['endtime'])}></span></p>
+					<p>活动名额：<span><font><{$v['nums']}></font>/<{$v['total']}></span></p>
+					<p>报名费用：<font><{$v['fee']}>积分</font></p>
+				</div>
+				<{if $v['status'] ==1}>
+				<a href="<{url c='activity' a='show' id=$v['id']}>" class="item-btn">我要报名</a>
+				<{else}>
+				<a href="<{url c='activity' a='show' id=$v['id']}>" class="item-btn">查看活动</a>
+				<{/if}>
+			</div>
+		</div>
+		<{/foreach}>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<{include file="mobile/include/footer.html"}>
+<script type="text/javascript">
+  app.push('activity/index');
+</script>
+<{include file="mobile/include/end.html"}>

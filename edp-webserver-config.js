@@ -4,22 +4,88 @@
  */
 
 /* globals home, redirect, content, empty, autocss, file, less, stylus, proxyNoneExists */
-
+var fs = require('fs');
+var path = require('path');
+var queryString = require('querystring');
 
 exports.port = 8848;
 exports.directoryIndexes = true;
 exports.documentRoot = __dirname;
+
+function requestHandler(req) {
+    var pathName = req.pathname || '';
+
+    pathName = pathName.substr(0,pathName.length-5);
+     console.log('Request Path: ' + pathName);
+    var mockFilePath = process.cwd() + '/mock' + pathName;
+    if (!fs.existsSync(mockFilePath + '.js')) {
+        return false;
+    }
+    console.log("end");
+    // writeLogFile(req, 'Request Path: ' + pathName, 'INFO');
+    
+    delete require.cache[require.resolve(mockFilePath)];
+    var mockDataHandler = require(mockFilePath);
+    return mockDataHandler;
+}
+
 exports.getLocations = function () {
     return [
         {
             location:/\/ajax/,
-            handler:json({
-                "status":true,
-                "data":{
-                    "url":"/data/upload/20160427/d5f30cc6f6.jpg"
-                }
+            handler:
+            /*json({
+                "status":"success"
+            })*/
+            [
+                function (context) {
+                    try {
+                        context.stop();
+                        var request = context.request;
+                        var mockDataHandler = requestHandler(request);
+                        if (mockDataHandler) {
 
-            })
+                            var query = queryString.parse(
+                                request.search.substr(1)
+                            );
+
+                            var postData = request.bodyBuffer || '';
+                            var reqBody = queryString.parse(
+                                postData.toString()
+                            );
+
+                            var data = mockDataHandler.response(
+                                query, request, reqBody, context
+                            );
+
+                            var contentType = context.header['Content-Type'];
+
+                            // 返回值未指定内容类型，默认按JSON格式处理返回
+                            if (!contentType) {
+                                contentType = 'application/json;charset=UTF-8';
+                                context.content = JSON.stringify(data || {});
+                            }
+
+                            var timeout = mockDataHandler.timeout;
+
+                            if (timeout) {
+                                setTimeout(function () {
+                                    context.start();
+                                }, timeout);
+                            }
+                            else {
+                                context.start();
+                            }
+                        }
+                        else {
+                            error404(context);
+                        }
+                    }
+                    catch (e) {
+                        error500(context, e);
+                    }
+                }
+            ]
         },
         {
             // location: /.php$/,

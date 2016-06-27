@@ -548,20 +548,6 @@
 .bbs-sorce>.sorce-list>.item .item-controller>a{
 	color: #999;
 }
-.pager{text-align: center; margin-bottom: 10px;}
-.pager a,.pager ul li,.pager ul{display: inline-block; vertical-align: top; color: #999; font-size: 16px;}
-.pager .page-num a{display: inline-block; vertical-align: top; width: 32px; height: 32px; line-height: 32px; margin-right: 10px;border-radius: 4px;}
-.pager .page-num a:hover{background: #fb9a60;color: #fff;}
-.pager .page-num a.active{background: #fb9a60; color: #fff;}
-.pager a.prev,.pager a.next{border-radius: 4px; width: 88px; height: 32px;line-height: 32px; margin-right: 6px; background: url(../img/bg.png) no-repeat left top  #eeeeee;}
-.pager a.prev{ background-position: 6px -442px; }
-.pager a.next{ background-position: -28px -481px; }
-.pager a.prev:hover{background-color: #fb9a60; color: #fff;background-position: -86px -442px;}
-.pager a.next:hover{background-color: #fb9a60; color: #fff;background-position: 73px -481px;}
-.pager ul{}
-.pager ul li{ margin-right: 6px; }
-.pager ul li a{width: 32px; height: 32px; text-align: center; line-height: 32px; background: #eeeeee; border-radius: 4px;}
-.pager ul li a:hover,.pager ul li a.active{background: #fb9a60; color: #fff;}
 .bbs-reply .reply-user{width: 66px; text-align: left; display: inline-block;vertical-align: top;}
 .bbs-reply .reply-user img{ width: 50px;height: 50px; border-radius: 50%;}
 .bbs-reply .reply-context{ display: inline-block;}
