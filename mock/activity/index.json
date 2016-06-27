@@ -11,9 +11,11 @@
     "username":"xiaz",
     "login_url":"/login.html",
     
+    "check":0,
     "status":1,
     "catid":0,
     "fee":0,
+    "integral":100,
     "cat":[
         {
             "id":1,
@@ -112,6 +114,64 @@
     ],
     "catN":["摄影讲座","采风拍摄","外拍人像","室内人像","行摄自驾","水摄活动"],
     "page_html":"<div class='pager big'><a href='javascript:void(0);' class='prev'>上一页</a><ul class='page-num'><a href='javascript:void(0);' class='active'>1</a><a href='http://localhost:8080/bbs/show_1.html?page=2'>2</a><a url='javascript:void(0)'>3</a><a url='javascript:void(0)'>4</a><a url='javascript:void(0)'>5</a><a url='javascript:void(0)'>6</a><a url='javascript:void(0)'>7</a><a url='javascript:void(0)'>8</a></ul><a href='http://localhost:8080/bbs/show_1.html?page=2' class='next'>下一页</a></div>",
+    "data":{
+        "title":"越想家家发发看书看笔试比赛",
+        "thumb":"data/upload/20160427/0c117189a1.png",
+        "address":"sdcadacv焦点科技卡电脑查看的",
+        "aggaddress":"的市场慢慢慢开始考虑秘书处的",
+        "startime":1467022939,
+        "stoptime":1467022939,
+        "addtime":1467022939,
+        "nums":10,
+        "total":100,
+        "fee":33,
+        "answer":"dfmnmmmm",
+        "status":1,
+        "content":"<p>试点</p>",
+        "fee":100,
+        "id":10
+    },
+    "sign":[
+        {
+            "userid":1,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"吃dion个的小米"
+        },{
+            "userid":2,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"吃dion个的小米"
+        },{
+            "userid":3,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"吃dion个的小米"
+        }
+    ],
+    "simlist":[
+        {
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"dsSFS刚放过他吧",
+            "id":3,
+            "startime":1467022939,
+            "stoptime":1467022939,
+            "address":"ddfsfdvcd十大示范城市的vf"
+        },
+        {
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"dsSFS刚放过他吧",
+            "id":3,
+            "startime":1467022939,
+            "stoptime":1467022939,
+            "address":"ddfsfdvcd十大示范城市的vf"
+        },
+        {
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"dsSFS刚放过他吧",
+            "id":3,
+            "startime":1467022939,
+            "stoptime":1467022939,
+            "address":"ddfsfdvcd十大示范城市的vf"
+        }
+    ],
     "cfg":{
         "copyright":"Copyright by 2015 -2018 时光驿站 All Rights Reserved. 湘ICP备08105577"
     }

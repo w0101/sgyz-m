@@ -3,10 +3,80 @@
 </head>
 <body>
 <{include file="mobile/include/nav.html"}>
-<div class="container">
+<div class="activity-show container">
+	<h1 class="activity-title one-line-ellipsis"><{$data['title']}></h1>
+	<div class="detail-item row">
+		<div class="item-img col-sm-7 col-xs-12"><img class="img-responsive" src="<{$_path}><{$data['thumb']}>" alt="<{$data['title']}>" /></div>
+		<div class="item-intro col-sm-5 col-xs-12">
+				<p class="one-line-ellipsis">活动地点：<span><{$data['address']}></span></p>
+				<p class="one-line-ellipsis">集合地点：<span><{$data['aggaddress']}></span></p>
+				<p>活动时间：<span><{date("Y.m.d",$data['startime'])}>至<{date("Y.m.d",$data['stoptime'])}></span></p>
+				<p>报名截至：<span><{date("Y年m月d日 H:i",$data['addtime'])}></span></p>
+				<p>活动名额：<span><font><{$data['nums']}></font>/<{$data['total']}></span></p>
+				<p>报名费用：<font><{$data['fee']}></font>积分</p>
+				<p>组 织 者：<{$data['answer']}></p>
+			<{if $uid > 0}>
+				<{if $check > 0}>
+					<a href="javascript:void(0);" class="item-btn item-disable">已经报名</a>
+				<{else}>
+					<{if $data['status'] == 2}>
+						<{if $data['nums'] >= $data['total']}>
+							<a href="javascript:void(0);" class="item-btn item-disable">名额已满</a>
+						<{else}>
+							<a href="javascript:void(0);" class="item-btn item-disable">已经结束</a>
+						<{/if}>
+					<{else}>
+						<a href="javascript:void(0);" class="item-btn item-enroll">我要报名</a>
+					<{/if}>
+				<{/if}>
+			<{else}>
+			<a href="<{url c="login"}>" class="item-btn item-nologin">尚未登录</a>
+			<{/if}>
+		</div>
+	</div>
+	<div class="detail row">
+		<div class="detail-content col-sm-8 col-xs-12">
+			<div class="detail-head">活动详情</div>
+			<div class="detail-context">
+				<{htmlspecialchars_decode($data['content'])}>
+			</div>
+		</div>
+		<div class="detail-signup col-sm-4 col-xs-12">
+			<div class="detail-head">参加活动的成员（<{count($sign)}>）</div>
+			<div class="detail-user">
+				<{foreach $sign as $k => $v}>
+				<div class="item row">
+					<div class="item-img col-sm-3 col-xs-3"><a href="<{url c="user" a="view" id=$v['userid']}>"><img class="img-responsive" src="<{$_path}><{$v['avatar']}>" alt="<{$v['nickname']}>" /></a></div>
+					<div class="item-intro col-sm-9 col-xs-9">
+						<div class="item-name"><{$v['nickname']}></div>
+						<{if $v['userid'] != $uid}>
+						<a href="javascript:void(0);" data-userid="<{$v['userid']}>" class="item-btn follow-btn">关注</a>
+						<{/if}>
+					</div>
+				</div>
+				<{/foreach}>
+			</div>
+			<div class="detail-head">你可能还感兴趣的活动</div>
+			<div class="detail-sim-list">
+			<{foreach $simlist as $k => $v}>
+				<div class="item row">
+					<div class="item-img col-xs-4 col-sm-4"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></div>
+					<div class="item-intro col-xs-8 col-sm-8">
+						<p class="item-title one-line-ellipsis"><a href="<{url c='activity' a='show' id=$v['id']}>"><{$v['title']}></a></p>
+						<p class="item-date">活动时间：<{date("m.d",$v['startime'])}>-<{date("m.d",$v['stoptime'])}></p>
+						<p class="item-address one-line-ellipsis">活动地点：<{$v['address']}></p>
+					</div>
+				</div>
+			<{/foreach}>
+			</div>
+		</div>
+	</div>
 </div>
 <{include file="mobile/include/footer.html"}>
 <script type="text/javascript">
-  app.push('activity/show');
+	var _id = "<{$data['id']}>",
+	_html='<div class="service-signup-form"><p>本次活动报名需要消耗<span class="light"><{$data['fee']}></span>积分。</p><p>您的积分：<span class="light"><{$integral}></span><{if $integral < $data['fee']}> <span class="waring">积分不足</span><{/if}></p></div>',
+	_disable="<{if $integral < $data['fee']}>true<{else}>false<{/if}>";
+  	app.push('activity/show');
 </script>
 <{include file="mobile/include/end.html"}>
