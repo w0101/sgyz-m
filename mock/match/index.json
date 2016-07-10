@@ -1,0 +1,133 @@
+{
+    "PageTitle": "时光驿站",
+    "PageKeyword": "时光驿站",
+    "PageDescribe": "时光驿站",
+    "_path":"/",
+    "_skin": "/skin_mobile/",
+    "_assets": "/",
+    "uid": 1,
+    "_message":1,
+    "_avatar":"data/assets/images/gallery_1.jpg",
+    "username":"xiaz",
+
+    "status":0,
+    "_a":"show",
+    "work_is":0,
+    "vote_check":0,
+    "list":[
+        {
+            "id":2,
+            "thumb":"data/upload/20160427/6246e6e71f.jpg",
+            "title":"过后恢复数据库发动机及机房及等级",
+            "answer":"吃的吃的吃的",
+            "startime":1466907238,
+            "endtime":1466907238,
+            "fee":100,
+            "nums":11,
+            "intro":"ifID诶给刚开机房的女方的空间内部vsafoejoferad撒范德萨发voidajfvad是东方饭店的",
+            "users":33,
+            "status":1,
+            "vote_status":0
+
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":1,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":3,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":3,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":2,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"fengjing",
+            "catid":1,
+            "address":"信息中心体育馆",
+            "starttime":1466907238,
+            "stoptime":1466907238,
+            "endtime":1466907238,
+            "num":20,
+            "total":120,
+            "fee":100
+        }
+    ],
+    "matchlist":[
+        {
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"过后恢复数据库发动机及机房及等级",
+            "total":1024,
+            "userid":1,
+            "nickname":"df",     
+            "intro":"ifID诶给刚开机房的女方的空间内部vsafoejoferad撒范德萨发voidajfvad是东方饭店的"
+        },{
+            "id":2,
+            "thumb":"data/upload/20160427/0c117189a1.png",
+            "title":"过后恢复数据库发动机及机房及等级",
+            "total":1024,
+            "userid":1,
+            "nickname":"df",     
+            "intro":"ifID诶给刚开机房的女方的空间内部vsafoejoferad撒范德萨发voidajfvad是东方饭店的"
+        }
+    ],
+    "data":{
+        "id":1,
+        "thumb":"data/upload/20160427/6246e6e71f.jpg",
+        "title":"第三方的分公司的广泛的公司的发布vdfsvbfbvf",
+        "answer":"吃的吃的吃的",
+        "startime":1466907238,
+        "endtime":1466907238,
+        "fee":100,
+        "nums":11,
+        "intro":"ifID诶给刚开机房的女方的空间内部vsafoejoferad撒范德萨发voidajfvad是东方饭店的",
+        "users":33,
+        "status":2,
+        "vote_status":0,
+        "intro":"时光驿站专业摄影大赛“风光”类作品评选，参赛需要消耗10积分，设置优胜奖，获奖者可获得积分奖励。优胜奖获奖者之外，凡获得主办方认同的优秀作品，将纳入图库用于商业出售。",
+        "content":"<p>1. 投稿作品著作权属于投稿者所有，时光驿站拥有独家使用权（用于图库商售，所售积分归投稿者所有，平台只收取手续费）。杜绝一稿多投，如有此类情况发生，<br>将取消其获奖资格。 <br>2. 作品必须为参赛者的原创作品，参赛者承担所提交作品在版权及肖像权等方面可能发生的一切法律问题和纠纷。 <br>3. 凡网站投稿者，请于8号前后请关注站内入围通知私信。<br>4.比赛流程：①公布比赛主题并接受投稿 ②开放投票并停止投稿 ③公布比赛结果并发奖<br>5.网站会员方可投票，每次投票需选中3幅作品，投票分免费投票和付费投票两种，3幅作品可分别选择是否付费投票，每名会员每次比赛限投票1次。<br>6.每人每次比赛限投稿一次，可以投组图，每组图总数不超过15幅。</p>",
+        "demand":"<p>图片格式：JEPG，同时上传RAW有加分，长边尺寸至少1920，横竖皆可。</p>"
+    },
+    "cfg":{
+        "copyright":"Copyright by 2015 -2018 时光驿站 All Rights Reserved. 湘ICP备08105577"
+    }
+}

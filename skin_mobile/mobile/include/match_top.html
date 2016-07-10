@@ -1,7 +1,7 @@
-<div class="match-item big">
-	<div class="item-img"><img src="<{$_path}><{if strlen($data['thumb'])>10}><{$data['thumb']}><{else}>data/assets/images/nopic.gif<{/if}>" alt="<{$data['title']}>" /></div>
+<div class="match-item container">
+	<!--div class="item-img"><img src="<{$_path}><{if strlen($data['thumb'])>10}><{$data['thumb']}><{else}>mobile/img/nopic.gif<{/if}>" alt="<{$data['title']}>" /></div-->
 	<div class="item-info">
-		<p class="item-title"><{$data['title']}></p>
+		<p class="item-title one-line-ellipsis"><{$data['title']}></p>
 		<p class="item-company">主办方：<{$data['answer']}></p>
 		<p class="item-date">比赛时间：<{date('Y.m.d',$data['starttime'])}> - <{date('Y.m.d',$data['endtime'])}></p>
 		<p class="item-money">参赛费用：<{$data['fee']}>积分</p>

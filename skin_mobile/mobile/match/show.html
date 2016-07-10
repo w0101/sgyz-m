@@ -1,0 +1,31 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>css/match.css"/>
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/match_top.html"}>
+<div class="match-detail container">
+<{include file="mobile/include/match_menu.html"}>
+	<div class="tabpan-list">
+		<div class="tabpan match-info">
+			<div class="info-intro">
+				<p class="intro-head">比赛描述</p>
+				<div class="intro-text"><{htmlspecialchars_decode($data['intro'])}></div>
+			</div>
+			<div class="info-intro">
+				<p class="intro-head">参赛须知</p>
+				<div class="intro-text">
+					<{htmlspecialchars_decode($data['content'])}>
+				</div>
+			</div>
+			<div class="info-intro">
+				<p class="intro-head">投稿要求</p>
+				<div class="intro-text"><{htmlspecialchars_decode($data['demand'])}></div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">var _id="<{$data['id']}>",_vote_html='<{htmlspecialchars_decode($vote_html)}>';app.push('match/match');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

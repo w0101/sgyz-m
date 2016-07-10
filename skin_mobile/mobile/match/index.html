@@ -1,0 +1,52 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" type="text/css" href="<{$_skin}>css/match.css"/>
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<div class="container index-match">
+	<div class="match-head">
+		<div class="head-title">比赛<span class="yellow-color"> / Match</span></div>
+		<div class="dropdown pull-right recommend-list visible-xs">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list yellow-color"></span></a>
+	      <ul class="dropdown-menu menu-list">
+	        <li><a href="<{url c='match' a='index' status="0"}>"<{if $status == 0}> class="active"<{/if}>>全部比赛</a></li>
+			<li><a href="<{url c='match' a='index' status="1"}>"<{if $status == 1}> class="active"<{/if}>>正在进行</a></li>
+			<li><a href="<{url c='match' a='index' status="2"}>"<{if $status == 2}> class="active"<{/if}>>已经结束</a></li>
+	      </ul>
+	    </div>
+	    <div class="recommend-list-pad list-group hidden-xs pull-right">
+	        <a class="list-group-item pull-left<{if $status == 0}> active<{/if}>" href="<{url c='match' a='index' status="0"}>">全部比赛</a>
+			<a class="list-group-item pull-left<{if $status == 1}> active<{/if}>" href="<{url c='match' a='index' status="1"}>">正在进行</a>
+			<a class="list-group-item pull-left<{if $status == 2}> active<{/if}>" href="<{url c='match' a='index' status="2"}>">已经结束</a>
+	    </div>
+	</div>
+	<div class="match-list">
+	<{foreach $list as $k => $v}>
+		<div class="item" style="background-image: url(<{$_path}><{if strlen($v['thumb'])>10}><{$v['thumb']}><{else}>skin_mobile/img/nopic.gif<{/if}>)">		
+			<div class="item-info">
+				<p class="item-title one-line-ellipsis"><a href="<{url c='match' a='show' id=$v['id']}>"><{$v['title']}></a></p>
+				<p class="item-company">主办方：<{$v['answer']}></p>
+				<p class="item-date">比赛时间：<{date('Y.m.d',$v['starttime'])}> - <{date('Y.m.d',$v['endtime'])}></p>
+				<p class="item-money">参赛费用：<{$v['fee']}>积分</p>
+				<p class="item-intro"><{$v['intro']}></p>
+				<p class="item-controll">
+					<span class="item-photo"><{$v['nums']}></span>
+					<span class="item-user"><{$v['users']}></span>
+					<{if $v['starttime'] < TIME && $v['status'] == 1}>
+						<{if $v['vote_status'] == 0}>
+						<a href="<{url c='match' a='upload' id=$v['id']}>" class="item-vote">投稿</a>
+						<{else}>
+						<a href="<{url c='match' a='vote' id=$v['id']}>" class="item-vote">投票</a>
+						<{/if}>
+					<{else}>
+						<a href="<{url c='match' a='show' id=$v['id']}>" class="item-vote">查看</a>
+					<{/if}>
+				</p>
+			</div>
+		</div>
+	<{/foreach}>
+	</div>
+</div>
+<{$page_html nofilter}>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

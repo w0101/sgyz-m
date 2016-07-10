@@ -46,5 +46,17 @@
     "/activity/show.html":{
         "tpl":"mobile/activity/show.html",
         "action":"activity/main.php"
+    },
+    "/match/index.html":{
+        "tpl":"mobile/match/index.html",
+        "action":"match/main.php"
+    },
+    "/match/show.html":{
+        "tpl":"mobile/match/show.html",
+        "action":"match/main.php"
+    },
+    "/match/item.html":{
+        "tpl":"mobile/match/item.html",
+        "action":"match/main.php"
     }
 }
