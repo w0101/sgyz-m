@@ -1,0 +1,100 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/bootstrap-select.min.css">
+<link rel="stylesheet" href="<{$_skin}>css/service.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<div class="service-send container row">
+	<h1>发布服务</h1>
+	<div class="send-left col-sm-8 col-xs-12">
+		<form id="service_send" method="post">
+		<div class="form-group">
+			<label for="service-select" class="form-label">选择服务分类</label>
+			<select class="selectpicker" id="service-select" name="data[catid]" data-width="220px" data-style="btn-default">
+				<option value="">选择分类</option>
+				<{foreach $cat as $k => $v}>
+				<option value="<{$v['id']}>"><{$v['name']}></option>
+				<{/foreach}>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="title" class="form-label">服务标题</label>
+			<input type="text" class="form-control service-title" name="data[title]" id="title" value="" placeholder="请用一句话概括您要做什么？" />
+		</div>
+		<div class="form-group">
+			<label for="intro" class="form-label">您的具体要求</label>
+			<textarea class="form-control service-intro" id="intro" name="data[intro]" placeholder="请把需求描述的详细一些"></textarea>
+		</div>
+		<div class="form-item">
+			<div class="form-label">上传图片</div>
+			<div class="form-controll">
+				<div class="upload_img">
+					<a id="upload_picture_btn"></a>
+				</div>
+				<p class="form-tips">可选择添加图片，让您的需求更加明确（最多4张，每张最大2M）</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="fee" class="form-label">服务报酬</label>
+			<div class="input-group service-fee">
+			  <input type="text" class="form-control" name="data[fee]" id="fee" value="0" placeholder="用户报酬" aria-describedby="basic-addon2"/>
+			  <span class="input-group-addon" id="basic-addon2">积分</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div for="endtime" class="form-label">接单时限</div>
+			<div class="input-group service-date">
+				<input type="text" class="form-control" name="data[endtime]" id="endtime" value="" placeholder="" aria-describedby="basic-addon2" /><span class="input-group-addon" id="basic-addon2">天后报名截止</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="form-label">联系方式</label>
+			<p class="row"><label for="qq" class="extar col-sm-2 col-xs-3">QQ</label><input type="text" class="form-control col-sm-10 col-xs-9 service-qq" name="data[qq]" id="qq" value="" /></p>
+			<p class="row"><label for="mobile" class="extar col-sm-2 col-xs-3">手机</label><input type="text" class="form-control col-sm-10 col-xs-9 service-mobile" name="data[mobile]" id="mobile" value="" /></p>
+		</div>
+		<div class="form-group">
+			<label for="city-select" class="form-label">选择服务地区</label>
+			<select class="selectpicker" id="city-select" name="data[city]" data-style="btn-default" data-width="140px">
+				<option value="">选择地区</option>
+				<{foreach $aType as $k => $v}>
+				<option value="<{$k}>"><{$v}></option>
+				<{/foreach}>
+			</select>
+		</div>
+		<div class="checkbox">
+			<label class="service-tops">
+			    <input type="checkbox" value="1" id="top" name="data[top]"/> 加急置顶<span><{$cfg['service_top_fee']}>积分</span>
+			</label>			
+		</div>
+		<div class="display-fee">
+			<div class="form-label">应付积分：</div>
+			<div class="fee" id="fee_div"><span>0积分</span><p style="display: none;">（<span>积分不足，点击充值</span>）</p></div>
+		</div>
+		<input type="button" value="发布任务" class="btn btn-default send-service" />
+		</form>
+	</div>
+	<div class="send-right col-sm-4 col-xs-12">
+		<div class="send-head">服务须知</div>
+		<div class="send-service-intro">
+			<p>1.需求用户自行在平台上提出图片后期处理的要求、可以支付的价格以及时限，由其它服务用户接单。</p>
+			<p>2.在同时有多个用户接单的情况下，由需求用户根据服务用户的等级、评价资料等数据来确定最终服务用户。</p>
+			<p>3.需求用户和服务用户对接，明确修图需求（如提供RAW格式等），以及后期小修次数等细节。</p>
+			<p>4.服务用户完成修图工作。</p>
+			<p>5.双方根据工作结果互留评价（包括等级评价和文字评价）</p>
+		</div>
+		<div class="send-head">联系客服</div>
+		<div class="send-kf">
+			<p class="kf-title">客服电话：</p>
+			<p class="kf-tel"><{$cfg['kf_tel']}></p>
+			<p class="kf-date"><{$cfg['kf_time']}></p>
+			<p class="kf-online"><a href="<{$cfg['kf_link']}>">联系在线客服</a></p>
+			<p class="kf-date"><{$cfg['online_kf_time']}></p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var _UPLOAD_PICTURE = "<{$_UPLOAD_PICTURE}>",_integral = parseInt("<{$integral}>"),_min_fee = parseInt("<{$cfg['service_min_fee']}>"),_min_date = parseInt("<{$cfg['service_end_date_min']}>"),_max_date = parseInt("<{$cfg['service_end_date_max']}>"),_top_fee = parseInt("<{$cfg['service_top_fee']}>");
+app.push('service/send');
+</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

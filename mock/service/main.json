@@ -1,0 +1,124 @@
+{
+    "PageTitle": "时光驿站",
+    "PageKeyword": "时光驿站",
+    "PageDescribe": "时光驿站",
+    "_path":"/",
+    "_skin": "/skin_mobile/",
+    "_assets": "/",
+    "uid": 1,
+    "_message":1,
+    "_avatar":"data/assets/images/gallery_1.jpg",
+    "username":"xiaz",
+    "integral":100,
+    
+    "catid":1,
+    "aid":0,
+    "status":1,
+    "cat":[
+        {
+            "id":1,
+            "name":"照片拍摄"
+        },{
+            "id":2,
+            "name":"后期服务"
+        }
+    ],
+    "aType":["北京","上海","天津","广州","大连","福建","山东","哈尔滨","河南","广西"],
+    "sType":["全部","接单中","进行中","已结束"],
+    "list":[
+        {
+            "id":1,
+            "status":"1",
+            "title":"环境的进行中可能看环境的进行中可能看环境的进行中可能看",
+            "top":1,
+            "content":"大会督促市场是存储撒多次按市场的市场的伤残安徽等次啊和场地和菜单vcdavcalCVNEDCVFI JIEDCASDIKCJDA差点就暗示出第四节课vcnhdaivcndaivc",
+            "fee":11,
+            "total":100,
+            "addtime":1468314884
+        },{
+            "id":1,
+            "status":"1",
+            "title":"环境的进行中可能看",
+            "top":0,
+            "content":"大会督促市场是存储撒多次按市场的市场的伤残安徽等次啊和场地和菜单vcdavcalCVNEDCVFI JIEDCASDIKCJDA差点就暗示出第四节课vcnhdaivcndaivc",
+            "fee":11,
+            "total":100,
+            "addtime":1468314884
+        },{
+            "id":1,
+            "status":"1",
+            "title":"环境的进行中可能看环境的进行中可能看环境的进行中可能看",
+            "top":0,
+            "content":"大会督促市场是存储撒多次按市场的市场的伤残安徽等次啊和场地和菜单vcdavcalCVNEDCVFI JIEDCASDIKCJDA差点就暗示出第四节课vcnhdaivcndaivc大会督促市场是存储撒多次按市场的市场的伤残安徽等次啊和场地和菜单vcdavcalCVNEDCVFI JIEDCASDIKCJDA差点就暗示出第四节课vcnhdaivcndaivc",
+            "fee":11,
+            "total":100,
+            "addtime":1468314884
+        },{
+            "id":1,
+            "status":"2",
+            "title":"环境的进行中可能看",
+            "top":0,
+            "content":"大会督促市场是存储撒多次按市场的市场的伤残安徽等次啊和场地和菜单vcdavcalCVNEDCVFI JIEDCASDIKCJDA差点就暗示出第四节课vcnhdaivcndaivc",
+            "fee":11,
+            "total":100,
+            "addtime":1468314884
+        }
+
+    ],
+    "_UPLOAD_PICTURE":"data/",
+    "data":{
+        "id":2,
+        "status":1,
+        "title":"环境的进行中可能看",
+        "top":1,
+        "content":"大会督促市场是存储撒多次按市场的市场的伤残安徽等次啊和场地和菜单vcdavcalCVNEDCVFI JIEDCASDIKCJDA差点就暗示出第四节课vcnhdaivcndaivc",
+        "fee":11,
+        "total":100,
+        "addtime":1468314884,
+        "userid":2
+        
+    },
+    "images":["data/upload/20160427/3d85c9f115.jpg","data/upload/20160427/3d85c9f115.jpg","data/upload/20160427/3d85c9f115.jpg"],
+    "user":{
+        "avatar":"data/assets/images/gallery_1.jpg",
+        "nickname":"喵喵喵喵喵喵喵喵喵喵喵喵喵喵",
+        "score":111
+    },
+    "enddate":"一个月前",
+    "sign":[
+        {
+            "userid":22,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"我还是我",
+            "level":11,
+            "score":10
+        },
+        {
+            "userid":22,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"我还是我",
+            "level":11,
+            "score":10
+        },{
+            "userid":22,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"我还是我",
+            "level":11,
+            "score":10
+        },{
+            "userid":22,
+            "avatar":"data/assets/images/gallery_1.jpg",
+            "nickname":"我还是我",
+            "level":11,
+            "score":10
+        }
+    ],
+    "cfg":{
+        "service_min_fee":10,
+        "service_top_fee":30,
+        "kf_tel":12345678,
+        "kf_time":"周一至周五8:00到15:00",
+        "online_kf_time":"周一至周五8:00到17:00",
+        "copyright":"Copyright by 2015 -2018 时光驿站 All Rights Reserved. 湘ICP备08105577"
+    }
+}

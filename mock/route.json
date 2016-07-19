@@ -59,4 +59,20 @@
         "tpl":"mobile/match/item.html",
         "action":"match/main.php"
     }
+    ,
+    "/service/index.html":{
+        "tpl":"mobile/service/index.html",
+        "action":"service/main.php"
+
+    },
+    "/service/show.html":{
+        "tpl":"mobile/service/show.html",
+        "action":"service/main.php"
+
+    },
+    "/service/send.html":{
+        "tpl":"mobile/service/send.html",
+        "action":"service/main.php"
+
+    }
 }
