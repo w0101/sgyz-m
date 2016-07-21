@@ -222,7 +222,7 @@
 	color: #777;
 	line-height: 1.5;
 }
-.gallery-show>.show-info .detail-head{
+.gallery-show .detail-head{
 	font-size: 24px;
 	color: #fb9a60;
 	margin-top: 29px;
@@ -236,19 +236,22 @@
 	display: inline-block;margin-top: 5px;
 }
 .gallery-show>.show-info .detail-exif>li{
-	line-height: 30px;
+	line-height: 25px;
 	margin:0;
 	border:none;
 	border-bottom: 1px solid #ccc;
 	color: #999;
+	padding: 0;
 }
 .gallery-show>.show-info .detail-exif .exif-name{
 	padding-left: 8px;
 	display: inline-block;
-	width: 30%;
+	width: 100px;
 }
 .gallery-show>.show-info .detail-exif .exif-value{
 	color: #555;
+	display: inline-block;
+	width: 160px;
 }
 .gallery-show .detail-money{
 	font-size: 16px;
@@ -285,4 +288,13 @@
 	color: #777;
 	line-height: 1.5;
 	font-size: 16px;
+}
+@media screen and (min-width: 768px){
+	.gallery-show{
+		background-color: #fffbf0;
+	}
+	.gallery-show .detail-head{
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
 }

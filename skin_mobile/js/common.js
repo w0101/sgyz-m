@@ -18,6 +18,13 @@ define('common', function (require) {
 			$('#show-bbs-nav').toggleClass('show-down show-up');
 		});
 	}
+	if($('.user-nav').height()>50){
+		$('#show-user-nav').removeClass('hidden');
+		$('#show-user-nav').on('click',function(){
+			$('.user-nav-container').toggleClass('slide');
+			$('#show-user-nav').toggleClass('show-down show-up');
+		});
+	}
 
 	$('#search-icon').on('click', function(){
 		$('.cover').removeClass('hidden');

@@ -43,7 +43,7 @@ html, body{
 	/*transition:height 4s ease-in-out;*/
 }
 .subnav-container.slide{
-	height: auto;
+	height: auto !important;
 }
 .nav-subnav>li{
 	float: left;

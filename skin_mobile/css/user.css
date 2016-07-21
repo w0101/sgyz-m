@@ -1,0 +1,55 @@
+/*user-top*/
+.user-bg{background: url(../img/user_bg.jpg) no-repeat center; width: 100%; padding-top: 315px; padding-bottom: 20px;}
+.user-top .user-info .user-intro p{font-size: 14px; color: #fff; margin-top: 0px; margin-bottom: 10px;}
+.user-top .user-info .user-intro p.user-name{font-size: 24px; margin-bottom: 6px; white-space: nowrap;}
+.user-top .user-info .user-intro p.user-name span{font-size: 14px; display: inline-block; margin-left: 25px;}
+.user-top .user-info .user-intro p.user-other span{height: 16px; line-height: 16px; border-right: 1px solid #fff; display: inline-block; margin-right: 13px; padding-right: 17px;}
+.user-top .user-info .user-intro p.user-other span a{color:#fff;}
+.user-top .user-info .user-intro p.user-other span a:hover{color:#fb9a60; text-decoration: none;}
+.user-top .user-info .user-intro p.user-other span.no-border{ border-right:none;}
+.user-top .user-info .user-intro p.user-integral{font-size: 16px; white-space: nowrap;}
+.user-top .user-info .user-intro p.user-integral a{font-size: 14px; color: #fff; height: 30px;line-height: 30px; text-align: center; border-radius: 4px; display: inline-block;}
+.user-top .user-info .user-intro p.user-integral a.user-btn-integral:hover{ color: #fb9a60; text-decoration: none;}
+.user-top .user-info .user-intro p.user-integral a.user-btn-pay{ width: 64px; background: #f05654; margin-left: 15px; margin-right: 16px;}
+.user-top .user-info .user-intro p.user-integral a.user-btn-pay:hover{background: #f14442;text-decoration: none;}
+.user-top .user-info .user-intro p.user-integral a.user-btn-ti{ width: 64px; background: #30cc88;}
+.user-top .user-info .user-intro p.user-integral a.user-btn-ti:hover{background: #07c06f; text-decoration: none;}
+.user-top .user-nav a{
+	color: #fff;
+	padding: 5px 8px;
+}
+.user-top .user-nav-container{height: 35px;}
+.user-top .user-nav a:hover{background: #fb9a60; text-decoration: none;border-radius: 4px;color: #fff;}
+.user-top .user-nav li.active{background: #fb9a60; border-radius: 4px;}
+@media screen and (max-width: 768px){
+	.user-bg{
+		padding-top: 50px;
+	}
+	.user-img{
+		padding-right: 0;
+		padding-top: 10px;
+	}
+	.user-intro{
+		padding-right: 0;
+	}
+	.user-info{
+		margin-bottom: 10px;
+	}
+}
+@media screen and (min-width: 768px){
+	.user-nav-container{
+		margin-top: -40px;
+	}
+	.user-nav-container ul{
+		float: right;
+	}
+}
+/*user-index*/
+.user-match{ margin-top: 30px; }
+
+.user-match .item{position: relative; color: #fff; overflow: hidden; margin-bottom: 15px;}
+.user-match .item img{width: 100%;}
+.user-match .item .item-controll{width: 100%; position: absolute; bottom: 0px; left: 0px; padding: 10px 0px; text-indent: 1em;}
+.user-match .item .item-controll .item-title{ width:100%;font-size: 16px; display: block; margin-bottom: 6px;}
+.user-match .item .item-controll .item-match{width:100%;color: #fff;display: inline-block;}
+.user-match .item .item-prize{color: #fff; position: absolute; top: 10px; right: 20px; font-size: 14px; font-weight: bold; margin: 0px;}

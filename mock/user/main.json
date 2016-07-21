@@ -1,0 +1,49 @@
+{
+    "PageTitle": "时光驿站",
+    "PageKeyword": "时光驿站",
+    "PageDescribe": "时光驿站",
+    "_path":"/",
+    "_skin": "/skin_mobile/",
+    "_assets": "/",
+    "uid": 1,
+    "_message":1,
+    "_avatar":"data/assets/images/gallery_1.jpg",
+    "username":"xiaz",
+
+    "_a":"index",
+    "user":{
+        "level":1,
+        "exper":100,
+        "fans":2000,
+        "follow":10,
+        "match":5,
+        "winning_b":10,
+        "card":4,
+        "integral":333
+    },
+    "list":[
+        {
+            "itemid":1,
+            "thumb":"data/upload/20160427/2c6e86b4dc.jpg",
+            "title":"称得上是所发生的vone-line-ellipsisone-line-ellipsis",
+            "match_title":"daschunjn汇款和监控能力daschunjn汇款和监控能力daschunjn汇款和监控能力",
+            "status":1
+        },{
+            "itemid":1,
+            "thumb":"",
+            "title":"称得上是所发生的v",
+            "match_title":"daschunjn汇款和监控能力",
+            "status":2
+        }
+
+    ],
+    "wsType":["一等奖","二等奖","三等奖"],
+    "cfg":{
+        "service_min_fee":10,
+        "service_top_fee":30,
+        "kf_tel":12345678,
+        "kf_time":"周一至周五8:00到15:00",
+        "online_kf_time":"周一至周五8:00到17:00",
+        "copyright":"Copyright by 2015 -2018 时光驿站 All Rights Reserved. 湘ICP备08105577"
+    }
+}

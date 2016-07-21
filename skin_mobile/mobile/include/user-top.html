@@ -1,29 +1,34 @@
-<div class="user-bg">
-	<div class="user-top big">
-		<div class="user-info">
-			<div class="user-img"><img src="<{$_path}><{$_avatar}>" alt="<{$username}>" /></div>
-			<div class="user-intro">
-				<p class="user-name"><{$username}><span>等级：<{$user['level']}> （经验值<{$user['exper']}>）</span></p>
-				<p class="user-other">
-					<span>粉丝 <{$user['fans']}></span>
-					<span>关注 <{$user['follow']}></span>
-					<span>参赛数 <{$user['match']}></span>
-					<span>获奖数 <{$user['winning']}></span>
-					<span>获奖率 <{$user['winning_b']}>%</span>
-					<span class="no-border">优惠券 <a href="<{url c="user" a="card"}>"><{$user['card']}></a></span>
-				</p>
-				<p class="user-integral">积分 <a href="<{url c="user" a="integral"}>" class="user-btn-integral"><{$user['integral']}></a><a href="<{url c="user" a="charge"}>" class="user-btn-pay">充值</a><a href="<{url c="user" a="cash"}>" class="user-btn-ti">提现</a></p>
+<div class="user-bg container">
+	<div class="user-top row">
+		<div class="user-info col-xs-12 col-sm-9">
+			<div class="row">
+				<div class="user-img col-xs-3 col-sm-2"><img  class="img-responsive" src="<{$_path}><{$_avatar}>" alt="<{$username}>" /></div>
+				<div class="user-intro col-xs-9 col-sm-9">
+					<p class="user-name"><{$username}><span>等级：<{$user['level']}> （经验值<{$user['exper']}>）</span></p>
+					<p class="user-other">
+						<span>粉丝 <{$user['fans']}></span>
+						<span>关注 <{$user['follow']}></span>
+						<span>参赛数 <{$user['match']}></span>
+						<span>获奖数 <{$user['winning']}></span>
+						<span>获奖率 <{$user['winning_b']}>%</span>
+						<span class="no-border">优惠券 <a href="<{url c="user" a="card"}>"><{$user['card']}></a></span>
+					</p>
+					<p class="user-integral">积分 <a href="<{url c="user" a="integral"}>" class="user-btn-integral"><{$user['integral']}></a><a href="<{url c="user" a="charge"}>" class="user-btn-pay">充值</a><a href="<{url c="user" a="cash"}>" class="user-btn-ti">提现</a></p>
+				</div>
 			</div>
 		</div>
-		<div class="user-nav">
-			<a href="<{url c="user" a="index"}>"<{if $_a == "index"}> class="active"<{/if}>>参赛作品</a>
-			<a href="<{url c="user" a="gallery"}>"<{if $_a == "gallery"}> class="active"<{/if}>>作品收藏</a>
-			<a href="<{url c="user" a="fans"}>"<{if $_a == "fans"}> class="active"<{/if}>>粉丝</a>
-			<a href="<{url c="user" a="follow"}>"<{if $_a == "follow"}> class="active"<{/if}>>关注</a>
-			<a href="<{url c="user" a="service"}>"<{if $_a == "service"}> class="active"<{/if}>>我的服务</a>
-			<a href="<{url c="user" a="comment"}>"<{if $_a == "comment"}> class="active"<{/if}>>服务评价</a>
-			<a href="<{url c="user" a="bbs"}>"<{if $_a == "bbs"}> class="active"<{/if}>>论坛帖子</a>
-			<a href="<{url c="user" a="view"}>"<{if $_a == "view"}> class="active"<{/if}>>详细资料</a>
+		<div class="subnav-container user-nav-container col-xs-12">
+			<ul class="nav nav-subnav user-nav">
+				<li<{if $_a == "index"}> class="active"<{/if}>><a href="<{url c="user" a="index"}>">参赛作品</a></li>
+				<li<{if $_a == "gallery"}> class="active"<{/if}>><a href="<{url c="user" a="gallery"}>">作品收藏</a></li>
+				<li<{if $_a == "fans"}> class="active"<{/if}>><a href="<{url c="user" a="fans"}>">粉丝</a></li>
+				<li<{if $_a == "follow"}> class="active"<{/if}>><a href="<{url c="user" a="follow"}>">关注</a></li>
+				<li<{if $_a == "service"}> class="active"<{/if}>><a href="<{url c="user" a="service"}>">我的服务</a></li>
+				<li<{if $_a == "comment"}> class="active"<{/if}>><a href="<{url c="user" a="comment"}>">服务评价</a></li>
+				<li<{if $_a == "bbs"}> class="active"<{/if}>><a href="<{url c="user" a="bbs"}>">论坛帖子</a></li>
+				<li<{if $_a == "view"}> class="active"<{/if}>><a href="<{url c="user" a="view"}>">详细资料</a></li>
+			</ul>
+			<div class="show-btn show-down hidden" id="show-user-nav"></div>
 		</div>
 	</div>
 </div>

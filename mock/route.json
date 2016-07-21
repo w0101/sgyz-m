@@ -74,5 +74,9 @@
         "tpl":"mobile/service/send.html",
         "action":"service/main.php"
 
+    },
+    "/user/index.html":{
+        "tpl":"mobile/user/index.html",
+        "action":"user/main.php"
     }
 }

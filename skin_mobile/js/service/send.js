@@ -2,10 +2,6 @@ define(function(require){
 	var $ = require('jquery'),util=require('util');
 	//$.uploadify = require('libs/uploadifys');
 	require('select');
-	/*$('.selectpicker').selectpicker({
-	  style: 'btn-info',
-	  size: 4
-	});*/
 
  	//发布所需积分等于服务积分
  	var top_check = false;
