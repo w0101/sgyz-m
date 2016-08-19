@@ -1,0 +1,42 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/bootstrap-select.min.css">
+<link rel="stylesheet" href="<{$_skin}>css/match.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/match_top.html"}>
+<div class="match-detail container">
+<{include file="mobile/include/match_menu.html"}>
+	<div class="tabpan-list">
+		<div class="tabpan prod-list row">
+		<{foreach $list as $k => $v}>
+			<div class="item cls-item-<{$v['id']}> col-sm-4 col-xs-12">
+				<i class="item-checkbox" data-id="<{$v['id']}>"></i>
+				<div class="item-img"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></div>
+				<div class="item-control-container">
+					<div class="item-controll gradient">
+						<span class="item-title one-line-ellipsi"><{$v['title']}>（<{$v['total']}>P）</span>
+						<a href="<{url c="user" a="view" id=$v['userid']}>" class="item-user"><{$v['nickname']}></a>
+						<i class="match-detail-folder"></i>
+					</div>
+				</div>
+				<div class="item-intro">
+					<p class="intro-text"><{$v['intro']}></p>
+				</div>
+			</div>
+		<{/foreach}>
+		</div>
+	</div>
+</div>
+<div id="vote-cart">
+	<p class="cart-title">已选作品<span>0</span></p>
+	<div class="list"></div>
+	<div class="cart-controller">
+		<p class="cart-fee">消耗积分：<span>0</span></p>
+		<p class="cart-integral">你的积分：<span><{$integral}></span>积分<font>不足</font></p>
+		<a href="javascript:void(0);" class="cart-controller-btn">确认投票</a></div>
+	</div>
+</div>
+<script type="text/javascript">var _id="<{$data['id']}>",_vote_html='<{htmlspecialchars_decode($vote_html)}>',_viewurl="<{$userview}>",_votenum=parseInt("<{$cfg['votenum']}>"),_vote_list="<{$vote_list}>",_integral="<{$integral}>";app.push('match/match');app.push('match/vote');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

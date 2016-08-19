@@ -1,0 +1,140 @@
+<{include file="mobile/include/head.html"}>
+<script src="<{$_skin}>js/libs/echarts.min.js"></script>
+<link rel="stylesheet" href="<{$_skin}>css/match.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/match_top.html"}>
+<div class="match-detail container">
+<{include file="mobile/include/match_menu.html"}>
+	<{if $work_is != 0}>
+	<div class="tabpan-list">
+		<div class="tabpan match-contri prod-list">
+			<div class="item row">
+				<div class="col-sm-5 col-xs-12 col-md-5 img-container">
+					<div class="item-img" data-id="<{$contribution['id']}>"><img class="img-responsive" src="<{$_path}><{$contribution['thumb']}>" alt="<{$contribution['title']}>" /></div>
+					<div class="item-control-container">
+						<div class="item-controll gradient">
+							<span class="item-title one-line-ellipsis"><{$contribution['title']}>（<{$contribution['total']}>P）</span>
+							<a href="<{url c="user" a="view" id=$contribution['userid']}>" class="item-user"><{$contribution['nickname']}></a>
+							<i class="match-detail-folder"></i>
+						</div>
+					</div>
+					<div class="item-intro">
+						<p class="intro-text"><{$contribution['intro']}></p>
+					</div>
+				</div>
+				<div class="vote-info col-xs-12 col-sm-5 col-md-5">
+					<{if $contribution['status']==1}>
+					<div class="no-votes">暂时没有投票信息</div>
+					<{else if $contribution['status']==2 }>
+					<p class="my-votes"><span class="info-name">得票数</span><span class="info-value votes-num"><{$contribution['votes']}></span></p>
+					<div id="voteChart"  style="width: 100%;height:300px;"></div>
+					<p><span class="info-name">排名区间</span><span class="info-value vote-region"><{$contribution['region']}>
+					<{if $contribution['rank_change']!=0}>
+					<i class="user-icon<{if $contribution['rank_change'] > 0}> up<{else}> down<{/if}>"></i><i><{if $contribution['rank_change'] > 0}><{$contribution['rank_change']}><{else}><{-$contribution['rank_change']}><{/if}>名</i>
+					<{else}>
+					<i>--</i>
+					<{/if}>
+					</span></p>
+					<{else}>
+					<div class="row">
+						<p class="final col-sm-6 col-md-6 col-xs-6"><span class="info-name">实际票数</span><span class="info-value"><{$contribution['votes']}></span></p>
+						<p class="final col-sm-6 col-md-6 col-xs-6"><span class="info-name">排名</span><span class="info-value"><{$contribution['votes_order']}>名</span></p>
+					</div>
+					<p class="final mutile"><span class="info-name">翻倍倍率</span><span class="info-value"><{$contribution['total_rates']}>倍</span></p>
+					<div class="row">
+						<p class="final col-sm-6 col-md-6 col-xs-6"><span class="info-name">综合得票</span><span class="info-value"><{$contribution['all_votes']}></span></p>
+						<p class="final col-sm-6 col-md-6 col-xs-6"><span class="info-name">排名</span><span class="info-value"><{$contribution['all_order']}>名</span></p>
+					</div>
+					<{/if}>
+				</div>
+				<{if $contribution['status']<3}>
+				<div class="col-sm-2 col-md-2 col-xs-12">
+					<button class="btn btn-primary remove-contri pull-right">删除投稿</button>
+				</div>
+				<{/if}>
+			</div>
+		</div>
+	</div>
+	<{/if}>
+</div>
+<script type="text/html" id="htmltpl">
+	<div class="preview-images row">
+		<div class="images-box col-xs-12 col-sm-8 col-md-8">
+			<ul></ul>
+			<div class="btnbig"></div>
+			<a href="javascript:void(0);" class="prev icon-cont"></a>
+			<a href="javascript:void(0);" class="next icon-cont"></a>
+		</div>
+		<div class="images-intro col-xs-12 col-sm-4 col-md-4">
+			<div class="intro-head">
+				<span class="icon-view"></span>
+				<span class="icon-favicon"></span>
+				<span class="icon-share"></span>
+				<span class="icon-close"></span>
+			</div>
+			<div class="intro-user row">
+				<div class="user-img col-sm-3 col-xs-3 col-md-3"><img class="img-responsive" src="#" /></div>
+				<div class="user-info col-sm-9 col-xs-9 col-md-3">
+					<p class="user-name one-line-ellipsis"></p>
+					<p class="user-fm">粉丝数：<font class="user-fans">0</font>      参赛数：<font class="user-match">0</font></p>
+				</div>
+			</div>
+			<div class="intro-title"><span class="item-title"></span><span class="item-total">0/0</span></div>
+			<div class="intro-text"></div>
+			<div class="intro-tag"></div>
+			<div class="intro-exif">全部EXIF信息</div>
+			<div class="intro-vote">
+				<div class="vote-info">
+					<p><span class="info-title">官方评分</span><span class="info-value all_pf">0分</span></p>
+					<div class="vote-detail story">
+						<div class="detail-title">故事</div>
+						<div class="detail-star star-0"></div>
+						<div class="detail-vote">0分</div>
+					</div>
+					<div class="vote-detail origin">
+						<div class="detail-title">创意</div>
+						<div class="detail-star star-0"></div>
+						<div class="detail-vote">0分</div>
+					</div>
+					<div class="vote-detail tech">
+						<div class="detail-title">构图</div>
+						<div class="detail-star star-0"></div>
+						<div class="detail-vote">0分</div>
+					</div>
+					<p class="truevotes"><span class="info-title">实际得票</span><span class="info-value">0票</span></p>
+					<p class="allvotes"><span class="info-title">综合得票</span><a class='vote-cal'>（计算方式）</a><span class="info-value">0票</span></p>
+
+				</div>
+				<div class="vote-desc">查看投票详情</div>
+			</div>
+			<div class="intro-comment">
+				<div class="comment-text row">
+					<div class="user-img col-xs-2 col-sm-2 col-md-2"><img class="img-responsive" src="<{$_path}><{$_avatar}>" alt="<{$username}>" /></div>
+					<div class="input-text col-xs-10 col-sm-10 col-md-10">
+						<textarea class="form-control" id="comment_intro" placeholder="评论一下"></textarea>
+						<input type="button" value="评论" class="intro-btn" />
+						<input type="hidden" id="replyid" value="0" />
+						<div class="reply-text"><p></p><span class="clear-reply"></span></div>
+					</div>
+				</div>
+				<div class="comment-admin"></div>
+				<div class="comment-list">
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+	var _id = "<{$data['id']}>",
+		_vote_html = '<{$vote_html nofilter}>',
+		_upload_url = '<{$upload_url}>',
+		_vote = '<{$contribution["votes"]}>',
+		_allVotes = '<{$contribution["total_votes"]}>';
+	app.push('match/match');
+	app.push('match/item');
+	app.push('match/contribute');
+</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

@@ -65,7 +65,7 @@
         }
 
     ],
-    "_UPLOAD_PICTURE":"data/",
+    "_UPLOAD_PICTURE":"/ajax/upmatch.html",
     "data":{
         "id":2,
         "status":1,

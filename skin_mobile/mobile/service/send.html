@@ -1,5 +1,6 @@
 <{include file="mobile/include/head.html"}>
 <link rel="stylesheet" href="<{$_skin}>css/bootstrap-select.min.css">
+<link rel="stylesheet" href="<{$_skin}>css/fileinput.min.css">
 <link rel="stylesheet" href="<{$_skin}>css/service.css">
 </head>
 <body>
@@ -26,11 +27,9 @@
 			<textarea class="form-control service-intro" id="intro" name="data[intro]" placeholder="请把需求描述的详细一些"></textarea>
 		</div>
 		<div class="form-item">
-			<div class="form-label">上传图片</div>
-			<div class="form-controll">
-				<div class="upload_img">
-					<a id="upload_picture_btn"></a>
-				</div>
+			<label class="form-label">上传图片</label>
+			<div class="form-controll upload-pic">
+				<input type="file" id="upload_picture_btn" multiple class="upload-btn" name="Filedata">
 				<p class="form-tips">可选择添加图片，让您的需求更加明确（最多4张，每张最大2M）</p>
 			</div>
 		</div>

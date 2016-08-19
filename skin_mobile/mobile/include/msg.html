@@ -1,8 +1,8 @@
-<{include file="include/head.html"}>
+<{include file="mobile/include/head.html"}>
 </head>
 <body>
-<{include file="include/nav.html"}>
-<div class="app-msg big">
+<{include file="mobile/include/nav.html"}>
+<div class="app-msg container">
 	<div class="app-msg-title">网站提示</div>
 	<div class="app-msg-box"><{$msg}></div>
 	<{if $url == "goback"}>
@@ -12,5 +12,5 @@
 	<{/if}>
 </div>
 <script type="text/javascript">var _time="<{$time}>";_url="<{$url}>";app.push('msg');</script>
-<{include file="include/footer.html"}>
-<{include file="include/end.html"}>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

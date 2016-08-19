@@ -32,11 +32,13 @@
 				<p class="item-controll">
 					<span class="item-photo"><{$v['nums']}></span>
 					<span class="item-user"><{$v['users']}></span>
-					<{if $v['starttime'] < TIME && $v['status'] == 1}>
-						<{if $v['vote_status'] == 0}>
+					<{if $v['starttime'] < TIME}>
+						<{if $v['status'] == 1 && $v['vote_status'] == 0}>
 						<a href="<{url c='match' a='upload' id=$v['id']}>" class="item-vote">投稿</a>
-						<{else}>
+						<{else if $v['status'] == 2}>
 						<a href="<{url c='match' a='vote' id=$v['id']}>" class="item-vote">投票</a>
+						<{else}>
+						<a href="<{url c='match' a='show' id=$v['id']}>" class="item-vote">查看</a>
 						<{/if}>
 					<{else}>
 						<a href="<{url c='match' a='show' id=$v['id']}>" class="item-vote">查看</a>

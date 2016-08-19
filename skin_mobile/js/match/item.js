@@ -1,20 +1,34 @@
 define(function(require){
-	var $ = require('jquery'),util=require('util'),dialog=require('dialog/dialog');
+	var $ = require('jquery'),
+	util=require('util'),
+	dialog=require('dialog/dialog');
 	$('.match-detail-folder').click(function(){
-		$('.item-intro').css("top","0");
+		$(this).parents('.item').find('.item-intro').css("top","0");
 	})
 	$('.item-intro').click(function(){
 		$('.item-intro').css("top","100%");
 	})
-	var h,bh,w,_html = $('#htmltpl').html(),_mask = '<div class="preview-mask"></div>',styleEl = $('<style type="text/css" id="styleID"></style>'),index;
+	//图片预览的处理
+	var _mask = '<div class="preview-mask"></div>',
+		_html = $('#htmltpl').html(),
+		styleEl = $('<style type="text/css" id="styleID"></style>');
+	var h,bh,w,ul_w,index;
+	var BASESCORE = 1;
 	styleEl.appendTo($('head'));
 	$(_mask).appendTo($('body'));
 	$(_html).appendTo($('body'));
 	setWh();
-	var id = 0,el = $('.preview-images'),maskel = $('.preview-mask'),eltag = el.find('.images-intro>.intro-tag'),elimg = el.find('.images-box>ul'),elimgbtn = el.find('.images-box>.btnbig'),picpath = _upload_url.replace('ticket.html',''),liWidth=w-360,len=0
-	$('.match-list>.item>.item-img,.match-vote>.item>.item-img').click(function(){
+	var id = 0,
+		el = $('.preview-images'),
+		maskel = $('.preview-mask'),
+		eltag = el.find('.images-intro>.intro-tag'),
+		elimg = el.find('.images-box>ul'),
+		elimgbtn = el.find('.images-box>.btnbig'),
+		picpath = _upload_url.replace('ticket.html',''),
+		len=0
+	$('.prod-list .item-img').click(function(){
 		$('body').addClass('ovh').css('height',h+'px');
-		id = $(this).attr('data-id');
+		id = $(this).data('id');
 		maskel.show();
 		$.getJSON(util.ajaxurl('preview'),{id:parseInt(id)},function(result){
 			maskel.hide();
@@ -24,25 +38,25 @@ define(function(require){
 				elimg.empty();
 				elimgbtn.empty();
 				el.find('.icon-view').text(data.item.hit);
-				el.find('.images-intro>.intro-user>.user-img>img').attr('src',_path + data.user.avatar);
-				el.find('.images-intro>.intro-user>.user-name').text(data.user.nickname);
-				el.find('.images-intro>.intro-user>p>.user-fans').text(data.user.fans);
-				el.find('.images-intro>.intro-user>p>.user-match').text(data.user.match);
-				el.find('.images-intro>.intro-title>.item-title').text(data.item.title);
-				el.find('.images-intro>.intro-title>.item-total').text('1/'+data.item.images.length);
-				el.find('.images-intro>.intro-text').text(data.item.intro);
+				el.find('.user-img>img').attr('src',_path + data.user.avatar);
+				el.find('.user-name').text(data.user.nickname);
+				el.find('.user-fans').text(data.user.fans);
+				el.find('.user-match').text(data.user.match);
+				el.find('.item-title').text(data.item.title);
+				el.find('.item-total').text('1/'+data.item.images.length);
+				el.find('.intro-text').text(data.item.intro);
 				$.each(data.item.tag,function(index,item){
 					if(item != ""){
 						$('<span></span>').text(item).appendTo(eltag);
 					}
 				});
 				$.each(data.item.images,function(index,item){
-					$('<li><table><tr><td><img src="'+(picpath + item)+'" alt="'+data.item.title+'" /></td></tr></table></li>').appendTo(elimg);
+					$('<li><img class="img-responsive" src="'+(picpath + item)+'" alt="'+data.item.title+'" /></li>').appendTo(elimg);
 					$('<span></span>').appendTo(elimgbtn);
 				});
 				//显示票数
 				var all_votes = 0;
-				all_votes = parseFloat(data.item.origin/10) + parseFloat(data.item.story/10) + parseFloat(data.item.tech/10);
+				all_votes = parseFloat(data.item.origin/10) + parseFloat(data.item.story/10) + parseFloat(data.item.tech/10) + BASESCORE;
 				el.find('.all_pf').html(all_votes + '分');
 				el.find('.story>.detail-vote').text((data.item.story/10) + '分');
 				el.find('.story>.detail-star').removeClass().addClass('detail-star').addClass('star-'+(data.item.story));
@@ -71,7 +85,7 @@ define(function(require){
 				})
 				$(".preview-images>.images-box>.btnbig>span").eq(0).addClass('on');
 				len = data.item.images.length;
-				elimg.css({"width":(w-360) * len,"left":"0px"});
+				elimg.css({"width":ul_w * len});
 				index = 0;
 				maskel.hide();
 				el.show();
@@ -106,10 +120,12 @@ define(function(require){
 		img_ticket = img.replace(picpath,'');
 		$.getJSON(util.ajaxurl('exif'),{ticket:img_ticket},function(result){
 			if(result.status == true){
-				var tip = dialog({title:"图片exif信息",content:result.data.html,width:400,height:(h*0.7),fixed:true,modal:true,ok:function(){}});
+				var tip = dialog({
+					title:"图片exif信息",
+					content:result.data.html,fixed:true,modal:true,ok:function(){}});
             	tip.show();
 			}else{
-				var tip = dialog({title:"提示",content:result.message,width:300,fixed:true,modal:true,ok:function(){}});
+				var tip = dialog({title:"提示",content:result.message,fixed:true,modal:true,ok:function(){}});
             	tip.show();
 			}
 		});
@@ -123,18 +139,32 @@ define(function(require){
 				if(result.data.vote.length>0){
 					var vote = result.data.vote;
 					$.each(vote,function(index,item){
-						html.push('<div class="vote-item"><div class="item-img"><img src="'+_path + item.avatar+'" /></div><div class="item-intro"><span class="item-name">'+item.nickname+'</span><span class="item-vote">'+item.vote+'票</span> </div> </div>');
+						html.push('<div class="vote-item col-sm-4 col-xs-12"><div class="row"><div class="item-img col-xs-3 col-sm-3"><img class="img-responsive" src="'+_path + item.avatar+'" /></div><div class="item-intro col-sm-9 col-xs-9"><div class="item-name one-line-ellipsis">'+item.nickname+'</div><span class="item-vote">'+item.vote+'票</span> </div> </div></div>');
 					});
 				}
-				var all_html = '<div class="vote-list">'+html.join('')+'</div>';
-				var tip = dialog({title:"投票详情",content:all_html,width:800,fixed:true,modal:true,ok:function(){}});
+				var all_html = '<div class="vote-list row">'+html.join('')+'</div>';
+				var tip = dialog({
+					title:"投票详情",
+					content:all_html,
+					width: 0.8*w,
+					fixed: true,
+					modal:true,ok:function(){}});
             	tip.show();
 			}else{
-				var tip = dialog({title:"提示",content:result.message,width:300,fixed:true,modal:true,ok:function(){}});
+				var tip = dialog({title:"提示",content:result.message,fixed:true,modal:true,ok:function(){}});
             	tip.show();
 			}
 		});
 
+	});
+	el.find('.vote-cal').click(function(){
+		var tip = dialog({
+			title:"综合得票计算方式",
+			content:'<p>综合得票由官方评分*用户投票分数得出。其中官方评分中故事3倍、创意3倍、构图3倍、得票基数1倍共10倍。</p>',
+			width: 0.8*w,
+			fixed: true,
+			modal:true,ok:function(){}});
+    	tip.show();
 	});
 	//绑定回复事件
 	el.find('.intro-btn').click(function(){
@@ -176,12 +206,11 @@ define(function(require){
 	});
 	el.on('click','.comment-list .reply',function(){
 		var parid = $(this).parent().parent().parent();
-		var id = parid.attr('data-id');
+		var id = parid.data('id');
 		if(id){
 			var text = '回复 '+parid.find('.item-name').text() + " : ";
 			var thtml = parid.find('.item-text').html();
-			thtml.replace('<span class="reply">回复</span>','');
-			text += thtml;
+			text += thtml.replace('<span class="reply" style="display: inline;">回复</span>','');
 
 			$('#replyid',el).val(id);
 			el.find('.comment-text .reply-text p').empty().html(text).parent().show();
@@ -197,7 +226,7 @@ define(function(require){
 		//setWh();
 	});
 	function showPics(index) { //普通切换
-		var nowLeft = -index*liWidth; //根据index值计算ul元素的left值
+		var nowLeft = -index*ul_w; //根据index值计算ul元素的left值
 		$(".preview-images>.images-box>ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
 		$(".preview-images>.images-box>.btnbig>span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
 	}
@@ -208,12 +237,20 @@ define(function(require){
 		w = $(window).width();
 		$('body').removeClass('ovh').css('height',bh+'px');
 		$('.preview-mask').css({'width':w+'px','height':h+'px'});
-		$('.preview-images>.images-box').css({'width':(w-360)+'px','height':h+'px'});
-		$('.preview-images>.images-box>.prev,.preview-images>.images-box>.next').css({'top':((h-53)/2)+'px'});
-		$('.preview-images>.images-box>ul').css({'width':(w-360)+'px'});
-		$('.preview-images>.images-box>.btnbig').css({'width':(w-360)+'px'});
-		$('.preview-images>.images-intro').css({'height':h+'px'});
-		styleEl.html('.preview-images .images-box ul li{height:'+h+'px;width:'+(w-360)+'px}');
+		var ul_h = h;
+		if(w >= 768) {
+			$('.preview-images>.images-box').css({'height':h+'px','padding':'0px'});
+			$('.preview-images>.images-box>.prev,.preview-images>.images-box>.next').css({'top':((h-53)/2)+'px'});
+			$('.preview-images>.images-intro').css({'height':h+'px'});
+
+		}else{
+			$('.preview-images>.images-box').css({'height':h/2+'px','padding':'0px'});
+			$('.preview-images>.images-box>.prev,.preview-images>.images-box>.next').css({'top':((h/2-53)/2)+'px'});
+			$('.preview-images>.images-intro').css({'height':h/2+'px'});
+			ul_h = h/2;
+		}
+		ul_w = $('.preview-images>.images-box').width()/100 * w;
+		styleEl.html('.preview-images .images-box ul li{width:'+ul_w+'px; height:'+ul_h+'px;line-height:'+ul_h+'px;}');
 	};
 	//显示评论
 	function displayComment(data){
@@ -227,8 +264,16 @@ define(function(require){
 		if(data.comment.length > 0){
 			var html = '';
 			$.each(data.comment,function(index,item){
-				html += '<div class="item" data-id="'+item.id+'"><div class="item-img"><img src="'+_path+item.avatar+'" /></div>';
-				html += '<div class="item-intro"><div class="item-name-date">								<span class="item-name">'+item.nickname+'</span><span class="item-date">'+item.addtime+(item.level == "1" ? "<span class='leve'>[精华]</span>" : " ") +'</span></div><div class="item-text">'+(item.replyname == "" ? "" : "回复 "+item.replyname + "：")+ item.intro +'<span class="reply">回复</span></div></div></div>';
+				html += ('<div class="item row" data-id="'+item.id+'">'
+							+'<div class="item-img user-img col-xs-2 col-sm-2"><img class="img-responsive" src="'+_path+item.avatar+'" /></div>'
+							+'<div class="item-intro col-sm-10 col-xs-10">'
+								+'<div class="item-name-date">'+
+									'<span class="item-name">'+item.nickname+'</span>'+
+									'<span class="item-date">'+item.addtime+(item.level == "1" ? "<span class='leve'>[精华]</span>" : " ") +'</span>'
+								+'</div>'
+								+'<div class="item-text">'+(item.replyname == "" ? "" : "回复 "+item.replyname + "：")+ item.intro +'<span class="reply">回复</span></div>'
+							+'</div>'
+						+'</div>');
 			})
 			el.find('.comment-list').html(html);
 		}

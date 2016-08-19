@@ -20,8 +20,8 @@
         <div class="inner-title">用户排行榜</div>
         <div class="list-group">
             <{foreach $user_order as $k => $v}>
-            <{if $k == 0}>
-            <div class="ranking-list-item first row">
+            
+            <div class="ranking-list-item row item-<{$k}><{if $k == 0}> first<{else}> hidden<{/if}>" data-item="<{$k}>">
               <div class="col-sm-2 col-xs-2 rank-num"><{sprintf("%02d", $k+1)}></div>
               <div class="col-sm-4 col-xs-4">
                 <a href="<{url c="user" a="view" id=$v['id']}>" class="avatar"><img class="img-responsive" src="<{$_path}><{$v['avatar']}>" alt="<{$v['nickname']}>" onerror="this.src='<{$_skin}>img/no_pic.jpg'"/></a>
@@ -32,14 +32,12 @@
                 <div class="level">等级：<span><{$v['level']}></span></div>
               </div>
             </div>
-            <{else}>
-            <div class="ranking-list-item others">
+            <div class="ranking-list-item item-<{$k}><{if $k != 0}> others<{else}> hidden<{/if}>" data-item="<{$k}>">
                 <i class="rank-num"><{sprintf("%02d",$k+1)}></i>
                 <i class="<{$v['level_order']}> user-icon"></i>
                 <span class="username one-line-ellipsis"><a href="<{url c="user" a="view" id=$v['id']}>"><{$v['nickname']}></a></span>
                 <span class="intergal pull-right"><{$v['exper']}></span>
             </div>
-            <{/if}>
             <{/foreach}>
         </div>
         <div class="user-wechat">

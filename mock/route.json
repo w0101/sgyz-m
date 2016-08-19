@@ -58,8 +58,31 @@
     "/match/item.html":{
         "tpl":"mobile/match/item.html",
         "action":"match/main.php"
-    }
-    ,
+    },
+    "/match/upload.html":{
+        "tpl":"mobile/match/upload.html",
+        "action":"match/main.php"
+    },
+    "/match/vote.html":{
+        "tpl":"mobile/match/vote.html",
+        "action":"match/main.php"
+    },
+     "/match/votes.html":{
+        "tpl":"mobile/match/votes.html",
+        "action":"match/main.php"
+    },
+    "/match/admitted.html":{
+        "tpl":"mobile/match/admitted.html",
+        "action":"match/main.php"
+    },
+    "/match/goods.html":{
+        "tpl":"mobile/match/goods.html",
+        "action":"match/main.php"
+    },
+    "/match/contribution.html":{
+        "tpl":"mobile/match/contribution.html",
+        "action":"match/main.php"
+    },
     "/service/index.html":{
         "tpl":"mobile/service/index.html",
         "action":"service/main.php"
@@ -78,5 +101,94 @@
     "/user/index.html":{
         "tpl":"mobile/user/index.html",
         "action":"user/main.php"
+    },
+    "/user/integral.html":{
+        "tpl":"mobile/user/integral.html",
+        "action":"user/main.php"
+    },
+    "/user/charge.html":{
+        "tpl":"mobile/user/charge.html",
+        "action":"user/main.php"
+    },
+    "/user/cash.html":{
+        "tpl":"mobile/user/cash.html",
+        "action":"user/main.php"
+    },
+    "/user/chargeinfo.html":{
+        "tpl":"mobile/user/chargeinfo.html",
+        "action":"user/main.php"
+    },
+    "/user/cashinfo.html":{
+        "tpl":"mobile/user/cashinfo.html",
+        "action":"user/main.php"
+    },
+    "/user/gallery.html":{
+        "tpl":"mobile/user/gallery.html",
+        "action":"user/main.php"
+    },
+    "/user/fans.html":{
+        "tpl":"mobile/user/fans.html",
+        "action":"user/main.php"
+    },
+    "/user/follow.html":{
+        "tpl":"mobile/user/follow.html",
+        "action":"user/main.php"
+    },
+    "/user/service.html":{
+        "tpl":"mobile/user/service.html",
+        "action":"user/main.php"
+    },
+    "/user/comment.html":{
+        "tpl":"mobile/user/comment.html",
+        "action":"user/main.php"
+    },
+    "/user/bbs.html":{
+        "tpl":"mobile/user/bbs.html",
+        "action":"user/main.php"
+    },
+    "/user/view.html":{
+        "tpl":"mobile/user/view.html",
+        "action":"user/main.php"
+    },
+    "/user/viewcomment.html":{
+        "tpl":"mobile/user/viewcomment.html",
+        "action":"user/main.php"
+    },
+    "/user/edit.html":{
+        "tpl":"mobile/user/edit.html",
+        "action":"user/main.php"
+    },
+    "/user/message.html":{
+        "tpl":"mobile/user/message.html",
+        "action":"user/main.php"
+    },
+    "/user/notice.html":{
+        "tpl":"mobile/user/notice.html",
+        "action":"user/main.php"
+    },
+    "/user/socpe.html":{
+        "tpl":"mobile/user/socpe.html",
+        "action":"user/main.php"
+    },
+    "/user/card.html":{
+        "tpl":"mobile/user/card.html",
+        "action":"user/main.php"
+    },
+    "/user/viewmsg.html":{
+        "tpl":"mobile/user/viewmsg.html",
+        "action":"user/main.php"
+    },
+    "/msg.html":{
+        "tpl":"mobile/include/msg.html",
+        "action":"user/main.php"
+    },
+    "/login.html":{
+        "tpl":"mobile/login/index.html",
+        "action":"login/main.php"
+    },
+    "/login/perfect.html":{
+        "tpl":"mobile/login/perfect.html",
+        "action":"login/main.php"
     }
+
 }

@@ -18,6 +18,7 @@
     $smarty->right_delimiter = '}>';
     $smarty->registerPlugin("function","url", "url");
     $smarty->registerPlugin("function","dsubstr", "dsubstr");
+    $smarty->registerPlugin("function","format_date", "format_date");
     function url($c = 'main', $a = 'index', $param = array()){
         //$url="www.baidu.com";
         $a='index';
@@ -114,6 +115,25 @@
         }
         $str = str_replace(array('"', '<', '>'), array('&quot;', '&lt;', '&gt;'), $str);
         return $str == $string ? $str : $str.$suffix;
+    }
+    function format_date($time,$start_time = TIME){
+        $t=$time-$start_time;
+        $f=array(
+            '31536000'=>'年',
+            '2592000'=>'个月',
+            //'604800'=>'星期',
+            '86400'=>'天',
+            '3600'=>'小时',
+            '60'=>'分钟',
+            '1'=>'秒'
+        );
+        $fix = $t > 0 ? "前" : "后";
+        $t = abs($t);
+        foreach ($f as $k=>$v)    {
+            if (0 !=$c=floor($t/(int)$k)) {
+                return $c.$v.$fix;
+            }
+        }
     }
 
     if (!isset($_GET['pathname'])

@@ -1,0 +1,139 @@
+.login,.perfect{
+	background: url('../img/login-bg.jpg') no-repeat center center; 
+	background-size: cover; 
+}
+.login-logo{ padding-top: 15px;}
+.login-box{ margin-top: 80px;position: relative;}
+.login-form{
+	padding: 30px 70px 50px; 
+	background-color: rgba(0,0,0,.5); 
+	border:1px solid #000; 
+	border-radius: 3px;
+}
+.login-box h2{ 
+	color: #fff; 
+	font-size: 24px; 
+	text-align: center; 
+	margin-bottom: 30px;
+}
+.login-option{
+	padding: 0;
+}
+.login-option li{ 
+	margin-bottom: 20px; 
+	background-color:#38b7ea; 
+	border-radius: 5px; 
+	cursor: pointer;
+}
+li.login-wechat{background-color:#30cc88;}
+li.login-weibo{background-color:#f05654;}
+li.login-taobao{background-color:#f98700;}
+.login-option a{
+	color: #fff; 
+	font-size: 18px; 
+	text-decoration: none; 
+	background: url(../img/bg.png) no-repeat; 
+	text-indent: 120px; 
+	display: inline-block; 
+	height: 50px; 
+	line-height: 50px;
+}
+.login-option li:hover{opacity: 0.8;}
+.login-qq a{ background-position: 77px 10px;}
+.login-wechat a{ background-position: 77px -60px;}
+.login-weibo a{ background-position: 77px -130px;}
+.login-taobao a{ background-position: 77px -198px;}
+.login i.login-save{ background: url(../img/bg.png) no-repeat left -290px; text-indent: 20px; display: inline-block; line-height: 16px; height: 16px; font-size: 16px; color: #fff; font-style: normal; }
+.login i.login-save:hover{ color: #ccc;}
+.login i.login-active{ background: url(../img/bg.png) no-repeat left -269px;}
+.login-bg-tip{ position: absolute; bottom: 20px; right: 20px; color: #fff; font-size: 18px;}
+@media screen and (max-width: 768px){
+	.login-box{
+		margin-top: 80px;
+	}
+	.login-form{
+		padding: 5px 15px;
+	}
+	.login-bg-tip{
+		font-size: 12px;
+		bottom:5px;
+	}
+}
+/*完善资料*/
+.perfect-logo{ padding-top: 15px;}
+.perfect-box{  
+	margin-top: 70px; 
+	margin-bottom: 20px;
+	position: relative; 
+	padding: 30px 40px;
+	background-color: rgba(255,255,255,.9);
+}
+.perfect-form p{ font-size: 24px; color: #555; font-family: "宋体"; margin: 0px;margin-bottom: 40px;}
+.form-item{
+	position: relative;
+	margin-bottom: 28px;
+}
+.form-item.form-avatar{
+	margin-bottom: 0;
+}
+.form-label{
+	font-size: 16px; 
+	color: #777; 
+	width: 100%;
+}
+.form-input {
+	font-size: 16px;
+	color: #555;
+}
+.form-input:focus{border:1px solid #fb9a60;}
+.perfect-form .avatar-div{width: 160px; height: 160px;}
+.perfect-form .vali_icon{display: inline-block; vertical-align: top; position: absolute; right: -20px; top: 36px; width: 14px; height: 11px;}
+.perfect-form .vali_ok{background: url(../img/bg.png) no-repeat -601px -135px;}
+.perfect-form .vali_error{background: url(../img/bg.png) no-repeat -601px -148px;}
+.perfect-form .vail-code{width:70%; display: inline-block;}
+.perfect-form .captcha_img{width: 100px;}
+.perfect-form .send-code{width: 100px; line-height: 35px;}
+.emil-tips{
+	font-size: 15px;
+	color: #777;
+}
+.perfect-form .perfect-center{ clear: both; }
+.form-btn {
+	background: #fb9a60;  
+	font-size: 16px; 
+	color: #fff; 
+	line-height: 40px; 
+	border: none; 
+	cursor: pointer;
+}
+.perfect-form .send-code.disable{background: #ccc; cursor: not-allowed;}
+.form-input.select-answer{
+	margin-top: 5px;
+}
+@media screen and (max-width: 768px){
+	.perfect-box{
+		padding-top:5px;
+		padding-bottom: 5px;
+		margin-top: 5px;
+	}
+	.form-item{
+		margin-bottom: 0;
+	}
+	.perfect-form p{display: none;}
+	.perfect-form .avatar-div{width: 80px; height: 80px;}
+	.perfect-form .vail-code{
+		width: 55%;
+	}
+	.perfect-center .form-item{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.form-submit{
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+

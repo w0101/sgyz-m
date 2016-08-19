@@ -2,6 +2,7 @@ define(function(require){
 	var $ = require('jquery'),util=require('util');
 	//$.uploadify = require('libs/uploadifys');
 	require('select');
+	require('fileinput')
 
  	//发布所需积分等于服务积分
  	var top_check = false;
@@ -34,6 +35,38 @@ define(function(require){
 		}else{
 			$fee_div.find('p').hide();
 		}
+ 	});
+ 	var fileNum = 0;
+ 	$('#upload_picture_btn').fileinput({
+ 		uploadUrl: _UPLOAD_PICTURE,
+ 		uploadAsync: true,
+ 		maxFileCount: 4,
+ 		showRemove: false,
+ 		showClose: false,
+ 		showCaption: false,
+ 		showUpload: false,
+ 		dropZoneEnabled: false,
+ 		showCancel: false,
+ 		browseIcon: '<i class="upload-btn"></i>',
+ 		browseLabel: '',
+ 		allowedFileExtensions: ['jpg','png','gif']
+ 	}).on('fileimageloaded', function(){
+ 		fileNum++;
+ 	}).on('fileimagesloaded',function(event){
+ 		
+ 		if(fileNum <= 4){
+ 			$('#upload_picture_btn').fileinput('upload');
+ 		}else{
+ 			alert('最多上传四张图片');
+ 		}
+ 	}).on('fileuploaded', function(event,data){
+ 		var result = data.response;
+		if(result.status == 1){
+			$('img[title="' + result.name + '"]').parents('.file-preview-frame').find('.kv-file-remove').hide();
+        	$('<input type="hidden" name="data[images][]" value="' + result.path + '" />').appendTo($('form'));
+        }else{
+        	alert('error:' + result.info);
+        }
  	})
 
  	var send_load = 0;
@@ -82,24 +115,4 @@ define(function(require){
  			}
  		},'json');
  	});
-/*	$('#upload_picture_btn').uploadify({
-		"swf"             : _skin+"js/lib/uploadify/uploadify.swf",
-		"fileObjName"     : "Filedata",
-		"buttonText"      : "      ",
-		"uploader"        : _UPLOAD_PICTURE,
-		"height"          : 169,
-		"width"           : 170,
-		'removeTimeout'	  : 1000,
-		'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
-		"onUploadSuccess" : function(file, data, response) {
-            var data = $.parseJSON(data);
-            if(data.status == 1){
-            	$('#'+file.id).find('.preview_img').attr('src',_path + data.path);
-            	$('<input type="hidden" name="data[images][]" value="'+data.path+'" />').appendTo($('#'+file.id));
-            }
-        },
-		"onUploadError" : function(file, data, response) {
-
-        }
-    });*/
 })

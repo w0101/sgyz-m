@@ -224,28 +224,22 @@ form .service-tops span{color: #fb9a60;}
 .display-fee .fee p span{ font-size: 16px; color: #f05654;}
 .send-service{ width:180px;background: #fb9a60; line-height: 38px; color: #fff; font-size: 20px; border: none;}
 .send-service:hover{ background: #f06e00; text-decoration: none;}
-.form-item .form-controll .chosen-drop{ box-sizing:border-box; }
 
-
-
-.form-item .form-controll .form-tips{ font-size: 16px; color: #999999;}
-
-
-.service-send .form-item .form-controll .uploadify-queue{display: inline-block; vertical-align: top;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item{ width: 170px; height: 170px;display: inline-block; vertical-align: top; position: relative; margin-right: 20px; margin-bottom: 20px;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item .cancel{ z-index: 4; position: absolute;right: 0; top:0; width: 15px;height: 15px; background: #000;opacity: 0.7; text-align: center;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item .cancel a{ cursor: pointer; display: inline-block;width: 13px;height: 12px; background: url(../img/bg.png) no-repeat -600px -185px;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item span{display: none;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item table{border-collapse:collapse;border-spacing:0;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item table td{ padding: 0; margin: 0; width: 100px; height: 100px; vertical-align: middle; text-align: center;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item img{ width: 170px; height: 170px; display: block;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item .uploadify-progress{ z-index: 3; width: 170px; height: 170px; position:  absolute;left: 0; top:0;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item .uploadify-progress .uploadify-progress-bar{ width: 0; height: 170px; position:  absolute;left: 0; top:0; background: #fbd8c4;opacity: 0.5;}
-.service-send .form-item .form-controll .uploadify-queue .uploadify-queue-item i{ width: 33px; height: 33px;}
-.service-send .form-item .form-controll #upload_picture_btn{ display: inline-block; vertical-align: top; margin-left: 0;}
-.service-send .form-item .form-controll .uploadify-button span{ width: 170px; height: 169px;display: inline-block; background: url(../img/upload_img.jpg) no-repeat left top; margin-left: 0;}
-.user-tips{ color: #999; font-size: 18px; text-align: center;}
-
+.upload-pic{
+	position: relative;
+}
+.upload-pic .upload-btn{
+	width: 170px; height: 169px;
+	display: inline-block; 
+	background: url(../img/upload_img.jpg) no-repeat left top; 
+	margin-left: 0;
+}
+.upload-pic .btn-primary,.upload-pic .btn-primary:hover{
+	background-color: #fff;
+	padding: 0;
+	border: none;
+}
+.upload-pic .form-tips{ font-size: 16px; color: #999999;}
 
 /*右侧*/
 .service-send .send-service-intro{ margin-top: 25px;margin-bottom: 40px; }

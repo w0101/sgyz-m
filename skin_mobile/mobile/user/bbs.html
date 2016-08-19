@@ -1,0 +1,35 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-bbs container">
+	<div class="table-responsive">
+		<table class="diytable table">
+			<thead class="bbs-head">
+				<tr>
+					<td class="head-title">主题</td>
+					<td class="head-cat">板块</td>
+					<td class="head-total">回复/查看</td>
+					<td class="head-date">发表时间</td>
+				</tr>
+			</thead>
+			<tbody class="bbs-list">
+			<{foreach $list as $k => $v}>
+				<tr class="item" data-id="<{$v['id']}>">
+					<td class="item-title">
+					<{if isset($thType[$v['fid']])}><span class="theme">[<{$thType[$v['fid']]}>]</span><{/if}><a href="<{url c='bbs' a='show' id=$v['id']}>"><{$v['title']}><i class="item-top"></i></a>
+					</td>
+					<td class="item-cat"><{if isset($bbsCat[$v['tid']])}><a href="<{url c='bbs' a='cat' id=$v['tid']}>"><{$bbsCat[$v['tid']]}></a><{/if}></td>
+					<td class="item-total"><span><{$v['score']}></span>/<{$v['hit']}></td>
+					<td class="item-date"><{date('Y-m-d H:i',$v['addtime'])}></td>
+				</tr>
+			<{/foreach}>
+			</tbody>
+		</table>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

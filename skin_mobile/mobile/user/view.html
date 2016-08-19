@@ -1,0 +1,40 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/other-user.html"}>
+<div class="user-view container">
+	<div class="row">
+		<div class="view-left col-xs-12 col-sm-7">
+			<div class="view-item">
+				<label>性别</label>
+				<div class="item-intro"><{$user['sex']}></div>
+			</div>
+			<div class="view-item">
+				<label>年龄</label>
+				<div class="item-intro"><{$user['age']}></div>
+			</div>
+			<div class="view-item">
+				<label>城市</label>
+				<div class="item-intro"><{$user['area']}></div>
+			</div>
+			<div class="view-item">
+				<label>器材</label>
+				<div class="item-intro">
+					<p>相机：<{$user['camera']}></p>
+					<p>镜头：<{$user['lens']}></p>
+				</div>
+			</div>
+		</div>
+		<div class="view-right col-xs-12 col-sm-5">
+			<div class="view-item">
+				<label>摄影签名</label>
+				<div class="item-intro"><{$user['autograph']}></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">var _userid = "<{$user['id']}>";app.push('user/view');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

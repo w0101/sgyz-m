@@ -1,0 +1,42 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-comment container">
+	<div class="comment-count row">
+		<div class="count-user col-xs-12 col-sm-4">
+			<h2>我的评分：<{$score}><span class="count-nums">（共有<{$counts}>个评价）</span></h2>
+			<p class="hidden-xs count-nums">共有<{$counts}>个评价</p>
+		</div>
+		<div class="count-list col-xs-12 col-sm-8">
+			<div class="item"><span>5星：</span><p class="item-icon"><i class="active"></i><i class="active"></i><i class="active"></i><i class="active"></i><i class="active"></i></p><span>(<{$count[5]}>)</span></div>
+			<div class="item"><span>4星：</span><p class="item-icon"><i class="active"></i><i class="active"></i><i class="active"></i><i class="active"></i><i></i></p><span>(<{$count[4]}>)</span></div>
+			<div class="item"><span>3星：</span><p class="item-icon"><i class="active"></i><i class="active"></i><i class="active"></i><i></i><i></i></p><span>(<{$count[3]}>)</span></div>
+			<div class="item"><span>2星：</span><p class="item-icon"><i class="active"></i><i class="active"></i><i></i><i></i><i></i></p><span>(<{$count[2]}>)</span></div>
+			<div class="item"><span>1星：</span><p class="item-icon"><i class="active"></i><i></i><i></i><i></i><i></i></p><span>(<{$count[1]}>)</span></div>
+		</div>
+	</div>
+	<div class="comment-list">
+		<{foreach $list as $k => $v}>
+		<div class="item row">
+			<div class="item-comment col-sm-6 col-xs-12">
+				<p class="item-icon"><{str_repeat('<i></i>',$v['level'])}></p>
+				<p class="item-text"><{$v['intro']}></p>
+			</div>
+			<div class="item-project col-sm-3 col-xs-12">
+				<p class="one-line-ellipsis">服务项目：<span><{$v['title']}></span></p>
+				<p class="fee"><{$v['fee']}>积分</p>
+			</div>
+			<div class="item-source col-sm-3 col-xs-12">
+				<p class="one-line-ellipsis">雇主：<span><{$v['nickname']}></span></p>
+				<p>评价于 <{date('Y-m-d H:i:s',$v['addtime'])}></p>
+			</div>
+		</div>
+		<{/foreach}>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

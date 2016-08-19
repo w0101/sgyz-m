@@ -223,3 +223,8 @@ a.carousel-control{
     background: -ms-linear-gradient(top, rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.2) 100%);
     background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.2) 100%);
 }
+/*msg-tip*/
+.app-msg{padding: 20px; font-size: 16px; color: #555;border:1px solid #ccc;border-radius: 4px; margin-top: 30px;}
+.app-msg .app-msg-title{background: #fb9a60;color: #fff; padding: 5px; margin-bottom: 10px;}
+.app-msg .app-msg-box{padding: 5px; margin-bottom: 10px;}
+.app-msg .app-msg-url{padding: 5px;}

@@ -1,0 +1,23 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-match container row">
+<{foreach $list as $k => $v}>
+	<div class="item col-xs-12 col-sm-4">
+		<div class="item-img"><a href="<{url c="gallery" a="show" id=$v['itemid']}>"><img class="img-responsive" src="<{$_path}><{$v['thumb']}>" alt="<{$v['title']}>" /></a></div>
+		<div style="position:relative">
+			<div class="item-controll gradient">
+				<span class="item-title one-line-ellipsis"><{$v['title']}></span>
+				<a href="<{url c="gallery" a="show" id=$v['itemid']}>" class="item-match one-line-ellipsis"><{$v['match_title']}></a>
+			</div>
+		</div>
+		<p class="item-prize">获奖作品</p>
+	</div>
+	<{/foreach}>
+</div>
+<{$page_html nofilter}>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

@@ -1,0 +1,33 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body class="message-body">
+<{include file="mobile/include/nav.html"}>
+<div class="user-other container">
+	<div class="user-head">消息通知<span class="head-yellow"> / Message</span></div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-3">
+			<{include file="mobile/include/user-cat.html"}>
+		</div>
+		<div class="other-content col-xs-12 col-sm-9">
+			<div class="user-message">
+				<div class="item row">
+					<{if $data['source'] == 1}>
+					<div class="item-img col-xs-4 col-sm-2">
+						<img class="img-responsive" src="<{$_path}><{$data['avatar']}>" alt="<{$data['nickname']}>" />
+					</div>
+					<{/if}>
+					<div class="item-info col-xs-8 col-sm-10">
+						<div class="item-name"><{$data['nickname']}></div>
+						<div class="item-intro"><{$data['intro']}></div>
+						<div class="item-controll">
+							<div class="item-source"><{$data['addtime']}></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

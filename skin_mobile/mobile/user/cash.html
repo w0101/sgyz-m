@@ -1,0 +1,37 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-cash container">
+    <form id="charge_send" method="post" action="<{$url}>">
+        <div class="form-item">
+            <div class="form-label">积分提现<a href="<{$infourl}>">提现记录</a></div>
+        </div>
+        <div class="form-item">
+            <div class="form-label" style="margin-bottom:10px;">您的可用积分为：<{$user['integral']}></div>
+            <div class="cash-input-box">
+                <span class="cash-plus">+</span>
+                <input type="tel" class="form-input cash-input" name="cash" id="integral" value="<{$defaultcash}>" size="5" maxlength="2" placeholder="" disabled="disabled"/>
+                <span class="cash-unit">00</span>
+                <span class="cash-cerl">-</span>
+            </div>
+            <div class="form-tip cash-fee-tip" style="margin-top:10px;"></div>
+        </div>
+        <div class="form-item form-group">
+            <label for="account" class="form-label">收款户名</label>
+            <input type="text" class="form-input cash-input form-control" name="account" id="account" value="" size="5" placeholder="你的收款账号姓名" />
+        </div>
+        <div class="form-item form-group">
+            <label for="truename" class="form-label">收款帐号</label>
+            <input type="text" class="form-input cash-input form-control" name="truename" id="truename" value="" size="5" placeholder="你的收款账号" />
+        </div>
+        <div class="form-item">
+            <input type="submit" value="立即提现" class="charge_send diybtn btn btn-default" />
+        </div>
+    </form>
+</div>
+<script type="text/javascript">var cashcfg=<{$cashcfg nofilter}>,integral=<{$user['integral']}>;app.push('user/cash');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

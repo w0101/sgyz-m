@@ -1,0 +1,35 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-integral container">
+	<div class="integral-list table-responsive">
+	<table class="diytable table table-bordered">
+		<thead>
+			<tr>
+				<td width="60" align="center">流水号</td>
+				<td align="left">事由</td>
+				<td width="100" align="center">积分</td>
+				<td width="150" align="center">时间</td>
+				<td width="60" align="center">操作人</td>
+			</tr>
+		</thead>
+		<tbody>
+		<{foreach $list as $k => $v}>
+			<tr>
+				<td align="center"><{$v['id']}></td>
+				<td><{$v['reason']}></td>
+				<td align="center"><{$v['amount']}></td>
+				<td align="center"><{date("Y-m-d H:i:s",$v['addtime'])}></td>
+				<td align="center"><{$v['editor']}></td>
+			</tr>
+		<{/foreach}>
+		</tbody>
+	</table>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

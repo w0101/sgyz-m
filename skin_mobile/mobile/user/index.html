@@ -14,7 +14,17 @@
 				<a href="<{url c="match" a="show" id=$v['itemid']}>" class="item-match one-line-ellipsis"><{$v['match_title']}></a>
 			</div>
 		</div>
+		<{if $v['status']==4}>
+		<div class="price-info">
+			<span class="<{if $v['all_order']==1}>red<{else if $v['all_order']==2}> yellow<{else if $v['all_order']==3}> blue<{else if $v['all_order']==4}> green<{else}> hide<{/if}>">第<span class="rank"><{$v['all_order']}></span>名</span>
+			<div class="votes pull-right">
+				<p class="finalvotes">综合得票：<span class="votes-num"><{$v['all_votes']}></span></p>
+				<p class="totalvotes">实际得票：<span class="votes-num"><{$v['votes']}></span></p>
+			</div>	
+		</div>
+		<{else}>
 		<p class="item-prize"><{$wsType[$v['status']]}></p>
+		<{/if}>
 	</div>
 	<{/foreach}>
 </div>

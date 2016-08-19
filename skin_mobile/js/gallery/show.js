@@ -41,10 +41,10 @@ define(function(require){
 	$('.preview').click(function(){
 		var that = this;
 		var img_src = $(this).attr('src');
-		//var img_width = $(this).;
+		var img_width = $(window).width();
 		var alerttip = dialog({
 			title:"图片预览",
-			//width:img_width,
+			width: (img_width-50) + 'px',
 			modal:true,
 			content:'<div class="gallery-preview"><img src="'+img_src+'" /></div>',
 			okValue:"确定",

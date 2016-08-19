@@ -1,0 +1,95 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/bootstrap-select.min.css">
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-setting container">
+	<{if $msgtext != ""}>
+	<div class="setting-msgtext"><{$msgtext}><a href="javascript:void(0);" class="close">&times;</a></div>
+	<{/if}>
+	<form action="<{$formurl}>" method="post" id="user_edit" class="row"/>
+	<input type="hidden" name="data[birthday]" value="<{$data['birthday']}>" id="birthday" />
+	<div class="setting-left col-sm-7">
+		<div class="form-item form-group">
+			<label class="form-label">头像：</label>
+			<div class="avatar-div upload-img-box"><img src="<{$_path}><{$data['avatar']}>" class="perfect-avatar" /></div>
+			<div class="upload-avatar uploadrow2" rel="avatar">
+				<input type="file" id="upload_picture_avatar"><input type="hidden" id="cover_id_avatar" name="data[avatar]" value=""/>
+			</div>
+		</div>
+		<div class="form-item form-group">
+			<label for="nickname" class="form-label">昵称：</label>
+			<input type="text" class="form-input form-control" name="data[nickname]" id="nickname" value="<{$data['nickname']}>" />
+		</div>
+		<div class="form-item form-group">
+			<label for="form-textarea" class="form-label">摄影签名：</label>
+			<textarea name="data[autograph]" class="form-textarea form-control"><{$data['autograph']}></textarea>
+		</div>
+		<input type="submit" class="hidden-xs form-submit btn btn-default" value="保存" />
+	</div>
+	<div class="setting-right col-sm-5">
+		<div class="form-item row">
+			<div class="form-label col-sm-3 col-xs-3">手机</div>
+			<div class="form-controll col-sm-9 col-xs-9">
+				<p class="form-html one-line-ellipsis" id="mobile_p"><{$data['mobile']}></p>
+				<span class="set-bind" data-type="mobile" data-val="<{$data['mobile']}>"><{if $data['mobile'] == ""}>绑定<{else}>修改<{/if}></span>
+			</div>
+		</div>
+		<div class="form-item row">
+			<div class="form-label col-xs-3 col-sm-3">邮箱</div>
+			<div class="form-controll col-xs-9 col-sm-9">
+				<p class="form-html one-line-ellipsis" id="email_p"><{$data['email']}></p>
+				<span class="set-bind" data-type="email" data-val="<{$data['email']}>"><{if $data['email'] == ""}>绑定<{else}>修改<{/if}></span>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label">性别：</label>
+				<label class="item-label checkbox-inline"><input type="radio" name="data[sex]" value="1"<{if $data['sex']==1}> checked<{/if}> />男</label>
+				<label class="item-label checkbox-inline"><input type="radio" name="data[sex]" value="0"<{if $data['sex']==0}> checked<{/if}> />女</label>
+		</div>
+		<div class="form-item form-group">
+			<label class="form-label">出生日期：</label>
+			<div class="form-select-birth">
+				<select class="sel_year select form-control selectpicker" name="data[year]" rel="<{$data['year']}>" data-style="btn-default" data-width="35%"></select>
+			    <select class="sel_month select form-control selectpicker" name="data[month]" rel="<{$data['month']}>" data-style="btn-default" data-width="28%"></select>
+			    <select class="sel_day select form-control selectpicker" name="data[day]" rel="<{$data['day']}>" data-style="btn-default" data-width="28%"></select>
+			</div>
+		</div>
+		<div class="form-item from-group">
+			<label class="form-label">所在城市：</label>
+			<div class="form-select-birth">
+                <select id="province" class="select form-control selectpicker" name="data[province]" data-style="btn-default" data-width="47%">
+                    <option value="载入中">载入中</option>
+                </select>
+                <select id="city" class="select form-control selectpicker" name="data[city]" data-style="btn-default" data-width="47%">
+                    <option value="载入中">载入中</option>
+                </select>
+			</div>
+		</div>
+		<div class="form-item form-group">
+			<label class="form-label">常用相机：</label>
+			<input type="text" class="form-input form-control" name="data[camera]" value="<{$data['camera']}>" />
+		</div>
+		<div class="form-item form-group">
+			<label class="form-label">常用镜头：</label>
+			<input type="text" class="form-input form-control" name="data[lens]" value="<{$data['lens']}>" />
+		</div>
+		<input type="submit" class="hidden-sm form-submit btn btn-default" value="保存" />
+	</div>
+	</form>
+</div>
+<div class="dialog dns">
+	<div class="title"></div>
+	<div class="content">
+		
+	</div>
+	<div class="controll">
+		<a href="javascript:void(0);" class="ok-btn" style="width: 320px; height: 40px; line-height: 40px; margin-right: 20px;">确定</a>
+	</div>
+	<a href="javascript:void(0);" class="close"></a>
+</div>
+<script type="text/javascript">var province = "<{$data['province']}>",city="<{$data['city']}>",_UPLOAD_PICTURE="<{$UPLOAD_PICTURE}>",nicknamenum = parseInt("<{$nicknamenum}>");app.push('user/edit');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

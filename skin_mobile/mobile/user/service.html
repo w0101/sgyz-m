@@ -1,0 +1,52 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-service container">
+	<div class="table-responsive">
+		<table class="diytable table">
+			<thead class="service-head">
+				<tr>
+					<td class="head-title">服务标题</td>
+					<td class="head-integral">报酬</td>
+					<td class="head-total">参与数</td>
+					<td class="head-status">服务状态</td>
+				</tr>
+			</thead>
+			<tbody class="service-list">
+				<{foreach $list as $k => $v}>
+					<tr class="item" data-id="<{$v['id']}>">
+						<td class="item-intro">
+							<a href="<{url c='service' a='show' id=$v['id']}>"><{$v['title']}><i class="item-top"></i></a>
+							<p><{dsubstr(strip_tags($v['content']),120)}></p>
+						</td>
+						<td class="item-integral"><{$v['fee']}>积分</td>
+						<td class="item-total"><span><{$v['total']}></span>人参与</td>
+						<{if $v['score']==0}>
+							<{if $v['status']==1 && (TIME-$v['endtime'])<0}>
+							<td class="item-status"><{format_date(TIME,$v['endtime'])}>截止</td>
+							<{/if}>
+							<{if (TIME-$v['endtime'])>0 && $v['status']==1}>
+							<td class="item-status"><a href="<{url c='service' a='show' id=$v['id']}>#signup" class="item-btn">选择服务用户</a></td>
+							<{/if}>
+							<{if $v['status']==2}>
+							<td class="item-status"><a href="javascript:void(0);" class="item-btn item-ok">确认完成</a></td>
+							<{/if}>
+							<{if $v['status']==3}>
+							<td class="item-status"><a href="javascript:void(0);" class="item-btn item-scope">立即评价</a></td>
+							<{/if}>
+						<{else}>
+							<td class="item-status">已结束</td>
+						<{/if}>
+					</tr>
+				<{/foreach}>
+			</tbody>
+		</table>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<script type="text/javascript">app.push('user/service');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

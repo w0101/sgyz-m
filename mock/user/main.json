@@ -10,34 +10,119 @@
     "_avatar":"data/assets/images/gallery_1.jpg",
     "username":"xiaz",
 
-    "_a":"index",
+    "_a":"notice",
+    "msgtext":"",
     "user":{
         "level":1,
+        "id":2,
         "exper":100,
         "fans":2000,
         "follow":10,
         "match":5,
         "winning_b":10,
         "card":4,
-        "integral":333
+        "integral":33,
+        "avatar":"data/avatar/20160306/avatar_6.jpg",
+        "nickname":"么么么么",
+        "sex":"女",
+        "age":12,
+        "area":"北京",
+        "camera":"Canno520",
+        "lens":"长焦",
+        "autograph":"dfdvbmfkldbmfgxkbnmkgf你觉得客服中心感觉到关键是木地板vjkfldxcmb"
     },
-    "list":[
+    "infourl":"/user/cashinfo.html",
+    "url":"/pay/index.html",
+   "list":[
         {
             "itemid":1,
-            "thumb":"data/upload/20160427/2c6e86b4dc.jpg",
-            "title":"称得上是所发生的vone-line-ellipsisone-line-ellipsis",
-            "match_title":"daschunjn汇款和监控能力daschunjn汇款和监控能力daschunjn汇款和监控能力",
-            "status":1
+            "thumb":"data/upload/20160427/7fd88c4297.jpg",
+            "title":"公积金",
+            "match_title":"电脑就很干净",
+            "userid":1,
+            "avatar":"data/avatar/20160306/avatar_6.jpg",
+            "nickname":"房买卖方v电脑就很干净电脑就很干净",
+            "autograph":"xcsdfvgb下水道飞规划局奎车费该不会太难用马金库，i二次方GV日本和体育局i",
+            "twoway":1,
+            "content":"xcsdfvgb下水道飞规划局奎车费该不会太难用马金库，水道飞规划局奎车费该不会太难用马金库，水道飞规划局奎车费该不会太难用马金库，水道飞规划局奎车费该不会太难用马金库，i二次方GV日本和体育局i.user-service .item-intro.user-service .item-intro.user-service .item-intro",
+            "fee":10,
+            "total":100,
+            "score":0,
+            "status":2,
+            "level":4,
+            "addtime":1234567,
+            "intro":"三大发财GV布局重新发的说法春归何处vbgdfbd 是GV不会要你一人vcfasdfvbgtynjubvhc",
+            "fid":1,
+            "tid":0,
+            "rank":2,
+            "finalvotes":200,
+            "totalvotes":20
         },{
             "itemid":1,
-            "thumb":"",
-            "title":"称得上是所发生的v",
-            "match_title":"daschunjn汇款和监控能力",
-            "status":2
+            "thumb":"data/upload/20160427/7fd88c4297.jpg",
+            "title":"公积金",
+            "match_title":"电脑就很干净",
+            "userid":2,
+            "avatar":"data/avatar/20160306/avatar_6.jpg",
+            "nickname":"房买卖方v",
+            "autograph":"",
+            "twoway":2,
+            "score":1,
+            "rank":20,
+            "finalvotes":200,
+            "totalvotes":20,
+            "status":3
+
+        },{
+            "itemid":1,
+            "thumb":"data/upload/20160427/7fd88c4297.jpg",
+            "title":"公积金",
+            "match_title":"电脑就很干净",
+            "userid":2,
+            "avatar":"data/avatar/20160306/avatar_6.jpg",
+            "nickname":"房买卖方v",
+            "autograph":"",
+            "twoway":2,
+            "score":0,
+            "status":3,
+            "endtime":1,
+            "id":1,
+            "rank":20,
+            "finalvotes":200,
+            "totalvotes":20,
+            "status":4
         }
 
-    ],
-    "wsType":["一等奖","二等奖","三等奖"],
+
+   ],
+   "data":{
+        "avatar":"data/avatar/20160306/avatar_6.jpg",
+        "nickname":"sdfsf更换即可好",
+        "year":2016,
+        "month":12,
+        "day":3,
+        "email":"wenmengxia@abc.com"
+   },
+   "thType":["静态","相机","静头"],
+   "bbsCat":["摄影技巧与后期交流","模特展示"],
+   "counts":124,
+   "score":12,
+   "count":[10,20,20,20,30],
+   "payconfig":{
+
+    "alipay":{
+
+             "enable":1,
+             "name":"支付宝"
+
+    },
+    "cardkey":{
+        "enable":1,
+        "name":"网银"
+    }
+   },
+   "cashcfg":"[{'fee':'15','minmoney':'300','maxmoney':'500'},{'fee':'10','minmoney':'500','maxmoney':'1000'},{'fee':'5','minmoney':'1000','maxmoney':'0'}]",
+    "wsType":["待审","参赛","入选","未获奖","获奖"],
     "cfg":{
         "service_min_fee":10,
         "service_top_fee":30,

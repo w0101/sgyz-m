@@ -1,7 +1,7 @@
-	<div class="other-cat">
-		<ul>
-			<li><a href="<{url c="user" a="notice"}>"<{if $_a == "notice"}> class="active"<{/if}>>系统通知</a></li>
-			<li><a href="<{url c="user" a="socpe"}>"<{if $_a == "socpe"}> class="active"<{/if}>>评论回复</a></li>
-			<li><a href="<{url c="user" a="message"}>"<{if $_a == "message"}> class="active"<{/if}>>我的私信<{if $_message>0}><span>(<{$_message}>)</span><{/if}></a></li>
-		</ul>
-	</div>
+<div class="affix-cat">
+	<ul class="nav nav-tabs">
+		<li><a href="<{url c="user" a="notice"}>"<{if $_a == "notice"}> class="active"<{/if}>>系统通知</a></li>
+		<li><a href="<{url c="user" a="socpe"}>"<{if $_a == "socpe"}> class="active"<{/if}>>评论回复</a></li>
+		<li><a href="<{url c="user" a="message"}>"<{if $_a == "message"}> class="active"<{/if}>>我的私信<{if $_message>0}><span>(<{$_message}>)</span><{/if}></a></li>
+	</ul>
+</div>

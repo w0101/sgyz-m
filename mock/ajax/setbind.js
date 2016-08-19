@@ -1,0 +1,13 @@
+exports.response = function (require) {
+    var postArgs = arguments[2];
+    return {
+        "status": true,
+        "message":"10000",
+        data: {
+        	title: "绑定手机",
+        	content: '<div class="dialog-setmobile"><p><label>验证方式：</label><select class="valiselect"><option value="mobile">绑定手机（）</option><option value="email">绑定邮箱（wenmengxia）</option><option value="question">密保问题验证</option></select></p><p class="question-item"><label style="margin-right: 10px;">密保问题一：</label>你的出生地是</p><p class="question-item"><label>答案：</label><input type="text" class="dialog-input answer" placeholder="请输入密保问题答案" id="question1" value="" autocomplete="off" /></p><p class="question-item"><label style="margin-right: 10px;">密保问题二：</label>你的工号是</p><p class="question-item"><label>答案：</label><input type="text" class="dialog-input answer" placeholder="请输入密保问题答案" id="question2" value="" autocomplete="off" /></p><p class="captcha-item"><label>图形验证码：</label><input type="text" class="dialog-input captcha" id="captcha" placeholder="请输入右侧的图形验证码" /><img src="http://www.sgstation.com/ajax/captcha.html?_t=1469721303" title="点击刷新" id="refe_captcha" /><i class="vali_icon"></i></p><p class="valicode-item"><label>验 证 码：</label><input type="text" class="dialog-input code" id="code" placeholder="输入收到的验证码"/><input type="button" class="dialog-getcode" id="getcode" value="获取验证码" /></p></div><div class="dialog-setnext"><p><label>邮 箱 地 址：</label><input type="text" class="dialog-input" id="bindval" value="" /><i class="vali_icon"></i></p><p><label>图形验证码：</label><input type="text" class="dialog-input captcha" id="captcha" /><img src="http://www.sgstation.com/ajax/captcha.html?_t=1469721303" title="点击刷新" id="refe_captcha" /><i class="vali_icon"></i></p><p><label>验 证 码：</label><input type="text" class="dialog-input code" id="code" /><input type="button" class="dialog-getcode" id="getcode" value="获取验证码" /></p></div>'
+        	//content:'<div class="dialog-setmobile" data-type="mobile"><p><label>手 机 号 码：</label><input type="text" class="dialog-input" id="mobile" value="" /><i class="vali_icon"></i></p><p><label>图形验证码：</label><input type="text" class="dialog-input captcha" id="captcha" /><img src="http://www.sgstation.com/ajax/captcha.html?_t=1469766603" title="点击刷新" id="refe_captcha" /><i class="vali_icon"></i></p><p><label>验 证 码：</label><input type="text" class="dialog-input code" id="code" /><input type="button" class="dialog-getcode" id="getcode" value="获取验证码" /></p></div>'
+
+    	}
+    };
+};

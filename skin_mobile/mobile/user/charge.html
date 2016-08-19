@@ -1,0 +1,53 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-charge container">
+	<form id="charge_send" method="post" action="<{$url}>">
+	<div class="form-item">
+		<div class="form-label">充值金额<a href="<{$infourl}>">充值记录</a> </div>
+		<div class="form-controll table-responsive">
+			<table class="diytable table table-bordered">
+			<thead>
+				<tr>
+					<td width="80">金额</td>
+					<td>说明</td>
+				</tr>
+			</thead>
+			<{foreach $list as $k => $v}>
+				<tr>
+					<td><label style="margin-right: 8px;"><input type="radio" name="money" value="<{$v['id']}>"<{if $k==0}> checked="checked"<{/if}> /></label><{$v['name']}></td>
+					<td><{$v['intro']}></td>
+				</tr>
+			<{/foreach}>
+			</table>
+		</div>
+	</div>
+	<{foreach $payconfig as $k=>$v}>
+	<{if $v['enable'] == 1}>
+	<div class="form-item">
+		<div class="checkbox" style="margin-bottom:0px;">
+			<label class="form-label type-label"><input class="checkbox check-type" type="radio" name="type" value="<{$k}>"<{if $k==0}> checked="checked"<{/if}> />  <{$v['name']}></label>
+		</div>
+		<div class="form-group">
+			<{if $k == "cardkey"}>
+			<input type="text" class="form-input form-control" name="key" value="" placeholder="输入卡密即可充值哦" style="max-width: 300px;" />
+			<{else}>
+			<img src="<{$_path}>data/assets/images/pay/<{$k}>.png" alt="<{$v['name']}>" width="182" height="64" />
+			<{/if}>
+		</div>
+	</div>
+	<{/if}>
+	<{/foreach}>
+	<div class="form-item">
+		<input type="submit" value="立即充值" class="charge_send diybtn btn btn-default" />
+	</div>
+	</form>
+</div>
+<script type="text/javascript">
+//app.push('user/cash');
+</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

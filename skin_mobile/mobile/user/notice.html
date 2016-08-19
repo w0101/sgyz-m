@@ -1,0 +1,36 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body class="message-body">
+<{include file="mobile/include/nav.html"}>
+<div class="user-other container">
+	<div class="user-head">消息通知<span class="head-yellow"> / Message</span></div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-3">
+			<{include file="mobile/include/user-cat.html"}>
+		</div>
+		<div class="other-content col-sm-9 col-xs-12">
+			<div class="user-message">
+				<{foreach $list as $k => $v}>
+				<div class="item">
+					<div class="item-info">
+						<div class="item-name">系统通知</div>
+						<div class="item-intro"><{$v['intro']}></div>
+						<div class="item-controll">
+							<div class="item-source"><{date("Y-m-d H:i",$v['addtime'])}></div>
+							<div class="item-a-btn">
+								<a data-id="<{$v['id']}>" data-type="delete" href="javascript:void(0);">删除</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<{/foreach}>
+			</div>
+			<{$page_html nofilter}>
+			<div class="user-tips dns">还没有任何系统通知，去别的地方看看吧！</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">app.push('user/message');</script>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>

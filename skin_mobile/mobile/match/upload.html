@@ -1,0 +1,100 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/bootstrap-select.min.css">
+<link rel="stylesheet" href="<{$_skin}>css/fileinput.min.css">
+<link rel="stylesheet" href="<{$_skin}>css/match.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<div class="match-upload container">
+	<form action="post" id="upload-match" onsubmit="return false;" class="form-horizontal">
+		<input type="hidden" name="data[id]" value="<{$id}>" />
+		<input type="hidden" name="data[thumb]" value="" id="matchthumb" />
+		<div class="upload-send">
+			<div class="upload-imgs upload-box">
+				<label class="item-label img-select">选择封面图片：</label>
+				<div class="upload-controll">
+					<input id="upload-btn" name="uploadfile" type="file" multiple class="upload-btn">
+					<p class="upload-tip-icon"></p>
+					<div class="upload-img-icon"></div>
+				</div>
+				<div class="upload-tips">支持JPG格式，单张照片不超过20M，组图数量不超过15张，图片长边尺寸不低于1200px。</div>
+			</div>
+			<div class="upload-data row">
+				<div class="upload-left col-xs-12 col-sm-7">
+					<div class="upload-item form-group">
+						<label class="item-label col-sm-3">作品标题：</label>
+						<div class="col-sm-9">
+							<input type="text" class="item-input form-control" name="data[title]" id="title" />
+						</div>
+					</div>
+					<div class="upload-item form-group">
+						<label class="item-label col-sm-3">作品描述：</label>
+						<div class="item-controll col-sm-9">
+							<textarea class="item-textarea form-control" name="data[intro]" id="intro"></textarea>
+						</div>
+					</div>
+					<div class="upload-item form-group">
+						<label class="item-label col-sm-3">拍摄地点：</label>
+						<div class="item-controll col-sm-9">
+							<div class="row">
+								<div class="col-sm-4 col-xs-4">
+									<select id="province" name="data[province]" class="select selectpicker place-select">
+										
+									</select>
+								</div>
+								<div class="col-sm-4 col-xs-4 place-input">
+									<select id="city" name="data[city]" class="select selectpicker place-select">
+										
+									</select>
+								</div>
+								<div class="col-sm-4 col-xs-4 place-input">
+									<input type="text" name="data[location]" class="form-control" placeholder="拍摄地">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="upload-right col-xs-12 col-sm-5">
+					<div class="upload-item form-group" style="margin-bottom: 0px;">
+						<label class="item-label col-sm-3">常用标签：</label>
+						<div class="item-controll col-sm-9">
+							<{foreach $alltag as $k=>$v}>
+							<div class="tag-div">
+								<select name="data[tag][]" class="select form-control selectpicker">
+									<option value="">选择标签<{$k}></option>
+									<{foreach $v as $ck=>$cv}>
+									<option value="<{$cv['id']}>"><{$cv['name']}></option>
+									<{/foreach}>
+								</select>
+							</div>
+							<{/foreach}>
+						</div>
+					</div>
+					<div class="upload-item form-group">
+						<label class="item-label col-sm-3">自定义标签：</label>
+						<div class="item-controll col-sm-9">
+							<div class="tag-div">
+								<input type="text" name="data[tag][]" class="item-input form-control" id="diytag1" value="" placeholder="自定义标签1" />
+							</div>
+							<div class="tag-div">
+								<input type="text" name="data[tag][]" class="item-input form-control" id="diytag2" value="" placeholder="自定义标签2" />
+							</div>
+						</div>
+					</div>
+					<div class="upload-item">
+						<div class="item-controll tag-tips">请您在上传图片时至少标注一个常用标签，一旦您的作品获奖，更多和更准确的标签将有助于其他用户在图库中更方便的定位和购买您的作品。</div>
+					</div>
+				</div>
+				<div class="upload-btn">
+					<input type="button" class="upload-submit" value="确认投稿" />
+					<a href="<{$match_info}>" class="upload-back">取消</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+	var _UPLOAD_MATCH="<{$UPLOAD_MATCH}>",_UPLOAD_PICTURE="<{$UPLOAD_PICTURE}>",upload_url="<{$upload_url}>";
+	app.push('match/upload');
+</script>
+<{include file="mobile/include/end.html"}>

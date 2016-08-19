@@ -1,0 +1,47 @@
+<{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/user.css">
+</head>
+<body>
+<{include file="mobile/include/nav.html"}>
+<{include file="mobile/include/user-top.html"}>
+<div class="user-integral container">
+	<div class="integral-list table-responsive">
+		<table class="diytable table table-bordered">
+			<thead>
+			<tr>
+				<td width="60" align="center">流水号</td>
+				<td>备注</td>
+				<td width="80" align="center">支付金额</td>
+				<td width="80" align="center">到账金额</td>
+				<td width="100" align="center">支付平台</td>
+				<td width="140" align="center">下单时间</td>
+				<td width="140" align="center">支付时间</td>
+				<td width="70" align="center">状态</td>
+			</tr>
+			</thead>
+			<tbody>
+			<{foreach $list as $k => $v}>
+			<tr>
+				<td align="center"><{$v['id']}></td>
+				<td><{$v['note']}></td>
+				<td align="center"><{$v['paymoney']}></td>
+				<td align="center"><{$v['money']}></td>
+				<td align="center"><{$pay[$v['bank']]}></td>
+				<td align="center"><{date("Y-m-d H:i:s",$v['sendtime'])}></td>
+				<td align="center"><{if $v['receivetime']}><{date("Y-m-d H:i:s",$v['receivetime'])}><{/if}></td>
+				<td align="center">
+				<{if $v['status']==0}>
+				<a href="<{url c="pay" a="index" type=$v['bank'] id=$v['id']}>" target="_blank"><{$chargeType[$v['status']]}></a>
+				<{else}>
+				<{$chargeType[$v['status']]}>
+				<{/if}>
+				</td>
+			</tr>
+		<{/foreach}>
+		</tbody>
+	</table>
+	</div>
+	<{$page_html nofilter}>
+</div>
+<{include file="mobile/include/footer.html"}>
+<{include file="mobile/include/end.html"}>
