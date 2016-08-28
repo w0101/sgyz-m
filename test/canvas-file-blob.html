@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*canvas{
+			display: none;
+		}*/
+	</style>
+	<script src="../skin_mobile/js/libs/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+	<input type="file" id="inputfile"/>
+	<div class="imgControl">
+		<button id="roll">旋转</button>
+		<!--img id="img" src="" alt=""/-->
+		<canvas id="canvas"></canvas>
+	</div>
+	<script>
+		var $input = $('#inputfile');
+		var canvas=$('#canvas').get(0), context=canvas.getContext('2d'), width, height;
+		var img = $('#img');
+		$input.on('change',function(){
+			var file = this.files[0];
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				img[0].onload=function(){
+					canvas[0].width = img[0].width;
+					canvas[0].height = img[0].height;
+					width = img[0].width;
+					height = img[0].height;
+
+					context.drawImage(img[0], 0, 0);
+				};	
+				img[0].src = e.target.result;    
+			};
+			reader.readAsDataURL(file);
+		})
+		var $rollBtn = $('#roll');
+		$rollBtn.on('click', function(){
+			canvas[0].width = height;
+			canvas[0].height = width;
+			context.save();
+			context.clearRect(0,0,height,width);
+			//context.translate(height/2,width/2);
+			context.translate(height,0);
+		    context.rotate(90 * Math.PI / 180);//旋转47度
+		    
+		    context.drawImage(img[0], 0, 0);
+		    context.setTransform(1, 0, 0, 1, 0, 0);
+		    context.restore();
+		    var data = canvas[0].toDataURL('image/png');
+		    img[0].src = data;
+		})
+	</script>
+</body>
+</html>

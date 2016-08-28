@@ -45,6 +45,8 @@
 		<{/if}>
 		<div class="detail-head hidden-sm hidden-md">作品描述</div>
 		<p class="detail-intro hidden-sm hidden-md"><{htmlspecialchars_decode($data['intro'])}></p>
+		<div class="detail-head">拍摄地</div>
+		<p class="detail-intro"><{$data['place']}></p>
 		<{if !empty($exif)}>
 		<div class="detail-head">EXIF信息</div>
 		<ul class="detail-exif list-group">

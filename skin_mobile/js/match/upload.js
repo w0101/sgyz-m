@@ -1,19 +1,16 @@
 define(function(require){
 	var $ = require('jquery'),util=require('util'),
-	//uploadmatch=require('libs/uploadmatch'),
 	dialog=require('dialog/dialog'),
 	citydata=require('libs/citydata'),
 	cityselect=require('libs/cityselect');
-	require('canvasToBlob');
 	cityselect($);
 	require('fileinput');
 	var send_load = 0;
-	//var _upload_url = upload_url.replace('ticket.html',''); 
-	var w = $(window).width();
-	$('.upload-img-icon').css({left: (w-128)/2 + 'px'})
+	var w = $('.upload-box').width();
+	$('.upload-img-icon').css({left: (w-128)/2 + 'px'});
+
 
 	var first = true;//首次设置封面图片
-	//var fileNames = [];//上传的图片名字
 	$("#upload-btn").fileinput({
 	    uploadUrl: _UPLOAD_MATCH, // server upload action
 	    uploadAsync: true,
@@ -21,13 +18,13 @@ define(function(require){
 	    browseOnZoneClick: true,
 	    showRemove: false,
 	    showClose: false,
-	   // browseIcon: '',
 	    browseLabel: '更多图片',
 	    allowedFileExtensions: ['jpg','png'],
 	    layoutTemplates: {
 			footer: '<div class="file-thumbnail-footer">\n' +
 			        '    <div class="file-caption-name" style="width:{width};height:38px;line-height:38px;">设为封面</div>\n' +
-			        '<i class="item-checkbox"></i> '+
+			        '	 <i class="item-checkbox"></i>\n' +
+			        '	 <i class="item-editIcon"></i>\n' +
 			        '</div>',
 			progress: '',
 			modalMain: '',
@@ -62,16 +59,65 @@ define(function(require){
         	tip.show();
         }
 	});
-	//选择的封面
+	//选择的封面,编辑图片
 	$('.file-preview-thumbnails').click(function(event){
 		var $target = $(event.target),
-			itemid = $target.parents('.file-preview-frame').data('fileindex'),
-			$checkbox = $target.parents('.file-preview-frame').find('.item-checkbox');
-		if(!$checkbox.hasClass('checkbox-checked')){
-			$('.item-checkbox').removeClass('checkbox-checked');
-			$checkbox.addClass('checkbox-checked');
-		}else{
-			$checkbox.removeClass('checkbox-checked');
+			$preview = $target.parents('.file-preview-frame'),
+			$checkbox = $preview.find('.item-checkbox'),
+			$editIcon = $preview.find('.item-editIcon');
+		if($checkbox.is($target)){
+			if(!$checkbox.hasClass('checkbox-checked')){
+				$('.item-checkbox').removeClass('checkbox-checked');
+				$checkbox.addClass('checkbox-checked');
+			}else{
+				$checkbox.removeClass('checkbox-checked');
+			}
+		}
+		if($editIcon.is($target)){
+			var editImg = dialog({
+				title: '编辑照片',
+				content: '<div class="imgControl">'
+							+'<button id="roll">旋转</button>'
+							+'<canvas id="canvas" style="width:500px"></canvas>'
+						+'</div>',
+				width: 500,
+				height: 500,
+				fix: true,
+				modal: true
+
+			});
+			editImg.show();
+			var canvas = $('#canvas')[0], ctx = canvas.getContext('2d');
+			var imgData = $preview.find('img')[0].src, imgWidth, imgHeight;
+			var image = new Image();
+			image.onload = function(){
+				imgWidth = image.width;
+				imgHeight = image.height;
+				canvas.width = imgWidth;
+				canvas.height = imgHeight;
+				ctx.drawImage(image, 0, 0);
+			}
+			image.src = imgData;
+			var $rollBtn = $('#roll');
+			$rollBtn.on('click', function(){
+				roll(90);
+				var data = canvas.toDataURL('image/png');
+		    	$preview.find('img').attr('src', data);
+			});
+			function roll(rotation) {
+				var temp = imgWidth;
+				imgWidth = imgHeight;
+				imgHeight = temp;
+				canvas.width = imgWidth;
+				canvas.height = imgHeight;
+				ctx.save();
+				ctx.clearRect(0,0,imgWidth,imgHeight);
+				ctx.translate(imgWidth, 0);
+			    ctx.rotate(rotation * Math.PI / 180); 
+			    ctx.drawImage($preview.find('img')[0], 0, 0);
+			    ctx.setTransform(1, 0, 0, 1, 0, 0);
+			    ctx.restore();
+			}
 		}
 	});
 	$('#province, #city').cityselect({
@@ -138,4 +184,5 @@ define(function(require){
  		},'json');
  		return false;
  	})
+	
 })

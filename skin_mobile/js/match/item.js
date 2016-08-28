@@ -2,6 +2,7 @@ define(function(require){
 	var $ = require('jquery'),
 	util=require('util'),
 	dialog=require('dialog/dialog');
+	var cityData = require('libs/citydata');
 	$('.match-detail-folder').click(function(){
 		$(this).parents('.item').find('.item-intro').css("top","0");
 	})
@@ -34,6 +35,22 @@ define(function(require){
 			maskel.hide();
 			if(result.status == true){
 				var data  = result.data;
+				var provinceId = data.item.province,
+					cityId = data.item.city;
+				var procince = '', city = '';
+				for(var i = 0; i < cityData.length; i++){
+					if(cityData[i].id == provinceId){
+						province = cityData[i].name;
+						var cities = cityData[i].cities;
+						for(var j = 0; j < cities.length; j++){
+							if(cities[j].id == cityId){
+								city = cities[j].name;
+								break;
+							}
+						}
+						break;
+					}
+				}
 				eltag.empty();
 				elimg.empty();
 				elimgbtn.empty();
@@ -44,6 +61,7 @@ define(function(require){
 				el.find('.user-match').text(data.user.match);
 				el.find('.item-title').text(data.item.title);
 				el.find('.item-total').text('1/'+data.item.images.length);
+				el.find('.intro-location').text(province + ' ' + city + ' ' + data.item.place);
 				el.find('.intro-text').text(data.item.intro);
 				$.each(data.item.tag,function(index,item){
 					if(item != ""){
