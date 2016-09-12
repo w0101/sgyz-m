@@ -41,6 +41,22 @@ define(function(require){
 			$('.file-preview-frame:first-child').find('.item-checkbox').addClass('checkbox-checked');
 			first = false;
 		}
+	}).on('filepreajax', function(event, data, previewId){
+		console.log('preupload');
+		var img = $('#' + previewId).find('img');
+		$('#upload-btn').fileinput('refresh', {
+			showRemove:true,
+			uploadExtraData: {
+				img: 'sdfsafasdfadfadfd'
+			}
+		});
+		/*var blob = dataURItoBlob(img.attr('src'));
+		var fd = new FormData();
+		fd.append("canvasImage", blob);
+		data.form = fd;*/
+		//data.extra.img = img.attr('src');
+
+		//todo这个暂时先这样，不知道form是不是上传的formData
 	}).on('fileuploaded', function(event,data){
         var result = data.response,
         	index = result.file_id,
@@ -59,6 +75,25 @@ define(function(require){
         	tip.show();
         }
 	});
+	function dataURItoBlob(dataURI) {
+	    // convert base64/URLEncoded data component to raw binary data held in a string
+	    var byteString;
+	    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+	        byteString = atob(dataURI.split(',')[1]);
+	    else
+	        byteString = unescape(dataURI.split(',')[1]);
+
+	    // separate out the mime component
+	    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+	    // write the bytes of the string to a typed array
+	    var ia = new Uint8Array(byteString.length);
+	    for (var i = 0; i < byteString.length; i++) {
+	        ia[i] = byteString.charCodeAt(i);
+	    }
+
+	    return new Blob([ia], {type:mimeString});
+	}
 	//选择的封面,编辑图片
 	$('.file-preview-thumbnails').click(function(event){
 		var $target = $(event.target),
@@ -74,52 +109,11 @@ define(function(require){
 			}
 		}
 		if($editIcon.is($target)){
-			var editImg = dialog({
-				title: '编辑照片',
-				content: '<div class="imgControl">'
-							+'<button id="roll">旋转</button>'
-							+'<canvas id="canvas" style="width:500px"></canvas>'
-						+'</div>',
-				width: 500,
-				height: 500,
-				fix: true,
-				modal: true
+			require('libs/editImg')($preview.find('img'));
 
-			});
-			editImg.show();
-			var canvas = $('#canvas')[0], ctx = canvas.getContext('2d');
-			var imgData = $preview.find('img')[0].src, imgWidth, imgHeight;
-			var image = new Image();
-			image.onload = function(){
-				imgWidth = image.width;
-				imgHeight = image.height;
-				canvas.width = imgWidth;
-				canvas.height = imgHeight;
-				ctx.drawImage(image, 0, 0);
-			}
-			image.src = imgData;
-			var $rollBtn = $('#roll');
-			$rollBtn.on('click', function(){
-				roll(90);
-				var data = canvas.toDataURL('image/png');
-		    	$preview.find('img').attr('src', data);
-			});
-			function roll(rotation) {
-				var temp = imgWidth;
-				imgWidth = imgHeight;
-				imgHeight = temp;
-				canvas.width = imgWidth;
-				canvas.height = imgHeight;
-				ctx.save();
-				ctx.clearRect(0,0,imgWidth,imgHeight);
-				ctx.translate(imgWidth, 0);
-			    ctx.rotate(rotation * Math.PI / 180); 
-			    ctx.drawImage($preview.find('img')[0], 0, 0);
-			    ctx.setTransform(1, 0, 0, 1, 0, 0);
-			    ctx.restore();
-			}
 		}
 	});
+	
 	$('#province, #city').cityselect({
         data    : citydata,
         id      : 'id',

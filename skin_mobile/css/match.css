@@ -249,10 +249,11 @@ i.checkbox-checked:hover{background: url(../img/bg.png) no-repeat -179px -187px;
 .preview-images .images-box ul:after{
 	clear: both;
 }
-.preview-images .images-box ul li {
+.preview-images .images-box ul li.img {
 	float:left; 
 	overflow:hidden; 
 	position:relative;
+	text-align: center;
 }
 .preview-images .images-box ul li>img{
 	display: inline-block;
@@ -467,7 +468,45 @@ i.checkbox-checked:hover{background: url(../img/bg.png) no-repeat -179px -187px;
 	right: 0;
 	top: 0;
 }
-.item-editIcon{width: 28px; height: 16px; background: url(../img/bg.png) no-repeat -774px 0px; display: block; position: absolute;right: 0px; top: -150px; cursor: pointer;}
+.item-editIcon{width: 28px; height: 16px; background: url(../img/bg.png) no-repeat -774px -27px; display: block; position: absolute;right: 0px; top: -150px; cursor: pointer;}
+.edit-bar{
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: #ccc;
+}
+.edit-bar:before,.edit-bar:after{
+	display: table;
+	content: '';
+}
+.edit-bar:after{
+	clear: both;
+}
+#roll-left{
+	width: 40px;height: 40px;
+	background: url(../img/rotate.png) no-repeat;
+	display: block;
+	float: left;
+
+}
+#crop{
+	width: 40px;height: 40px;
+	background: url(../img/cut.png) no-repeat;
+	display: block;
+	float: left;
+
+}
+#roll-right{
+	width: 40px;height: 40px;
+	background: url(../img/rotate.png) no-repeat;
+	display: block;
+
+}
+.edit-save{
+	width: 40px;height: 40px;
+	background: url(../img/save.png) no-repeat;
+	display: block;
+	float: right;
+}
 /*upload-data*/
 .match-upload .upload-send .upload-data{margin-bottom: 40px; display: none;}
 .upload-data .upload-item{margin-bottom: 30px;}
@@ -645,4 +684,11 @@ i.checkbox-checked:hover{background: url(../img/bg.png) no-repeat -179px -187px;
 	color: blue;
 }.price-info .rank.green{
 	color: green;
+}
+/*清晰度输入框*/
+.clarity{
+	width: 80px;
+	position: absolute;
+	right: 15px;
+	bottom: 30px;
 }

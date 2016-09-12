@@ -1,10 +1,12 @@
 <{include file="mobile/include/head.html"}>
+<link rel="stylesheet" href="<{$_skin}>css/bootstrap-select.min.css"/>
 <link rel="stylesheet" type="text/css" href="<{$_skin}>css/match.css"/>
 </head>
 <body>
 <{include file="mobile/include/nav.html"}>
 <{include file="mobile/include/match_top.html"}>
 <div class="match-detail container">
+<{include file="mobile/include/share.html"}>
 <{include file="mobile/include/match_menu.html"}>
 	<div class="tabpan-list">
 		<div class="tabpan prod-list row">
@@ -31,6 +33,12 @@
 		<div class="images-box col-xs-12 col-sm-8">
 			<ul></ul>
 			<div class="btnbig"></div>
+			<div class="clarity">
+				<select class="img-clarity selectpicker" data-width="100%">
+					<option value="normal">标清</option>
+					<option value="heigh">高清</option>
+				</select>
+			</div>
 			<a href="javascript:void(0);" class="prev icon-cont"></a>
 			<a href="javascript:void(0);" class="next icon-cont"></a>
 		</div>

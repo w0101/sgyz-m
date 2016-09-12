@@ -14,7 +14,9 @@ exports.response = function (require) {
         		"origin":15,
         		"story":20,
         		"tech":20,
-        		"votes":13
+        		"votes":13,
+                "province":12,
+                "city":""
         	},
         	"user":{
         		"avatar":"data/avatar/20160307/avatar_5.jpg",

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../skin_mobile/js/libs/jquery-1.12.4.min.js"></script>
+	<link  href="../../node_modules/cropper/dist/cropper.css" rel="stylesheet">
+	<script src="../../node_modules/cropper/dist/cropper.js"></script>
+	<style>
+		img{
+			max-width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div style="width:500px;height:500px">
+	  <img id="image" src="../skin_mobile/img/bg.jpg">
+	</div>
+	<div class="preview" style="width:200px;height:300px"></div>
+	<script type="text/javascript">
+		$('#image').cropper({
+			  aspectRatio: 16 / 9,
+			  preview: '.preview',
+			  crop: function(e) {
+			    // Output the result data for cropping image.
+			    console.log(e.x);
+			    console.log(e.y);
+			    console.log(e.width);
+			    console.log(e.height);
+			    console.log(e.rotate);
+			    console.log(e.scaleX);
+			    console.log(e.scaleY);
+			  }
+			})
+	</script>
+</body>
+</html>

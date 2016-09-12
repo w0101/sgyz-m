@@ -1,7 +1,9 @@
 define(function(require){
 	var $ = require('jquery'),
-	util=require('util'),
-	dialog=require('dialog/dialog');
+		util=require('util'),
+		dialog=require('dialog/dialog');
+	require('select');
+
 	var cityData = require('libs/citydata');
 	$('.match-detail-folder').click(function(){
 		$(this).parents('.item').find('.item-intro').css("top","0");
@@ -26,7 +28,8 @@ define(function(require){
 		elimg = el.find('.images-box>ul'),
 		elimgbtn = el.find('.images-box>.btnbig'),
 		picpath = _upload_url.replace('ticket.html',''),
-		len=0
+		len=0,
+		previewData;
 	$('.prod-list .item-img').click(function(){
 		$('body').addClass('ovh').css('height',h+'px');
 		id = $(this).data('id');
@@ -35,6 +38,7 @@ define(function(require){
 			maskel.hide();
 			if(result.status == true){
 				var data  = result.data;
+				previewData = data;
 				var provinceId = data.item.province,
 					cityId = data.item.city;
 				var procince = '', city = '';
@@ -69,7 +73,7 @@ define(function(require){
 					}
 				});
 				$.each(data.item.images,function(index,item){
-					$('<li><img class="img-responsive" src="'+(picpath + item)+'" alt="'+data.item.title+'" /></li>').appendTo(elimg);
+					$('<li class="img"><img class="img-responsive" src="'+(picpath + item)+'" alt="'+data.item.title+'" /></li>').appendTo(elimg);
 					$('<span></span>').appendTo(elimgbtn);
 				});
 				//显示票数
@@ -125,6 +129,12 @@ define(function(require){
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
+	$('.img-clarity').change(function(e){
+		//console.log(this.value);
+		$('.preview-images li>img').each(function(i, img) {
+			img.src = picpath + previewData.item.images[i];
+		});
+	})
 	//绑定关闭事件
 	el.find('.icon-close').click(function(){
 		$('body').removeClass('ovh').css('height',bh+'px'); //显示滚动条
@@ -268,7 +278,7 @@ define(function(require){
 			ul_h = h/2;
 		}
 		ul_w = $('.preview-images>.images-box').width()/100 * w;
-		styleEl.html('.preview-images .images-box ul li{width:'+ul_w+'px; height:'+ul_h+'px;line-height:'+ul_h+'px;}');
+		styleEl.html('.preview-images .images-box ul li.img{width:'+ul_w+'px; height:'+ul_h+'px;line-height:'+ul_h+'px;}');
 	};
 	//显示评论
 	function displayComment(data){
@@ -297,70 +307,3 @@ define(function(require){
 		}
 	}
 })
-
-/*
-$(function() {
-	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
-	var len = $("#focus ul li").length; //获取焦点图个数
-	var index = 0;
-	var picTimer;
-	
-	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
-	var btn = "<div class='btnBg'></div><div class='btn'>";
-	for(var i=0; i < len; i++) {
-		btn += "<span></span>";
-	}
-	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
-	$("#focus").append(btn);
-	$("#focus .btnBg").css("opacity",0.5);
-
-	//为小按钮添加鼠标滑入事件，以显示相应的内容
-	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
-		index = $("#focus .btn span").index(this);
-		showPics(index);
-	}).eq(0).trigger("mouseenter");
-
-	//上一页、下一页按钮透明度处理
-	$("#focus .preNext").css("opacity",0.2).hover(function() {
-		$(this).stop(true,false).animate({"opacity":"0.5"},300);
-	},function() {
-		$(this).stop(true,false).animate({"opacity":"0.2"},300);
-	});
-
-	//上一页按钮
-	$("#focus .pre").click(function() {
-		index -= 1;
-		if(index == -1) {index = len - 1;}
-		showPics(index);
-	});
-
-	//下一页按钮
-	$("#focus .next").click(function() {
-		index += 1;
-		if(index == len) {index = 0;}
-		showPics(index);
-	});
-
-	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
-	$("#focus ul").css("width",sWidth * (len));
-	
-	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
-	$("#focus").hover(function() {
-		clearInterval(picTimer);
-	},function() {
-		picTimer = setInterval(function() {
-			showPics(index);
-			index++;
-			if(index == len) {index = 0;}
-		},4000); //此4000代表自动播放的间隔，单位：毫秒
-	}).trigger("mouseleave");
-	
-	//显示图片函数，根据接收的index值显示相应的内容
-	function showPics(index) { //普通切换
-		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
-	}
-});
-*/
